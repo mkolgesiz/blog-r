@@ -4,13 +4,36 @@
     "href": "index.html",
     "title": "mkolgesiz.github.io",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "posts/my-first-post.html",
+    "href": "posts/my-first-post.html",
+    "title": "my-first-post",
+    "section": "",
+    "text": "#This is a header"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About this site\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "blog",
+    "section": "",
+    "text": "my-first-post\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Blog"
+    ]
   }
 ]
