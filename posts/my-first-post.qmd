@@ -1,5 +1,6 @@
 ---
 title: "my-first-post"
+description: "Description"
 format: html
 editor: visual
 ---

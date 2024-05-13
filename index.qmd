@@ -1,11 +1,19 @@
 ---
-title: "mkolgesiz.github.io"
+title: ""
+theme: flatly
+
 ---
 
-This is a Quarto website.
+##Bio
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I'm a financial controller currently working at Ivory Coast.
 
-```{r}
-1 + 1
-```
+##Interests
+
+
+###Data science
+
+
+###Accounting
+
+
