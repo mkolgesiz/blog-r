@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "mkolgesiz.github.io",
+    "title": "M. Melik Kölgesiz",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2",
+    "text": "##Bio\nI’m a financial controller currently working at Ivory Coast.\n##Interests\n###Data science\n###Accounting",
     "crumbs": [
       "Home"
     ]
@@ -31,7 +31,7 @@
     "href": "blog.html",
     "title": "blog",
     "section": "",
-    "text": "my-first-post\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "my-first-post\n\n\n\n\n\nDescription\n\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Blog"
     ]
