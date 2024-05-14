@@ -3,7 +3,7 @@ project:
 
 website:
   title: "M. Melik Kölgesiz"
-  sidebar:
+  navbar:
     contents:
       - href: index.qmd
         text: Home
@@ -14,7 +14,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: flatly
     css: styles.css
     toc: true
 
