@@ -2,9 +2,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "M. Melik Kölgesiz",
+    "title": "M. Melik Kolgesiz",
     "section": "",
-    "text": "##Bio\nI’m a financial controller currently working at Ivory Coast.\n##Interests\n###Data science\n###Accounting"
+    "text": "I’m a financial controller currently working at Ivory Coast."
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "M. Melik Kolgesiz",
+    "section": "",
+    "text": "I’m a financial controller currently working at Ivory Coast."
+  },
+  {
+    "objectID": "index.html#interests",
+    "href": "index.html#interests",
+    "title": "M. Melik Kolgesiz",
+    "section": "Interests",
+    "text": "Interests\n\nData science\n\n\nAccounting"
   },
   {
     "objectID": "posts/document-management-quarto.html",
