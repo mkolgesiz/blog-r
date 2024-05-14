@@ -1,6 +1,5 @@
 ---
 title: "blog"
-theme: flatly
 listing:
   contents: posts
   sort: "date desc"

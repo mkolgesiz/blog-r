@@ -1,19 +1,17 @@
 ---
-title: ""
-theme: flatly
-
+title: "M. Melik Kolgesiz"
 ---
 
-##Bio
+## Bio
 
 I'm a financial controller currently working at Ivory Coast.
 
-##Interests
+## Interests
 
 
-###Data science
+### Data science
 
 
-###Accounting
+### Accounting
 
 
