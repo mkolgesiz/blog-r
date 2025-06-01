@@ -64,7 +64,7 @@ Tax authority published an technical API documentation for ERP integration. Comp
 
 So far, I found only one vendor who offers ERP integration. [Dexy Africa](https://www.dexyafrica.com/facturation-electronique-cote-ivoire/ "Dexy") offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365. 
 
-## Conculusion
+## Conclusion
 
 In the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan.  
 
