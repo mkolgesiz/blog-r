@@ -70,7 +70,7 @@ In the long run, the e-invoice portal will help taxpayers and streamline their i
 
 ## Links and Sources
 
-FNE publised several useful documents for registratin and user guide.
+FNE has published several useful documents for registration and user guides:
 
 [DGI](https://dgi.gouv.ci/)
 [FNE](https://www.fne.dgi.gouv.ci/)
