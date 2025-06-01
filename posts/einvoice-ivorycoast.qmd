@@ -1,0 +1,80 @@
+---
+title: "E-Invoice Migration in Ivory Coast"
+description: "Current Status of E-Invoice Implementation"
+author: "M. Melik Kölgesiz"
+format: html
+editor: visual
+date: "2025-06-01"
+categories:
+  - Accounting
+---
+
+## Preface
+
+At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual [tax appendix](https://www.dgi.gouv.ci/assets/documents/EBOOK/ANNEXE_FISCALE_2025/#p=16 "Annexe Fiscale"). On 08/05/2025, the tax authority [^1][DGI](https://www.dgi.gouv.ci/ "DGI") announced their e-invoice portal called [^2][FNE](https://www.services.fne.dgi.gouv.ci/fr/login "FNE Portal") and the migration calendar. In this blog, I will cover what I’ve learned so far.
+
+[^1]: Direction Générale des Impôts de Côte d'Ivoire  
+[^2]: Facture Normalisée Electronique  
+
+## What is FNE
+
+FNE is the centralized e-invoice platform created by Ivorian tax authorities. All companies are subject to the obligation to issue standardized electronic invoices, regardless of their size or status, unless explicitly exempted by law.
+
+Based on a company’s legal status, issuing invoices through the platform is mandatory starting from **2025-06-01**. All entities are expected to use the platform starting from **2025-09-01**.
+
+### How it works
+
+All entities must register on the FNE platform. Entities need to purchase electronic stamps on the FNE platform for document validation. Once a document is validated, a QR code will appear on it, and it will be sent to the buyer’s FNE inbox. There are three ways to issue a document:
+
+1.  Using FNE platform
+2.  Authorized billing terminals
+3.  Billing systems interfaced with the FNE platform via an API.
+
+Entities may use one of these methods above to issue e-invoice or e-receipts.
+
+#### Using FNE platform
+
+The principal user who registered the platform can register new users with desired authorization levels, create establishments, points of sale, and nomenclature. Electronic stamps for document validation are purchased via the FNE platform.
+
+There are several constraints I’ve observed so far when using the FNE platform:
+
+-   You cannot register to different companies with same e-mail address.
+-   You cannot save a document if you haven't created point of sales.
+-   Registered user can issue documents for only one establishment and one point of sales at a time.
+-   Saved documents cannot be deleted.
+-   You cannot choose the document date; the date defaults to the invoice validation date with a full time stamp.  
+-   Several VAT types are missing.
+
+#### Authorized billing terminals
+
+For small and micro-businesses subject to a flat-rate system, as well as for companies subject to a real tax system that use cash registers, it is planned to use TERNE[^3] for invoicing. This equipment will enable the issuance of standardized electronic receipts.  
+
+1.  Electronic payment terminal[^4]
+2.  Mobile app of RNE[^5]
+
+As of 01/06/2025, there is no official publication of authorized vendors for electronic payment terminals or mobile applications.
+
+[^3]: Terminaux d'Emission de Reçus Normalisés Electroniques
+[^4]: Terminal de paiement électronique
+[^5]: Reçu Normalisé Electronique
+
+#### Billing systems interfaced with the FNE platform via an API
+
+Tax authority published an technical API documentation for ERP integration. Companies are allowed to build their own solution via API key. However, as of 01/06/2025 there is no official agreed integration solution vendor published. 
+
+So far, I found only one vendor who offers ERP integration. [Dexy Africa](https://www.dexyafrica.com/facturation-electronique-cote-ivoire/ "Dexy") offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365. 
+
+## Conculusion
+
+In the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan.  
+
+## Links and Sources
+
+FNE publised several useful documents for registratin and user guide.
+
+[DGI](https://dgi.gouv.ci/)
+[FNE](https://www.fne.dgi.gouv.ci/)
+[FNE PORTAL](https://www.services.fne.dgi.gouv.ci/fr/login)
+[DEXY AFRICA](https://www.dexyafrica.com/facturation-electronique-cote-ivoire/)
+
+ 
