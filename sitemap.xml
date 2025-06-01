@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mkolgesiz.github.io/blog.html</loc>
-    <lastmod>2024-11-20T09:54:06.137Z</lastmod>
+    <loc>https://mkolgesiz.github.io/posts/einvoice-ivorycoast.html</loc>
+    <lastmod>2025-06-01T22:26:11.172Z</lastmod>
   </url>
   <url>
     <loc>https://mkolgesiz.github.io/index.html</loc>
-    <lastmod>2024-11-20T09:54:06.137Z</lastmod>
+    <lastmod>2025-06-01T22:26:11.172Z</lastmod>
   </url>
   <url>
     <loc>https://mkolgesiz.github.io/about.html</loc>
-    <lastmod>2024-11-20T09:54:06.133Z</lastmod>
+    <lastmod>2025-06-01T22:26:11.171Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mkolgesiz.github.io/blog.html</loc>
+    <lastmod>2025-06-01T22:26:11.171Z</lastmod>
   </url>
   <url>
     <loc>https://mkolgesiz.github.io/posts/document-management-quarto.html</loc>
-    <lastmod>2024-11-20T09:54:06.137Z</lastmod>
+    <lastmod>2025-06-01T22:26:11.172Z</lastmod>
   </url>
 </urlset>

@@ -1,31 +1,66 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "M. Melik Kölgesiz",
+    "objectID": "posts/einvoice-ivorycoast.html",
+    "href": "posts/einvoice-ivorycoast.html",
+    "title": "E-Invoice Migration in Ivory Coast",
     "section": "",
-    "text": "Quarto for Document Management\n\n\n\n\n\n\nQuarto\n\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\nNo matching items"
+    "text": "At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual tax appendix. On 08/05/2025, the tax authority 1DGI announced their e-invoice portal called 2FNE and the migration calendar. In this blog, I will cover what I’ve learned so far."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#preface",
+    "href": "posts/einvoice-ivorycoast.html#preface",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "",
+    "text": "At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual tax appendix. On 08/05/2025, the tax authority 1DGI announced their e-invoice portal called 2FNE and the migration calendar. In this blog, I will cover what I’ve learned so far."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#what-is-fne",
+    "href": "posts/einvoice-ivorycoast.html#what-is-fne",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "What is FNE",
+    "text": "What is FNE\nFNE is the centralized e-invoice platform created by Ivorian tax authorities. All companies are subject to the obligation to issue standardized electronic invoices, regardless of their size or status, unless explicitly exempted by law.\nBased on a company’s legal status, issuing invoices through the platform is mandatory starting from 2025-06-01. All entities are expected to use the platform starting from 2025-09-01.\n\nHow it works\nAll entities must register on the FNE platform. Entities need to purchase electronic stamps on the FNE platform for document validation. Once a document is validated, a QR code will appear on it, and it will be sent to the buyer’s FNE inbox. There are three ways to issue a document:\n\nUsing FNE platform\nAuthorized billing terminals\nBilling systems interfaced with the FNE platform via an API.\n\nEntities may use one of these methods above to issue e-invoice or e-receipts.\n\nUsing FNE platform\nThe principal user who registered the platform can register new users with desired authorization levels, create establishments, points of sale, and nomenclature. Electronic stamps for document validation are purchased via the FNE platform.\nThere are several constraints I’ve observed so far when using the FNE platform:\n\nYou cannot register to different companies with same e-mail address.\nYou cannot save a document if you haven’t created point of sales.\nRegistered user can issue documents for only one establishment and one point of sales at a time.\nSaved documents cannot be deleted.\nYou cannot choose the document date; the date defaults to the invoice validation date with a full time stamp.\n\nSeveral VAT types are missing.\n\n\n\nAuthorized billing terminals\nFor small and micro-businesses subject to a flat-rate system, as well as for companies subject to a real tax system that use cash registers, it is planned to use TERNE3 for invoicing. This equipment will enable the issuance of standardized electronic receipts.\n\nElectronic payment terminal4\nMobile app of RNE5\n\nAs of 01/06/2025, there is no official publication of authorized vendors for electronic payment terminals or mobile applications.\n\n\nBilling systems interfaced with the FNE platform via an API\nTax authority published an technical API documentation for ERP integration. Companies are allowed to build their own solution via API key. However, as of 01/06/2025 there is no official agreed integration solution vendor published.\nSo far, I found only one vendor who offers ERP integration. Dexy Africa offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#conculusion",
+    "href": "posts/einvoice-ivorycoast.html#conculusion",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "Conculusion",
+    "text": "Conculusion\nIn the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#links-and-sources",
+    "href": "posts/einvoice-ivorycoast.html#links-and-sources",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "Links and Sources",
+    "text": "Links and Sources\nFNE has published several useful documents for registration and user guides:\nDGI FNE FNE PORTAL DEXY AFRICA"
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#footnotes",
+    "href": "posts/einvoice-ivorycoast.html#footnotes",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nDirection Générale des Impôts de Côte d’Ivoire↩︎\nFacture Normalisée Electronique↩︎\nTerminaux d’Emission de Reçus Normalisés Electroniques↩︎\nTerminal de paiement électronique↩︎\nReçu Normalisé Electronique↩︎"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "M. Melik Kolgesiz",
     "section": "",
-    "text": "I’m a financial controller currently working at Ivory Coast."
+    "text": "I’m a financial controller currently working at Ivory Coast. IN prior roles, I’ve worked as revenue accounting specialist and regional accounting manager.\nOn this site I keep a list of my projects, CV, a blog and recipes that I like."
   },
   {
     "objectID": "index.html#bio",
     "href": "index.html#bio",
     "title": "M. Melik Kolgesiz",
     "section": "",
-    "text": "I’m a financial controller currently working at Ivory Coast."
+    "text": "I’m a financial controller currently working at Ivory Coast. IN prior roles, I’ve worked as revenue accounting specialist and regional accounting manager.\nOn this site I keep a list of my projects, CV, a blog and recipes that I like."
   },
   {
     "objectID": "index.html#interests",
     "href": "index.html#interests",
     "title": "M. Melik Kolgesiz",
     "section": "Interests",
-    "text": "Interests\n\nData science\n\n\nAccounting"
+    "text": "Interests\nI’m interested in data science and data engineering."
   },
   {
     "objectID": "about.html",
@@ -33,6 +68,13 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Home",
+    "section": "",
+    "text": "E-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/document-management-quarto.html",
