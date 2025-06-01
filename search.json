@@ -21,18 +21,18 @@
     "text": "What is FNE\nFNE is the centralized e-invoice platform created by Ivorian tax authorities. All companies are subject to the obligation to issue standardized electronic invoices, regardless of their size or status, unless explicitly exempted by law.\nBased on a company’s legal status, issuing invoices through the platform is mandatory starting from 2025-06-01. All entities are expected to use the platform starting from 2025-09-01.\n\nHow it works\nAll entities must register on the FNE platform. Entities need to purchase electronic stamps on the FNE platform for document validation. Once a document is validated, a QR code will appear on it, and it will be sent to the buyer’s FNE inbox. There are three ways to issue a document:\n\nUsing FNE platform\nAuthorized billing terminals\nBilling systems interfaced with the FNE platform via an API.\n\nEntities may use one of these methods above to issue e-invoice or e-receipts.\n\nUsing FNE platform\nThe principal user who registered the platform can register new users with desired authorization levels, create establishments, points of sale, and nomenclature. Electronic stamps for document validation are purchased via the FNE platform.\nThere are several constraints I’ve observed so far when using the FNE platform:\n\nYou cannot register to different companies with same e-mail address.\nYou cannot save a document if you haven’t created point of sales.\nRegistered user can issue documents for only one establishment and one point of sales at a time.\nSaved documents cannot be deleted.\nYou cannot choose the document date; the date defaults to the invoice validation date with a full time stamp.\n\nSeveral VAT types are missing.\n\n\n\nAuthorized billing terminals\nFor small and micro-businesses subject to a flat-rate system, as well as for companies subject to a real tax system that use cash registers, it is planned to use TERNE3 for invoicing. This equipment will enable the issuance of standardized electronic receipts.\n\nElectronic payment terminal4\nMobile app of RNE5\n\nAs of 01/06/2025, there is no official publication of authorized vendors for electronic payment terminals or mobile applications.\n\n\nBilling systems interfaced with the FNE platform via an API\nTax authority published an technical API documentation for ERP integration. Companies are allowed to build their own solution via API key. However, as of 01/06/2025 there is no official agreed integration solution vendor published.\nSo far, I found only one vendor who offers ERP integration. Dexy Africa offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365."
   },
   {
-    "objectID": "posts/einvoice-ivorycoast.html#conculusion",
-    "href": "posts/einvoice-ivorycoast.html#conculusion",
+    "objectID": "posts/einvoice-ivorycoast.html#conclusion",
+    "href": "posts/einvoice-ivorycoast.html#conclusion",
     "title": "E-Invoice Migration in Ivory Coast",
-    "section": "Conculusion",
-    "text": "Conculusion\nIn the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan."
+    "section": "Conclusion",
+    "text": "Conclusion\nIn the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan."
   },
   {
     "objectID": "posts/einvoice-ivorycoast.html#links-and-sources",
     "href": "posts/einvoice-ivorycoast.html#links-and-sources",
     "title": "E-Invoice Migration in Ivory Coast",
     "section": "Links and Sources",
-    "text": "Links and Sources\nFNE publised several useful documents for registratin and user guide.\nDGI FNE FNE PORTAL DEXY AFRICA"
+    "text": "Links and Sources\nFNE has published several useful documents for registration and user guides:\nDGI FNE FNE PORTAL DEXY AFRICA"
   },
   {
     "objectID": "posts/einvoice-ivorycoast.html#footnotes",
