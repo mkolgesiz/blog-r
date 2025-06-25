@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Home",
+    "section": "",
+    "text": "E-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "M. Melik Kolgesiz",
+    "section": "",
+    "text": "I’m a financial controller currently working at Ivory Coast. IN prior roles, I’ve worked as revenue accounting specialist and regional accounting manager.\nOn this site I keep a list of my projects, CV, a blog and recipes that I like."
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "M. Melik Kolgesiz",
+    "section": "",
+    "text": "I’m a financial controller currently working at Ivory Coast. IN prior roles, I’ve worked as revenue accounting specialist and regional accounting manager.\nOn this site I keep a list of my projects, CV, a blog and recipes that I like."
+  },
+  {
+    "objectID": "index.html#interests",
+    "href": "index.html#interests",
+    "title": "M. Melik Kolgesiz",
+    "section": "Interests",
+    "text": "Interests\nI’m interested in data science and data engineering."
+  },
+  {
+    "objectID": "posts/document-management-quarto.html",
+    "href": "posts/document-management-quarto.html",
+    "title": "Quarto for Document Management",
+    "section": "",
+    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
+  },
+  {
+    "objectID": "posts/document-management-quarto.html#footnotes",
+    "href": "posts/document-management-quarto.html#footnotes",
+    "title": "Quarto for Document Management",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLike me↩︎"
+  },
+  {
     "objectID": "posts/einvoice-ivorycoast.html",
     "href": "posts/einvoice-ivorycoast.html",
     "title": "E-Invoice Migration in Ivory Coast",
@@ -42,52 +84,10 @@
     "text": "Footnotes\n\n\nDirection Générale des Impôts de Côte d’Ivoire↩︎\nFacture Normalisée Electronique↩︎\nTerminaux d’Emission de Reçus Normalisés Electroniques↩︎\nTerminal de paiement électronique↩︎\nReçu Normalisé Electronique↩︎"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "M. Melik Kolgesiz",
-    "section": "",
-    "text": "I’m a financial controller currently working at Ivory Coast. IN prior roles, I’ve worked as revenue accounting specialist and regional accounting manager.\nOn this site I keep a list of my projects, CV, a blog and recipes that I like."
-  },
-  {
-    "objectID": "index.html#bio",
-    "href": "index.html#bio",
-    "title": "M. Melik Kolgesiz",
-    "section": "",
-    "text": "I’m a financial controller currently working at Ivory Coast. IN prior roles, I’ve worked as revenue accounting specialist and regional accounting manager.\nOn this site I keep a list of my projects, CV, a blog and recipes that I like."
-  },
-  {
-    "objectID": "index.html#interests",
-    "href": "index.html#interests",
-    "title": "M. Melik Kolgesiz",
-    "section": "Interests",
-    "text": "Interests\nI’m interested in data science and data engineering."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Home",
-    "section": "",
-    "text": "E-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/document-management-quarto.html",
-    "href": "posts/document-management-quarto.html",
-    "title": "Quarto for Document Management",
-    "section": "",
-    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
-  },
-  {
-    "objectID": "posts/document-management-quarto.html#footnotes",
-    "href": "posts/document-management-quarto.html#footnotes",
-    "title": "Quarto for Document Management",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nLike me↩︎"
   }
 ]
