@@ -19,7 +19,7 @@ filters:
 ``` {.python .marimo}
 #| echo: true
 import marimo as mo
-slider = mo.ui.slider(1, 10, 1, label="Look, a slider!")
+slider = mo.ui.slider(4, 10, 1, label="Look, a slider!")
 slider
 ```
 
