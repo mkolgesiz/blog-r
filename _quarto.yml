@@ -8,14 +8,14 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
-        text: About
+        text: About Me
       - href: blog.qmd
         text: Blog
 
 format:
   html:
     theme: 
+      dark: darkly    
       light: flatly
-      dark: darkly
     css: styles.css
     toc: true
