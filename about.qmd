@@ -2,4 +2,8 @@
 title: "About"
 ---
 
-# Work in progress
+About this site
+
+```{r}
+1 + 1
+```

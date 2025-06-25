@@ -4,12 +4,12 @@ title: "M. Melik Kolgesiz"
 
 ## Bio
 
-I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist and a regional accounting manager in several different countries.
- 
-On this site, I showcase my projects, CV, blog and recipe collection.
+I'm a financial controller currently working at Ivory Coast. IN prior roles, I've worked as revenue accounting specialist and regional accounting manager.
+
+On this site I keep a list of my projects, CV, a blog and recipes that I like. 
 
 ## Interests
 
-I'm interested in automation, data science and data engineering.
+I'm interested in data science and data engineering.
 
 
