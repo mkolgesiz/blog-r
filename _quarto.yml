@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Home"
+
   navbar:
     left:
       - href: index.qmd
@@ -10,7 +10,16 @@ website:
       - href: about.qmd
         text: About Me
       - href: blog.qmd
-        text: Blog
+        text: Blog-r
+      - href: "https://mkolgesiz.github.io/blog-py/blog.html"
+        text: Blog-py
+    right:
+      - icon: github
+        href: https://github.com/mkolgesiz
+      - text: "{{< iconify simple-icons bluesky >}}"
+        href: https://bsky.app/profile/mkolgesiz.bsky.social
+      - text: "{{< iconify fa6-brands linkedin >}}"
+        href: 'https://www.linkedin.com/in/mkolgesiz'
 
 format:
   html:
