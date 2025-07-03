@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/switching-linux.html",
       "/posts/einvoice-ivorycoast.html",
       "/posts/document-management-quarto.html"
     ]
