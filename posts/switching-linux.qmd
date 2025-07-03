@@ -1,0 +1,29 @@
+---
+title: "I switched to Linux"
+description: "Gentle guide for escaping from Windows 11"
+author: "M. Melik Kölgesiz"
+format: html
+editor: visual
+date: "2025-07-03"
+categories:
+  - Linux
+  - R Studio
+---
+
+### Windows 11 and Its Issues
+
+Windows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can't escape automatic updates and more. Even with 16 GB of RAM, the OS doesn't run smoothly due to many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.
+
+### Installation process
+
+Since I didn't know if I would be able to use it or not, I decided to install it on a separate SSD by following this [YouTube video](https://www.youtube.com/watch?v=KX85vZ3ANVk). It was relatively easy. I backed up my disk before the installation as a safeguard measure.
+
+After I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed [Omakub](https://omakub.org/). (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC driver.
+
+The only caveat was installing the R packages. But I was able to find an amazing [GitHub repo](https://github.com/eddelbuettel/r2u) and [forum post](https://forum.posit.co/t/install-packages-does-not-install-dependencies-on-ubuntu-linux-very-bad-problem/175106/5) to resolve any issues.
+
+### Impressions
+
+So far, I'm very positive about my transition. The OS just works. No frills, no babysitting. Also, I'm learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.
+
+I highly recommend trying Linux for everyday use. For those who need special software for their business, there are also dual boot options which I use on a regular basis. Give it a try!
