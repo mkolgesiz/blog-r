@@ -1,15 +1,16 @@
 project:
   type: website
+  output-dir: _site
 
 website:
-
+  site-url: "https://mkolgesiz.github.io"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: about.qmd
         text: About Me
-      - href: blog.qmd
+      - href: blog-r.qmd
         text: Blog-r
       - href: "https://mkolgesiz.github.io/blog-py/blog.html"
         text: Blog-py
@@ -24,7 +25,6 @@ website:
 format:
   html:
     theme: 
-      dark: darkly    
       light: flatly
     css: styles.css
     toc: true

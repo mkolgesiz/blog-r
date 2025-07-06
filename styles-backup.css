@@ -212,17 +212,3 @@ blockquote {
 #toc ul li a:hover {
   border-left-color: var(--dark-tan) !important;
 }
-
-/* Table of contents overall bar/container border */
-.sidebar nav[role="doc-toc"],
-#toc,
-.sidebar nav[role="doc-toc"] ul {
-  border-left-color: var(--dark-blue) !important;
-}
-
-/* Table of contents "On this page" text color */
-.sidebar nav[role="doc-toc"] .toc-title,
-#toc .toc-title,
-.sidebar .toc-title {
-  color: var(--dark-blue) !important;
-}

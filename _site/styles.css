@@ -1,1 +1,228 @@
-/* css styles */
+/* The Great Wave Color Palette CSS Theme */
+:root {
+  --dark-tan: #c1a06e;
+  --light-tan: #d9d1ba;
+  --light-blue: #82b0b2;
+  --medium-blue: #346b84;
+  --dark-blue: #1a3657;
+}
+
+/* Custom theme overrides */
+body {
+  background-color: var(--light-tan);
+  color: var(--dark-blue);
+}
+
+/* Navigation bar */
+.navbar {
+  background-color: var(--dark-blue) !important;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: var(--light-tan) !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--light-blue) !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--medium-blue);
+}
+
+/* Header underlines/borders */
+h2, h3 {
+  border-bottom: 1px solid var(--medium-blue);
+}
+
+/* Links */
+a {
+  color: var(--medium-blue);
+}
+
+a:hover {
+  color: var(--light-blue);
+}
+
+/* Cards and content blocks */
+.card {
+  background-color: var(--light-tan);
+  border-color: var(--dark-tan);
+}
+
+.card-header {
+  background-color: var(--dark-tan);
+  color: var(--dark-blue);
+}
+
+/* Blog post listings */
+.listing-item {
+  background-color: var(--light-tan);
+  border-color: var(--dark-tan);
+}
+
+.listing-item:hover {
+  background-color: var(--dark-tan);
+}
+
+/* Code blocks */
+pre {
+  background-color: var(--dark-blue);
+  color: var(--light-tan);
+}
+
+code {
+  background-color: var(--dark-tan);
+  color: var(--dark-blue);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--medium-blue);
+  border-color: var(--medium-blue);
+}
+
+.btn-primary:hover {
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--dark-blue);
+  color: var(--light-tan);
+}
+
+/* Footnotes - seamless integration */
+.footnotes {
+  background-color: var(--light-tan);
+  color: var(--dark-blue);
+  border: none;
+}
+
+.footnotes ol li {
+  color: var(--dark-blue);
+}
+
+.footnotes a {
+  color: var(--medium-blue);
+}
+
+.footnotes a:hover {
+  color: var(--light-blue);
+}
+
+/* Markdown horizontal rules/lines */
+hr {
+  border-color: var(--dark-tan);
+  background-color: var(--dark-tan);
+}
+
+/* Page breaks */
+.page-break,
+.pagebreak {
+  border-top: 2px solid var(--dark-tan);
+  background-color: var(--dark-tan);
+}
+
+/* Footnote separators and bottom page breaks */
+.footnotes::before,
+.footnotes-sep,
+.footnote-separator {
+  border-top: 1px solid var(--dark-tan);
+  background-color: var(--dark-tan);
+}
+
+/* Additional markdown line elements */
+.quarto-listing-category .category {
+  border-bottom: 1px solid var(--dark-tan);
+}
+
+/* Blockquote borders */
+blockquote {
+  border-left: 4px solid var(--medium-blue);
+  background-color: rgba(193, 160, 110, 0.1);
+}
+
+/* Override default Quarto styling for listings and content */
+.quarto-listing .listing-item,
+.quarto-listing .quarto-post {
+  border-color: var(--dark-tan) !important;
+  background-color: var(--light-tan) !important;
+}
+
+/* Override default text colors */
+.quarto-listing .listing-title,
+.quarto-listing .listing-description,
+.quarto-listing .listing-date,
+.quarto-listing .listing-author,
+.quarto-listing .listing-categories,
+.listing-item,
+.quarto-post .body {
+  color: var(--dark-blue) !important;
+}
+
+/* Specific targeting for blog post titles and descriptions */
+.quarto-post .listing-title a,
+.quarto-post .listing-title,
+.quarto-post .delink .listing-description p,
+.quarto-post .listing-description,
+.quarto-post .body h3,
+.quarto-post .body p {
+  color: var(--dark-blue) !important;
+}
+
+/* Override category styling */
+.quarto-listing-category .category {
+  color: var(--dark-blue) !important;
+  border-bottom-color: var(--light-tan) !important;
+}
+
+/* Blog post categories styling */
+.quarto-post .listing-categories .listing-category {
+  border: 1px solid var(--dark-tan) !important;
+  background-color: var(--light-tan) !important;
+  color: var(--dark-blue) !important;
+}
+
+/* Override any remaining white backgrounds and black text */
+.quarto-light,
+.quarto-light .content,
+.quarto-light main {
+  background-color: var(--light-tan) !important;
+  color: var(--dark-blue) !important;
+}
+
+/* Table of contents - change green hover/active color to dark tan for all headings */
+.sidebar nav[role="doc-toc"] ul li a:hover,
+.sidebar nav[role="doc-toc"] ul li a.active,
+.sidebar nav[role="doc-toc"] a:hover,
+.sidebar nav[role="doc-toc"] a.active,
+#toc ul li a:hover,
+#toc ul li a.active {
+  color: var(--dark-tan) !important;
+}
+
+/* Table of contents line/border color */
+.sidebar nav[role="doc-toc"] ul li a.active,
+.sidebar nav[role="doc-toc"] ul li a:hover,
+#toc ul li a.active,
+#toc ul li a:hover {
+  border-left-color: var(--dark-tan) !important;
+}
+
+/* Table of contents overall bar/container border */
+.sidebar nav[role="doc-toc"],
+#toc,
+.sidebar nav[role="doc-toc"] ul {
+  border-left-color: var(--dark-blue) !important;
+}
+
+/* Table of contents "On this page" text color */
+.sidebar nav[role="doc-toc"] .toc-title,
+#toc .toc-title,
+.sidebar .toc-title {
+  color: var(--dark-blue) !important;
+}
