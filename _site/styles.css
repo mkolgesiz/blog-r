@@ -5,6 +5,52 @@
   --light-blue: #82b0b2;
   --medium-blue: #346b84;
   --dark-blue: #1a3657;
+
+
+  /* Kanagawa Color Palette */
+  --dark-tan: #c1a06e;
+  --light-tan: #d9d1ba;
+  --light-blue: #82b0b2;
+  --medium-blue: #346b84;
+  --dark-blue: #1a3657;
+  --medium-grey: #babbbd;
+  --fujiWhite: #DCD7BA;
+  --oldWhite: #C8C093;
+  --sumiInk0: #16161D;
+  --sumiInk1: #1F1F28;
+  --sumiInk2: #2A2A37;
+  --sumiInk3: #363646;
+  --sumiInk4: #54546D;
+  --waveBlue1: #223249;
+  --waveBlue2: #2D4F67;
+  --winterGreen: #2B3328;
+  --winterYellow: #49443C;
+  --winterRed: #43242B;
+  --winterBlue: #252535;
+  --autumnGreen: #76946A;
+  --autumnRed: #C34043;
+  --autumnYellow: #DCA561;
+  --samuraiRed: #E82424;
+  --roninYellow: #FF9E3B;
+  --waveAqua1: #6A9589;
+  --dragonBlue: #658594;
+  --fujiGray: #727169;
+  --springViolet1: #938AA9;
+  --oniViolet: #957FB8;
+  --crystalBlue: #7E9CD8;
+  --springViolet2: #9CABCA;
+  --springBlue: #7FB4CA;
+  --lightBlue: #A3D4D5;
+  --waveAqua2: #7AA89F;
+  --springGreen: #98BB6C;
+  --boatYellow1: #938056;
+  --boatYellow2: #C0A36E;
+  --carpYellow: #E6C384;
+  --sakuraPink: #D27E99;
+  --waveRed: #E46876;
+  --peachRed: #FF5D62;
+  --surimiOrange: #FFA066;
+  --katanaGray: #717C7C;
 }
 
 /* Custom theme overrides */
@@ -205,6 +251,54 @@ blockquote {
   color: var(--dark-tan) !important;
 }
 
+/* Table of contents - specific styling for h3 elements only */
+#TOC ul.collapse li a:hover,
+#TOC ul.collapse li a.active,
+.sidebar nav[role="doc-toc"] ul.collapse li a:hover,
+.sidebar nav[role="doc-toc"] ul.collapse li a.active,
+#quarto-margin-sidebar #TOC ul.collapse li a.nav-link:hover,
+#quarto-margin-sidebar #TOC ul.collapse li a.nav-link.active,
+nav[role="doc-toc"] ul.collapse li a:hover,
+nav[role="doc-toc"] ul.collapse li a.active,
+.sidebar nav[role="doc-toc"] ul li ul li a:hover,
+.sidebar nav[role="doc-toc"] ul li ul li a.active,
+#toc ul li ul li a:hover,
+#toc ul li ul li a.active {
+  color: var(--dark-tan) !important;
+  border-left-color: var(--dark-tan) !important;
+}
+
+/* More specific targeting for the exact HTML structure we found */
+#quarto-margin-sidebar nav#TOC ul.collapse li a.nav-link:hover,
+#quarto-margin-sidebar nav#TOC ul.collapse li a.nav-link.active,
+#quarto-margin-sidebar nav[role="doc-toc"] ul.collapse li a:hover,
+#quarto-margin-sidebar nav[role="doc-toc"] ul.collapse li a.active,
+div#quarto-margin-sidebar nav#TOC ul.collapse li a:hover,
+div#quarto-margin-sidebar nav#TOC ul.collapse li a.active {
+  color: var(--dark-tan) !important;
+  border-left-color: var(--dark-tan) !important;
+}
+
+/* Override Bootstrap's default link colors specifically for TOC */
+#TOC a,
+#TOC a:hover,
+#TOC a:focus,
+#TOC a:active,
+.sidebar nav[role="doc-toc"] a,
+.sidebar nav[role="doc-toc"] a:hover,
+.sidebar nav[role="doc-toc"] a:focus,
+.sidebar nav[role="doc-toc"] a:active {
+  color: var(--dark-blue) !important;
+}
+
+/* Override Bootstrap's default link colors specifically for nested TOC items */
+#TOC ul.collapse li a,
+#TOC ul.collapse li a:hover,
+#TOC ul.collapse li a:focus,
+#TOC ul.collapse li a:active {
+  color: var(--dark-tan) !important;
+}
+
 /* Table of contents line/border color */
 .sidebar nav[role="doc-toc"] ul li a.active,
 .sidebar nav[role="doc-toc"] ul li a:hover,
@@ -220,9 +314,57 @@ blockquote {
   border-left-color: var(--dark-blue) !important;
 }
 
+/* Table of contents inactive border color */
+.sidebar nav[role="doc-toc"] ul li a,
+#toc ul li a,
+.sidebar nav[role="doc-toc"] ul li ul li a,
+#toc ul li ul li a {
+  border-left-color: var(--light-blue) !important;
+}
+
 /* Table of contents "On this page" text color */
 .sidebar nav[role="doc-toc"] .toc-title,
 #toc .toc-title,
 .sidebar .toc-title {
   color: var(--dark-blue) !important;
+}
+
+/* Footnotes appendix section - ensure light tan background */
+#quarto-appendix,
+.quarto-appendix {
+  background-color: var(--light-tan) !important;
+}
+
+/* Footnotes appendix heading */
+.quarto-appendix-heading {
+  background-color: var(--light-tan) !important;
+  color: var(--medium-blue) !important;
+}
+
+/* Footnotes appendix section border/line */
+#quarto-appendix::before,
+.quarto-appendix::before,
+section.footnotes::before,
+.footnotes::before,
+#footnotes::before,
+section#footnotes::before {
+  border-top: 1px solid var(--light-tan) !important;
+}
+
+/* Override any default footnotes border styling */
+section.footnotes,
+#footnotes,
+.footnotes-end-of-document {
+  border-top: 1px solid var(--light-tan) !important;
+}
+
+/* Target the white line/box above footnotes */
+#quarto-appendix {
+  border-top: 1px solid var(--light-tan) !important;
+}
+
+/* Override default appendix styling */
+.default {
+  background-color: var(--light-tan) !important;
+  border-top: 1px solid var(--light-tan) !important;
 }
