@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input4651221a048132c2</title>
+<title>color_palette</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -41,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d1029c8c0624b678ec1882d5dbfbed62.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a8067cc1823b39fe189e714953bd6389.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -70,65 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -154,7 +94,7 @@ window.Quarto = {
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog-r.html" aria-current="page"> 
+    <a class="nav-link" href="./blog-r.html"> 
 <span class="menu-text">Blog-r</span></a>
   </li>  
   <li class="nav-item">
@@ -187,118 +127,253 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="QWNjb3VudGluZw==">Accounting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RG9jdW1lbnQlMjBNYW5hZ2VtZW50">Document Management <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGludXg=">Linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UXVhcnRv">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UiUyMFN0dWRpbw==">R Studio <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>HexName</th>
+<th>HexCode</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/fujiWhite.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/fujiWhite.svg" class="img-fluid" alt="img"></a></td>
+<td>fujiWhite</td>
+<td><code>#DCD7BA</code></td>
+<td>Default foreground</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/oldWhite.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/oldWhite.svg" class="img-fluid" alt="img"></a></td>
+<td>oldWhite</td>
+<td><code>#C8C093</code></td>
+<td>Dark foreground (statuslines)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/sumiInk0.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/sumiInk0.svg" class="img-fluid" alt="img"></a></td>
+<td>sumiInk0</td>
+<td><code>#16161D</code></td>
+<td>Dark background (statuslines and floating windows)</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/sumiInk1.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/sumiInk1.svg" class="img-fluid" alt="img"></a></td>
+<td>sumiInk1</td>
+<td><code>#1F1F28</code></td>
+<td>Default background</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/sumiInk2.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/sumiInk2.svg" class="img-fluid" alt="img"></a></td>
+<td>sumiInk2</td>
+<td><code>#2A2A37</code></td>
+<td>Lighter background (colorcolumn, folds)</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/sumiInk3.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/sumiInk3.svg" class="img-fluid" alt="img"></a></td>
+<td>sumiInk3</td>
+<td><code>#363646</code></td>
+<td>Lighter background (cursorline)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/sumiInk4.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/sumiInk4.svg" class="img-fluid" alt="img"></a></td>
+<td>sumiInk4</td>
+<td><code>#54546D</code></td>
+<td>Darker foreground (line numbers, fold column, non-text characters), float borders</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/waveBlue1.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/waveBlue1.svg" class="img-fluid" alt="img"></a></td>
+<td>waveBlue1</td>
+<td><code>#223249</code></td>
+<td>Popup background, visual selection background</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/waveBlue2.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/waveBlue2.svg" class="img-fluid" alt="img"></a></td>
+<td>waveBlue2</td>
+<td><code>#2D4F67</code></td>
+<td>Popup selection background, search background</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/winterGreen.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/winterGreen.svg" class="img-fluid" alt="img"></a></td>
+<td>winterGreen</td>
+<td><code>#2B3328</code></td>
+<td>Diff Add (background)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/winterYellow.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/winterYellow.svg" class="img-fluid" alt="img"></a></td>
+<td>winterYellow</td>
+<td><code>#49443C</code></td>
+<td>Diff Change (background)</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/winterRed.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/winterRed.svg" class="img-fluid" alt="img"></a></td>
+<td>winterRed</td>
+<td><code>#43242B</code></td>
+<td>Diff Deleted (background)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/winterBlue.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/winterBlue.svg" class="img-fluid" alt="img"></a></td>
+<td>winterBlue</td>
+<td><code>#252535</code></td>
+<td>Diff Line (background)</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/autumnGreen.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/autumnGreen.svg" class="img-fluid" alt="img"></a></td>
+<td>autumnGreen</td>
+<td><code>#76946A</code></td>
+<td>Git Add</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/autumnRed.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/autumnRed.svg" class="img-fluid" alt="img"></a></td>
+<td>autumnRed</td>
+<td><code>#C34043</code></td>
+<td>Git Delete</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/autumnYellow.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/autumnYellow.svg" class="img-fluid" alt="img"></a></td>
+<td>autumnYellow</td>
+<td><code>#DCA561</code></td>
+<td>Git Change</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/samuraiRed.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/samuraiRed.svg" class="img-fluid" alt="img"></a></td>
+<td>samuraiRed</td>
+<td><code>#E82424</code></td>
+<td>Diagnostic Error</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/roninYellow.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/roninYellow.svg" class="img-fluid" alt="img"></a></td>
+<td>roninYellow</td>
+<td><code>#FF9E3B</code></td>
+<td>Diagnostic Warning</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/waveAqua1.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/waveAqua1.svg" class="img-fluid" alt="img"></a></td>
+<td>waveAqua1</td>
+<td><code>#6A9589</code></td>
+<td>Diagnostic Info</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/dragonBlue.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/dragonBlue.svg" class="img-fluid" alt="img"></a></td>
+<td>dragonBlue</td>
+<td><code>#658594</code></td>
+<td>Diagnostic Hint</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/fujiGray.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/fujiGray.svg" class="img-fluid" alt="img"></a></td>
+<td>fujiGray</td>
+<td><code>#727169</code></td>
+<td>Comments</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/springViolet1.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/springViolet1.svg" class="img-fluid" alt="img"></a></td>
+<td>springViolet1</td>
+<td><code>#938AA9</code></td>
+<td>Light foreground</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/oniViolet.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/oniViolet.svg" class="img-fluid" alt="img"></a></td>
+<td>oniViolet</td>
+<td><code>#957FB8</code></td>
+<td>Statements and Keywords</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/crystalBlue.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/crystalBlue.svg" class="img-fluid" alt="img"></a></td>
+<td>crystalBlue</td>
+<td><code>#7E9CD8</code></td>
+<td>Functions and Titles</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/springViolet2.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/springViolet2.svg" class="img-fluid" alt="img"></a></td>
+<td>springViolet2</td>
+<td><code>#9CABCA</code></td>
+<td>Brackets and punctuation</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/springBlue.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/springBlue.svg" class="img-fluid" alt="img"></a></td>
+<td>springBlue</td>
+<td><code>#7FB4CA</code></td>
+<td>Specials and builtin functions</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/lightBlue.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/lightBlue.svg" class="img-fluid" alt="img"></a></td>
+<td>lightBlue</td>
+<td><code>#A3D4D5</code></td>
+<td>Not used</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/waveAqua2.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/waveAqua2.svg" class="img-fluid" alt="img"></a></td>
+<td>waveAqua2</td>
+<td><code>#7AA89F</code></td>
+<td>Types</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/springGreen.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/springGreen.svg" class="img-fluid" alt="img"></a></td>
+<td>springGreen</td>
+<td><code>#98BB6C</code></td>
+<td>Strings</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/boatYellow1.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/boatYellow1.svg" class="img-fluid" alt="img"></a></td>
+<td>boatYellow1</td>
+<td><code>#938056</code></td>
+<td>Not used</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/boatYellow2.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/boatYellow2.svg" class="img-fluid" alt="img"></a></td>
+<td>boatYellow2</td>
+<td><code>#C0A36E</code></td>
+<td>Operators, RegEx</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/carpYellow.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/carpYellow.svg" class="img-fluid" alt="img"></a></td>
+<td>carpYellow</td>
+<td><code>#E6C384</code></td>
+<td>Identifiers</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/sakuraPink.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/sakuraPink.svg" class="img-fluid" alt="img"></a></td>
+<td>sakuraPink</td>
+<td><code>#D27E99</code></td>
+<td>Numbers</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/waveRed.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/waveRed.svg" class="img-fluid" alt="img"></a></td>
+<td>waveRed</td>
+<td><code>#E46876</code></td>
+<td>Standout specials 1 (builtin variables)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/peachRed.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/peachRed.svg" class="img-fluid" alt="img"></a></td>
+<td>peachRed</td>
+<td><code>#FF5D62</code></td>
+<td>Standout specials 2 (exception handling, return)</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/surimiOrange.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/surimiOrange.svg" class="img-fluid" alt="img"></a></td>
+<td>surimiOrange</td>
+<td><code>#FFA066</code></td>
+<td>Constants, imports, booleans</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/rebelot/kanagawa.nvim/blob/master/assets/circles/katanaGray.svg"><img src="https://github.com/rebelot/kanagawa.nvim/raw/master/assets/circles/katanaGray.svg" class="img-fluid" alt="img"></a></td>
+<td>katanaGray</td>
+<td><code>#717C7C</code></td>
+<td>Deprecated</td>
+</tr>
+</tbody>
+</table>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TGludXglMkNSJTIwU3R1ZGlv" data-listing-date-sort="1751500800000" data-listing-file-modified-sort="1751842994182" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="313">
-<div class="thumbnail"><a href="./posts/switching-linux.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/switching-linux.html" class="no-external">I switched to Linux</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TGludXg='); return false;">Linux</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UiUyMFN0dWRpbw=='); return false;">R Studio</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/switching-linux.html" class="no-external">
-<p>Gentle guide for escaping from Windows 11</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/switching-linux.html" class="no-external">
-<div class="listing-date">
-Jul 3, 2025
-</div>
-<div class="listing-author">
-M. Melik Kölgesiz
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="QWNjb3VudGluZw==" data-listing-date-sort="1748736000000" data-listing-file-modified-sort="1751842994181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="536">
-<div class="thumbnail"><a href="./posts/einvoice-ivorycoast.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/einvoice-ivorycoast.html" class="no-external">E-Invoice Migration in Ivory Coast</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWNjb3VudGluZw=='); return false;">Accounting</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/einvoice-ivorycoast.html" class="no-external">
-<p>Current Status of E-Invoice Implementation</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/einvoice-ivorycoast.html" class="no-external">
-<div class="listing-date">
-Jun 1, 2025
-</div>
-<div class="listing-author">
-M. Melik Kölgesiz
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UXVhcnRvJTJDRG9jdW1lbnQlMjBNYW5hZ2VtZW50" data-listing-date-sort="1715558400000" data-listing-file-modified-sort="1751842994181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
-<div class="thumbnail"><a href="./posts/document-management-quarto.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/document-management-quarto.html" class="no-external">Quarto for Document Management</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhcnRv'); return false;">Quarto</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RG9jdW1lbnQlMjBNYW5hZ2VtZW50'); return false;">Document Management</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/document-management-quarto.html" class="no-external">
-<p>Streamlining document management</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/document-management-quarto.html" class="no-external">
-<div class="listing-date">
-May 13, 2024
-</div>
-<div class="listing-author">
-M. Melik Kölgesiz
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
