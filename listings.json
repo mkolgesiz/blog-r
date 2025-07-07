@@ -1,16 +1,16 @@
 [
   {
+    "listing": "/recipes.html",
+    "items": [
+      "/recipes/tanem-helva.html"
+    ]
+  },
+  {
     "listing": "/blog-r.html",
     "items": [
       "/posts/switching-linux.html",
       "/posts/einvoice-ivorycoast.html",
       "/posts/document-management-quarto.html"
-    ]
-  },
-  {
-    "listing": "/recipes.html",
-    "items": [
-      "/recipes/tanem-helva.html"
     ]
   }
 ]
