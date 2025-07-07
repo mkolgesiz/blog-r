@@ -2,12 +2,12 @@
 title: "M. Melik Kolgesiz"
 ---
 
-## Bio
+Hi! I'm Melik, a financial controller living in the Ivory Coast. I've worked across West Africa and Turkey, mostly dealing with accounting and finance.
 
-I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.
+I like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I've collected along the way.
 
-On this site, I present my projects, CV, blog and recipe collection.
+## What's here
 
-## Interests
-
-I'm interested in automation, data science and data engineering.
+- **Blog posts** - mostly about data and work stuff
+- **Recipes** - things I've tried and might get lost over time
+- **Projects** - simple things I've built from what I learned along the way

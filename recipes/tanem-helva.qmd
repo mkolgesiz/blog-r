@@ -1,0 +1,25 @@
+---
+title: "Tenem Halva"
+description: "My favorite dessert from my hometown"
+author: "M. Melik Kölgesiz"
+format: html
+editor: visual
+date: "2025-07-07"
+categories:
+  - Dessert
+---
+
+## History
+
+This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called 'Tenem Halvasi' because it can be easily dispersed during serving.
+
+## Ingredients
+
+-   Flour
+-   Molasses or sugar
+-   Neutral oil
+-   Cloves
+
+## Directions
+
+Roast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving.

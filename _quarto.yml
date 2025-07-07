@@ -8,12 +8,15 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
+      - href: "https://github.com/mkolgesiz/cv/blob/main/CV.pdf"
         text: About Me
       - href: blog-r.qmd
         text: Blog-r
       - href: "https://mkolgesiz.github.io/blog-py/blog.html"
         text: Blog-py
+      - href: recipes.qmd
+        text: Recipes
+        
     right:
       - icon: github
         href: https://github.com/mkolgesiz
