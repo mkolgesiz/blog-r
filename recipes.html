@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="M. Melik Kölgesiz">
-<meta name="dcterms.date" content="2025-06-01">
-<meta name="description" content="Current Status of E-Invoice Implementation">
 
-<title>E-Invoice Migration in Ivory Coast</title>
+<title>quarto-input67b22268588401a0</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,24 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a8067cc1823b39fe189e714953bd6389.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a8067cc1823b39fe189e714953bd6389.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,9 +70,67 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="../styles.css">
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -97,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog-r.html"> 
+    <a class="nav-link" href="./blog-r.html"> 
 <span class="menu-text">Blog-r</span></a>
   </li>  
   <li class="nav-item">
@@ -105,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Blog-py</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../recipes.html"> 
+    <a class="nav-link active" href="./recipes.html" aria-current="page"> 
 <span class="menu-text">Recipes</span></a>
   </li>  
 </ul>
@@ -135,132 +192,53 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#what-is-fne" id="toc-what-is-fne" class="nav-link" data-scroll-target="#what-is-fne">What is FNE</a>
-  <ul class="collapse">
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#links-and-sources" id="toc-links-and-sources" class="nav-link" data-scroll-target="#links-and-sources">Links and Sources</a></li>
-  </ul>
-</nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGVzc2VydA==">Dessert <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">E-Invoice Migration in Ivory Coast</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Accounting</div>
-  </div>
-  </div>
 
-<div>
-  <div class="description">
-    Current Status of E-Invoice Implementation
-  </div>
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="RGVzc2VydA==" data-listing-date-sort="1751846400000" data-listing-file-modified-sort="1751850692110" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="200">
+<div class="thumbnail"><a href="./recipes/tanem-helva.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./recipes/tanem-helva.html" class="no-external">Tenem Halva</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGVzc2VydA=='); return false;">Dessert</div>
+
 </div>
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>M. Melik Kölgesiz </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 1, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="preface" class="level2">
-<h2 class="anchored" data-anchor-id="preface">Preface</h2>
-<p>At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual <a href="https://www.dgi.gouv.ci/assets/documents/EBOOK/ANNEXE_FISCALE_2025/#p=16" title="Annexe Fiscale">tax appendix</a>. On 08/05/2025, the tax authority <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><a href="https://www.dgi.gouv.ci/" title="DGI">DGI</a> announced their e-invoice portal called <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="https://www.services.fne.dgi.gouv.ci/fr/login" title="FNE Portal">FNE</a> and the migration calendar. In this blog, I will cover what I’ve learned so far.</p>
-</section>
-<section id="what-is-fne" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-fne">What is FNE</h2>
-<p>FNE is the centralized e-invoice platform created by Ivorian tax authorities. All companies are subject to the obligation to issue standardized electronic invoices, regardless of their size or status, unless explicitly exempted by law.</p>
-<p>Based on a company’s legal status, issuing invoices through the platform is mandatory starting from <strong>2025-06-01</strong>. All entities are expected to use the platform starting from <strong>2025-09-01</strong>.</p>
-<section id="how-it-works" class="level3">
-<h3 class="anchored" data-anchor-id="how-it-works">How it works</h3>
-<p>All entities must register on the FNE platform. Entities need to purchase electronic stamps on the FNE platform for document validation. Once a document is validated, a QR code will appear on it, and it will be sent to the buyer’s FNE inbox. There are three ways to issue a document:</p>
-<ol type="1">
-<li>Using FNE platform</li>
-<li>Authorized billing terminals</li>
-<li>Billing systems interfaced with the FNE platform via an API.</li>
-</ol>
-<p>Entities may use one of these methods above to issue e-invoice or e-receipts.</p>
-<section id="using-fne-platform" class="level4">
-<h4 class="anchored" data-anchor-id="using-fne-platform">Using FNE platform</h4>
-<p>The principal user who registered the platform can register new users with desired authorization levels, create establishments, points of sale, and nomenclature. Electronic stamps for document validation are purchased via the FNE platform.</p>
-<p>There are several constraints I’ve observed so far when using the FNE platform:</p>
-<ul>
-<li>You cannot register to different companies with same e-mail address.</li>
-<li>You cannot save a document if you haven’t created point of sales.</li>
-<li>Registered user can issue documents for only one establishment and one point of sales at a time.</li>
-<li>Saved documents cannot be deleted.</li>
-<li>You cannot choose the document date; the date defaults to the invoice validation date with a full time stamp.<br>
-</li>
-<li>Several VAT types are missing.</li>
-</ul>
-</section>
-<section id="authorized-billing-terminals" class="level4">
-<h4 class="anchored" data-anchor-id="authorized-billing-terminals">Authorized billing terminals</h4>
-<p>For small and micro-businesses subject to a flat-rate system, as well as for companies subject to a real tax system that use cash registers, it is planned to use TERNE<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> for invoicing. This equipment will enable the issuance of standardized electronic receipts.</p>
-<ol type="1">
-<li>Electronic payment terminal<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
-<li>Mobile app of RNE<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
-</ol>
-<p>As of 01/06/2025, there is no official publication of authorized vendors for electronic payment terminals or mobile applications.</p>
-</section>
-<section id="billing-systems-interfaced-with-the-fne-platform-via-an-api" class="level4">
-<h4 class="anchored" data-anchor-id="billing-systems-interfaced-with-the-fne-platform-via-an-api">Billing systems interfaced with the FNE platform via an API</h4>
-<p>Tax authority published an technical API documentation for ERP integration. Companies are allowed to build their own solution via API key. However, as of 01/06/2025 there is no official agreed integration solution vendor published.</p>
-<p>So far, I found only one vendor who offers ERP integration. <a href="https://www.dexyafrica.com/facturation-electronique-cote-ivoire/" title="Dexy">Dexy Africa</a> offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365.</p>
-</section>
-</section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan.</p>
-</section>
-<section id="links-and-sources" class="level2">
-<h2 class="anchored" data-anchor-id="links-and-sources">Links and Sources</h2>
-<p>FNE has published several useful documents for registration and user guides:</p>
-<p><a href="https://dgi.gouv.ci/">DGI</a> <a href="https://www.fne.dgi.gouv.ci/">FNE</a> <a href="https://www.services.fne.dgi.gouv.ci/fr/login">FNE PORTAL</a> <a href="https://www.dexyafrica.com/facturation-electronique-cote-ivoire/">DEXY AFRICA</a></p>
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Direction Générale des Impôts de Côte d’Ivoire<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Facture Normalisée Electronique<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Terminaux d’Emission de Reçus Normalisés Electroniques<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Terminal de paiement électronique<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Reçu Normalisé Electronique<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+<div class="delink listing-description"><a href="./recipes/tanem-helva.html" class="no-external">
+<p>My favorite dessert from my hometown</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./recipes/tanem-helva.html" class="no-external">
+<div class="listing-date">
+Jul 7, 2025
+</div>
+<div class="listing-author">
+M. Melik Kölgesiz
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

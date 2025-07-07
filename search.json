@@ -1,10 +1,66 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
+    "objectID": "blog-r.html",
+    "href": "blog-r.html",
+    "title": "",
     "section": "",
-    "text": "Work in progress"
+    "text": "I switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "M. Melik Kolgesiz",
+    "section": "",
+    "text": "Hi! I’m Melik, a financial controller living in the Ivory Coast. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
+  },
+  {
+    "objectID": "index.html#whats-here",
+    "href": "index.html#whats-here",
+    "title": "M. Melik Kolgesiz",
+    "section": "What’s here",
+    "text": "What’s here\n\nBlog posts - mostly about data and work stuff\nRecipes - things I’ve tried and might get lost over time\nProjects - simple things I’ve built from what I learned along the way"
+  },
+  {
+    "objectID": "posts/document-management-quarto.html",
+    "href": "posts/document-management-quarto.html",
+    "title": "Quarto for Document Management",
+    "section": "",
+    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
+  },
+  {
+    "objectID": "posts/document-management-quarto.html#footnotes",
+    "href": "posts/document-management-quarto.html#footnotes",
+    "title": "Quarto for Document Management",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLike me↩︎"
+  },
+  {
+    "objectID": "recipes/tanem-helva.html",
+    "href": "recipes/tanem-helva.html",
+    "title": "Tenem Halva",
+    "section": "",
+    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#history",
+    "href": "recipes/tanem-helva.html#history",
+    "title": "Tenem Halva",
+    "section": "",
+    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#ingredients",
+    "href": "recipes/tanem-helva.html#ingredients",
+    "title": "Tenem Halva",
+    "section": "Ingredients",
+    "text": "Ingredients\n\nFlour\nMolasses or sugar\nNeutral oil\nCloves"
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#directions",
+    "href": "recipes/tanem-helva.html#directions",
+    "title": "Tenem Halva",
+    "section": "Directions",
+    "text": "Directions\nRoast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving."
   },
   {
     "objectID": "posts/einvoice-ivorycoast.html",
@@ -53,48 +109,13 @@
     "href": "posts/switching-linux.html",
     "title": "I switched to Linux",
     "section": "",
-    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nInstallation process\nSince I didn’t know if I would be able to use it or not, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC driver.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, there are also dual boot options which I use on a regular basis. Give it a try!"
+    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to the many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nThe Installation process\nSince I didn’t know if I would be able to use it, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC drivers.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, dual boot options are also available, which I use on a regular basis. Give it a try!"
   },
   {
-    "objectID": "blog-r.html",
-    "href": "blog-r.html",
+    "objectID": "recipes.html",
+    "href": "recipes.html",
     "title": "",
     "section": "",
-    "text": "I switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nGentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/document-management-quarto.html",
-    "href": "posts/document-management-quarto.html",
-    "title": "Quarto for Document Management",
-    "section": "",
-    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
-  },
-  {
-    "objectID": "posts/document-management-quarto.html#footnotes",
-    "href": "posts/document-management-quarto.html#footnotes",
-    "title": "Quarto for Document Management",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nLike me↩︎"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "M. Melik Kolgesiz",
-    "section": "",
-    "text": "I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.\nOn this site, I present my projects, CV, blog and recipe collection."
-  },
-  {
-    "objectID": "index.html#bio",
-    "href": "index.html#bio",
-    "title": "M. Melik Kolgesiz",
-    "section": "",
-    "text": "I am a financial controller currently working in the Ivory Coast. In previous roles, I have worked as a revenue accounting specialist in Turkey and a regional accounting manager in several different countries in West Africa.\nOn this site, I present my projects, CV, blog and recipe collection."
-  },
-  {
-    "objectID": "index.html#interests",
-    "href": "index.html#interests",
-    "title": "M. Melik Kolgesiz",
-    "section": "Interests",
-    "text": "Interests\nI’m interested in automation, data science and data engineering."
+    "text": "Tenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="M. Melik Kölgesiz">
-<meta name="dcterms.date" content="2025-06-01">
-<meta name="description" content="Current Status of E-Invoice Implementation">
+<meta name="dcterms.date" content="2025-07-07">
+<meta name="description" content="My favorite dessert from my hometown">
 
-<title>E-Invoice Migration in Ivory Coast</title>
+<title>Tenem Halva</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,13 +139,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#what-is-fne" id="toc-what-is-fne" class="nav-link" data-scroll-target="#what-is-fne">What is FNE</a>
-  <ul class="collapse">
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#links-and-sources" id="toc-links-and-sources" class="nav-link" data-scroll-target="#links-and-sources">Links and Sources</a></li>
+  <li><a href="#history" id="toc-history" class="nav-link active" data-scroll-target="#history">History</a></li>
+  <li><a href="#ingredients" id="toc-ingredients" class="nav-link" data-scroll-target="#ingredients">Ingredients</a></li>
+  <li><a href="#directions" id="toc-directions" class="nav-link" data-scroll-target="#directions">Directions</a></li>
   </ul>
 </nav>
     </div>
@@ -154,15 +150,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">E-Invoice Migration in Ivory Coast</h1>
+<h1 class="title">Tenem Halva</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Accounting</div>
+    <div class="quarto-category">Dessert</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Current Status of E-Invoice Implementation
+    My favorite dessert from my hometown
   </div>
 </div>
 
@@ -179,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 1, 2025</p>
+      <p class="date">July 7, 2025</p>
     </div>
   </div>
   
@@ -191,76 +187,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level2">
-<h2 class="anchored" data-anchor-id="preface">Preface</h2>
-<p>At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual <a href="https://www.dgi.gouv.ci/assets/documents/EBOOK/ANNEXE_FISCALE_2025/#p=16" title="Annexe Fiscale">tax appendix</a>. On 08/05/2025, the tax authority <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><a href="https://www.dgi.gouv.ci/" title="DGI">DGI</a> announced their e-invoice portal called <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="https://www.services.fne.dgi.gouv.ci/fr/login" title="FNE Portal">FNE</a> and the migration calendar. In this blog, I will cover what I’ve learned so far.</p>
+<section id="history" class="level2">
+<h2 class="anchored" data-anchor-id="history">History</h2>
+<p>This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving.</p>
 </section>
-<section id="what-is-fne" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-fne">What is FNE</h2>
-<p>FNE is the centralized e-invoice platform created by Ivorian tax authorities. All companies are subject to the obligation to issue standardized electronic invoices, regardless of their size or status, unless explicitly exempted by law.</p>
-<p>Based on a company’s legal status, issuing invoices through the platform is mandatory starting from <strong>2025-06-01</strong>. All entities are expected to use the platform starting from <strong>2025-09-01</strong>.</p>
-<section id="how-it-works" class="level3">
-<h3 class="anchored" data-anchor-id="how-it-works">How it works</h3>
-<p>All entities must register on the FNE platform. Entities need to purchase electronic stamps on the FNE platform for document validation. Once a document is validated, a QR code will appear on it, and it will be sent to the buyer’s FNE inbox. There are three ways to issue a document:</p>
-<ol type="1">
-<li>Using FNE platform</li>
-<li>Authorized billing terminals</li>
-<li>Billing systems interfaced with the FNE platform via an API.</li>
-</ol>
-<p>Entities may use one of these methods above to issue e-invoice or e-receipts.</p>
-<section id="using-fne-platform" class="level4">
-<h4 class="anchored" data-anchor-id="using-fne-platform">Using FNE platform</h4>
-<p>The principal user who registered the platform can register new users with desired authorization levels, create establishments, points of sale, and nomenclature. Electronic stamps for document validation are purchased via the FNE platform.</p>
-<p>There are several constraints I’ve observed so far when using the FNE platform:</p>
+<section id="ingredients" class="level2">
+<h2 class="anchored" data-anchor-id="ingredients">Ingredients</h2>
 <ul>
-<li>You cannot register to different companies with same e-mail address.</li>
-<li>You cannot save a document if you haven’t created point of sales.</li>
-<li>Registered user can issue documents for only one establishment and one point of sales at a time.</li>
-<li>Saved documents cannot be deleted.</li>
-<li>You cannot choose the document date; the date defaults to the invoice validation date with a full time stamp.<br>
-</li>
-<li>Several VAT types are missing.</li>
+<li>Flour</li>
+<li>Molasses or sugar</li>
+<li>Neutral oil</li>
+<li>Cloves</li>
 </ul>
 </section>
-<section id="authorized-billing-terminals" class="level4">
-<h4 class="anchored" data-anchor-id="authorized-billing-terminals">Authorized billing terminals</h4>
-<p>For small and micro-businesses subject to a flat-rate system, as well as for companies subject to a real tax system that use cash registers, it is planned to use TERNE<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> for invoicing. This equipment will enable the issuance of standardized electronic receipts.</p>
-<ol type="1">
-<li>Electronic payment terminal<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
-<li>Mobile app of RNE<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
-</ol>
-<p>As of 01/06/2025, there is no official publication of authorized vendors for electronic payment terminals or mobile applications.</p>
-</section>
-<section id="billing-systems-interfaced-with-the-fne-platform-via-an-api" class="level4">
-<h4 class="anchored" data-anchor-id="billing-systems-interfaced-with-the-fne-platform-via-an-api">Billing systems interfaced with the FNE platform via an API</h4>
-<p>Tax authority published an technical API documentation for ERP integration. Companies are allowed to build their own solution via API key. However, as of 01/06/2025 there is no official agreed integration solution vendor published.</p>
-<p>So far, I found only one vendor who offers ERP integration. <a href="https://www.dexyafrica.com/facturation-electronique-cote-ivoire/" title="Dexy">Dexy Africa</a> offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365.</p>
-</section>
-</section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan.</p>
-</section>
-<section id="links-and-sources" class="level2">
-<h2 class="anchored" data-anchor-id="links-and-sources">Links and Sources</h2>
-<p>FNE has published several useful documents for registration and user guides:</p>
-<p><a href="https://dgi.gouv.ci/">DGI</a> <a href="https://www.fne.dgi.gouv.ci/">FNE</a> <a href="https://www.services.fne.dgi.gouv.ci/fr/login">FNE PORTAL</a> <a href="https://www.dexyafrica.com/facturation-electronique-cote-ivoire/">DEXY AFRICA</a></p>
+<section id="directions" class="level2">
+<h2 class="anchored" data-anchor-id="directions">Directions</h2>
+<p>Roast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving.</p>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Direction Générale des Impôts de Côte d’Ivoire<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Facture Normalisée Electronique<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Terminaux d’Emission de Reçus Normalisés Electroniques<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Terminal de paiement électronique<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Reçu Normalisé Electronique<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

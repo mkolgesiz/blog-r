@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mkolgesiz.github.io/about.html</loc>
-    <lastmod>2025-07-06T23:20:54.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mkolgesiz.github.io/posts/einvoice-ivorycoast.html</loc>
-    <lastmod>2025-07-06T23:20:54.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mkolgesiz.github.io/posts/switching-linux.html</loc>
-    <lastmod>2025-07-06T23:20:54.079Z</lastmod>
-  </url>
-  <url>
     <loc>https://mkolgesiz.github.io/blog-r.html</loc>
-    <lastmod>2025-07-06T23:20:54.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mkolgesiz.github.io/posts/document-management-quarto.html</loc>
-    <lastmod>2025-07-06T23:20:54.079Z</lastmod>
+    <lastmod>2025-06-26T21:15:41.058Z</lastmod>
   </url>
   <url>
     <loc>https://mkolgesiz.github.io/index.html</loc>
-    <lastmod>2025-07-06T23:20:54.079Z</lastmod>
+    <lastmod>2025-07-07T01:11:18.713Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mkolgesiz.github.io/posts/document-management-quarto.html</loc>
+    <lastmod>2025-07-06T22:46:24.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mkolgesiz.github.io/recipes/tanem-helva.html</loc>
+    <lastmod>2025-07-07T01:11:32.110Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mkolgesiz.github.io/posts/einvoice-ivorycoast.html</loc>
+    <lastmod>2025-07-06T23:19:59.668Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mkolgesiz.github.io/posts/switching-linux.html</loc>
+    <lastmod>2025-07-07T01:14:45.806Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mkolgesiz.github.io/recipes.html</loc>
+    <lastmod>2025-07-07T00:52:43.901Z</lastmod>
   </url>
 </urlset>
