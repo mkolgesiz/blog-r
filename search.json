@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "recipes.html",
-    "href": "recipes.html",
+    "objectID": "blog-r.html",
+    "href": "blog-r.html",
     "title": "",
     "section": "",
-    "text": "Tenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
+    "text": "I switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Hi! I’m Melik, a financial controller living in the Ivory Coast. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
+    "text": "Hi! I’m Melik, a financial controller living in Côte d’Ivoire. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
   },
   {
     "objectID": "index.html#whats-here",
@@ -63,18 +63,25 @@
     "text": "Directions\nRoast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving."
   },
   {
-    "objectID": "blog-r.html",
-    "href": "blog-r.html",
-    "title": "",
+    "objectID": "recipes/goce.html",
+    "href": "recipes/goce.html",
+    "title": "Göce Soup",
     "section": "",
-    "text": "I switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
   },
   {
-    "objectID": "posts/switching-linux.html",
-    "href": "posts/switching-linux.html",
-    "title": "I switched to Linux",
+    "objectID": "recipes/goce.html#ingredients",
+    "href": "recipes/goce.html#ingredients",
+    "title": "Göce Soup",
     "section": "",
-    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to the many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nThe Installation process\nSince I didn’t know if I would be able to use it, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC drivers.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, dual boot options are also available, which I use on a regular basis. Give it a try!"
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
+  },
+  {
+    "objectID": "recipes/goce.html#directions",
+    "href": "recipes/goce.html#directions",
+    "title": "Göce Soup",
+    "section": "Directions",
+    "text": "Directions\nStart by washing the cracked wheat 5-6 times until the water runs clear. Place the wheat in a pot and add enough water to cover it, then bring to a boil. As it cooks, keep adding chicken or beef broth whenever the liquid gets low.\nOnce the wheat becomes tender, give it a quick blend to break it up a bit. When the mixture starts boiling again, stir in 1 tablespoon of butter and 2 tablespoons of olive oil. If your soup looks too thin, add the flour and salt, then toss in those dried chili peppers for a gentle kick.\nWhile that’s simmering, grab a small bowl and mix together the yogurt with some crushed garlic. In a separate small pan, melt some butter and add a pinch of red pepper flakes - this will be your finishing touch.\nWhen you’re ready to serve, ladle the soup into bowls and top each one with a dollop of the garlic yogurt and a drizzle of that spiced butter."
   },
   {
     "objectID": "posts/einvoice-ivorycoast.html",
@@ -119,10 +126,17 @@
     "text": "Footnotes\n\n\nDirection Générale des Impôts de Côte d’Ivoire↩︎\nFacture Normalisée Electronique↩︎\nTerminaux d’Emission de Reçus Normalisés Electroniques↩︎\nTerminal de paiement électronique↩︎\nReçu Normalisé Electronique↩︎"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
+    "objectID": "posts/switching-linux.html",
+    "href": "posts/switching-linux.html",
+    "title": "I switched to Linux",
     "section": "",
-    "text": "Work in progress"
+    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to the many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nThe Installation process\nSince I didn’t know if I would be able to use it, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC drivers.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, dual boot options are also available, which I use on a regular basis. Give it a try!"
+  },
+  {
+    "objectID": "recipes.html",
+    "href": "recipes.html",
+    "title": "",
+    "section": "",
+    "text": "Göce Soup\n\n\n\nSoup\n\n\n\nTraditional wheat soup\n\n\n\n\n\nJul 8, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nTenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   }
 ]
