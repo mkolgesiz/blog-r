@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Hi! I’m Melik, a financial controller living in the Ivory Coast. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
+    "text": "Hi! I’m Melik, a financial controller living in Côte d’Ivoire. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
   },
   {
     "objectID": "index.html#whats-here",
@@ -116,6 +116,34 @@
     "href": "recipes.html",
     "title": "",
     "section": "",
-    "text": "Tenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
+    "text": "Göce Soup\n\n\n\nSoup\n\n\n\nTraditional wheat soup\n\n\n\n\n\nJul 8, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nTenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "recipes/goce.html#ingredients",
+    "href": "recipes/goce.html#ingredients",
+    "title": "Göce Soup",
+    "section": "",
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
+  },
+  {
+    "objectID": "recipes/goce.html#directions",
+    "href": "recipes/goce.html#directions",
+    "title": "Göce Soup",
+    "section": "Directions",
+    "text": "Directions\nStart by washing the cracked wheat 5-6 times until the water runs clear. Place the wheat in a pot and add enough water to cover it, then bring to a boil. As it cooks, keep adding chicken or beef broth whenever the liquid gets low - this is where all the flavor comes from!\nOnce the wheat becomes tender, give it a quick blend to break it up a bit. When the mixture starts boiling again, stir in 1 tablespoon of butter and 2 tablespoons of olive oil. If your soup looks too thin, add the flour and salt, then toss in those dried chili peppers for a gentle kick.\nWhile that’s simmering, grab a small bowl and mix together the yogurt with some crushed garlic. In a separate small pan, melt some butter and add a pinch of red pepper flakes - this will be your finishing touch.\nWhen you’re ready to serve, ladle the soup into bowls and top each one with a dollop of the garlic yogurt and a drizzle of that spiced butter."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#footnotes",
+    "href": "recipes/tanem-helva.html#footnotes",
+    "title": "Tenem Halva",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nthis link.↩︎"
+  },
+  {
+    "objectID": "recipes/goce.html",
+    "href": "recipes/goce.html",
+    "title": "Göce Soup",
+    "section": "",
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
   }
 ]

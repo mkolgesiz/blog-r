@@ -2,7 +2,7 @@
 title: "Welcome"
 ---
 
-Hi! I'm Melik, a financial controller living in the Ivory Coast. I've worked across West Africa and Turkey, mostly dealing with accounting and finance.
+Hi! I'm Melik, a financial controller living in Côte d'Ivoire. I've worked across West Africa and Turkey, mostly dealing with accounting and finance.
 
 I like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I've collected along the way.
 

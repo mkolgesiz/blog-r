@@ -24,6 +24,8 @@ website:
         href: https://bsky.app/profile/mkolgesiz.bsky.social
       - text: "{{< iconify fa6-brands linkedin >}}"
         href: 'https://www.linkedin.com/in/mkolgesiz'
+      - text: "{{< iconify simple-icons huggingface >}}"
+        href: 'https://huggingface.co/mkolgesiz'
 
 format:
   html:
@@ -31,3 +33,4 @@ format:
       light: flatly
     css: styles.css
     toc: true
+    bibliography: references.bib
