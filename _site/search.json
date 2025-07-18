@@ -1,136 +1,10 @@
 [
   {
-    "objectID": "blog-r.html",
-    "href": "blog-r.html",
+    "objectID": "recipes.html",
+    "href": "recipes.html",
     "title": "",
     "section": "",
-    "text": "Exploring geeLite: An R Package for Local Remote Sensing Analysis\n\n\n\nR\n\nGeospatial\n\nGEE\n\n\n\nDemonstrating tree percentage analysis with geeLite\n\n\n\n\n\nJul 18, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nI switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Hi! I’m Melik, a financial controller living in Côte d’Ivoire. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
-  },
-  {
-    "objectID": "index.html#whats-here",
-    "href": "index.html#whats-here",
-    "title": "Welcome",
-    "section": "What’s here",
-    "text": "What’s here\n\nBlog posts - mostly about data and work stuff\nRecipes - things I’ve tried and might get lost over time\nProjects - simple things I’ve built from what I learned along the way"
-  },
-  {
-    "objectID": "posts/switching-linux.html",
-    "href": "posts/switching-linux.html",
-    "title": "I switched to Linux",
-    "section": "",
-    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to the many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nThe Installation process\nSince I didn’t know if I would be able to use it, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC drivers.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, dual boot options are also available, which I use on a regular basis. Give it a try!"
-  },
-  {
-    "objectID": "posts/einvoice-ivorycoast.html",
-    "href": "posts/einvoice-ivorycoast.html",
-    "title": "E-Invoice Migration in Ivory Coast",
-    "section": "",
-    "text": "At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual tax appendix. On 08/05/2025, the tax authority 1DGI announced their e-invoice portal called 2FNE and the migration calendar. In this blog, I will cover what I’ve learned so far."
-  },
-  {
-    "objectID": "posts/einvoice-ivorycoast.html#preface",
-    "href": "posts/einvoice-ivorycoast.html#preface",
-    "title": "E-Invoice Migration in Ivory Coast",
-    "section": "",
-    "text": "At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual tax appendix. On 08/05/2025, the tax authority 1DGI announced their e-invoice portal called 2FNE and the migration calendar. In this blog, I will cover what I’ve learned so far."
-  },
-  {
-    "objectID": "posts/einvoice-ivorycoast.html#what-is-fne",
-    "href": "posts/einvoice-ivorycoast.html#what-is-fne",
-    "title": "E-Invoice Migration in Ivory Coast",
-    "section": "What is FNE",
-    "text": "What is FNE\nFNE is the centralized e-invoice platform created by Ivorian tax authorities. All companies are subject to the obligation to issue standardized electronic invoices, regardless of their size or status, unless explicitly exempted by law.\nBased on a company’s legal status, issuing invoices through the platform is mandatory starting from 2025-06-01. All entities are expected to use the platform starting from 2025-09-01.\n\nHow it works\nAll entities must register on the FNE platform. Entities need to purchase electronic stamps on the FNE platform for document validation. Once a document is validated, a QR code will appear on it, and it will be sent to the buyer’s FNE inbox. There are three ways to issue a document:\n\nUsing FNE platform\nAuthorized billing terminals\nBilling systems interfaced with the FNE platform via an API.\n\nEntities may use one of these methods above to issue e-invoice or e-receipts.\n\nUsing FNE platform\nThe principal user who registered the platform can register new users with desired authorization levels, create establishments, points of sale, and nomenclature. Electronic stamps for document validation are purchased via the FNE platform.\nThere are several constraints I’ve observed so far when using the FNE platform:\n\nYou cannot register to different companies with same e-mail address.\nYou cannot save a document if you haven’t created point of sales.\nRegistered user can issue documents for only one establishment and one point of sales at a time.\nSaved documents cannot be deleted.\nYou cannot choose the document date; the date defaults to the invoice validation date with a full time stamp.\n\nSeveral VAT types are missing.\n\n\n\nAuthorized billing terminals\nFor small and micro-businesses subject to a flat-rate system, as well as for companies subject to a real tax system that use cash registers, it is planned to use TERNE3 for invoicing. This equipment will enable the issuance of standardized electronic receipts.\n\nElectronic payment terminal4\nMobile app of RNE5\n\nAs of 01/06/2025, there is no official publication of authorized vendors for electronic payment terminals or mobile applications.\n\n\nBilling systems interfaced with the FNE platform via an API\nTax authority published an technical API documentation for ERP integration. Companies are allowed to build their own solution via API key. However, as of 01/06/2025 there is no official agreed integration solution vendor published.\nSo far, I found only one vendor who offers ERP integration. Dexy Africa offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365."
-  },
-  {
-    "objectID": "posts/einvoice-ivorycoast.html#conclusion",
-    "href": "posts/einvoice-ivorycoast.html#conclusion",
-    "title": "E-Invoice Migration in Ivory Coast",
-    "section": "Conclusion",
-    "text": "Conclusion\nIn the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan."
-  },
-  {
-    "objectID": "posts/einvoice-ivorycoast.html#links-and-sources",
-    "href": "posts/einvoice-ivorycoast.html#links-and-sources",
-    "title": "E-Invoice Migration in Ivory Coast",
-    "section": "Links and Sources",
-    "text": "Links and Sources\nFNE has published several useful documents for registration and user guides:\nDGI FNE FNE PORTAL DEXY AFRICA"
-  },
-  {
-    "objectID": "posts/einvoice-ivorycoast.html#footnotes",
-    "href": "posts/einvoice-ivorycoast.html#footnotes",
-    "title": "E-Invoice Migration in Ivory Coast",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nDirection Générale des Impôts de Côte d’Ivoire↩︎\nFacture Normalisée Electronique↩︎\nTerminaux d’Emission de Reçus Normalisés Electroniques↩︎\nTerminal de paiement électronique↩︎\nReçu Normalisé Electronique↩︎"
-  },
-  {
-    "objectID": "recipes/goce.html",
-    "href": "recipes/goce.html",
-    "title": "Göce Soup",
-    "section": "",
-    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
-  },
-  {
-    "objectID": "recipes/goce.html#ingredients",
-    "href": "recipes/goce.html#ingredients",
-    "title": "Göce Soup",
-    "section": "",
-    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
-  },
-  {
-    "objectID": "recipes/goce.html#directions",
-    "href": "recipes/goce.html#directions",
-    "title": "Göce Soup",
-    "section": "Directions",
-    "text": "Directions\nStart by washing the cracked wheat 5-6 times until the water runs clear. Place the wheat in a pot and add enough water to cover it, then bring to a boil. As it cooks, keep adding chicken or beef broth whenever the liquid gets low.\nOnce the wheat becomes tender, give it a quick blend to break it up a bit. When the mixture starts boiling again, stir in 1 tablespoon of butter and 2 tablespoons of olive oil. If your soup looks too thin, add the flour and salt, then toss in those dried chili peppers for a gentle kick.\nWhile that’s simmering, grab a small bowl and mix together the yogurt with some crushed garlic. In a separate small pan, melt some butter and add a pinch of red pepper flakes - this will be your finishing touch.\nWhen you’re ready to serve, ladle the soup into bowls and top each one with a dollop of the garlic yogurt and a drizzle of that spiced butter."
-  },
-  {
-    "objectID": "recipes/tanem-helva.html",
-    "href": "recipes/tanem-helva.html",
-    "title": "Tenem Halva",
-    "section": "",
-    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
-  },
-  {
-    "objectID": "recipes/tanem-helva.html#history",
-    "href": "recipes/tanem-helva.html#history",
-    "title": "Tenem Halva",
-    "section": "",
-    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
-  },
-  {
-    "objectID": "recipes/tanem-helva.html#ingredients",
-    "href": "recipes/tanem-helva.html#ingredients",
-    "title": "Tenem Halva",
-    "section": "Ingredients",
-    "text": "Ingredients\n\nFlour\nMolasses or sugar\nNeutral oil\nCloves"
-  },
-  {
-    "objectID": "recipes/tanem-helva.html#directions",
-    "href": "recipes/tanem-helva.html#directions",
-    "title": "Tenem Halva",
-    "section": "Directions",
-    "text": "Directions\nRoast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving."
-  },
-  {
-    "objectID": "posts/document-management-quarto.html",
-    "href": "posts/document-management-quarto.html",
-    "title": "Quarto for Document Management",
-    "section": "",
-    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
-  },
-  {
-    "objectID": "posts/document-management-quarto.html#footnotes",
-    "href": "posts/document-management-quarto.html#footnotes",
-    "title": "Quarto for Document Management",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nLike me↩︎"
+    "text": "Göce Soup\n\n\n\nSoup\n\n\n\nTraditional wheat soup\n\n\n\n\n\nJul 8, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nTenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/geeLite.html",
@@ -196,24 +70,136 @@
     "text": "References\n\nWorld Bank Data Team. (2024). geeLite – an R package for tracking remote sensing data locally. World Bank Blogs - Open Data. Available at: https://blogs.worldbank.org/en/opendata/geelite–an-r-package-for-tracking-remote-sensing-datalocally-\nBraaten, J., Bullock, E., & Gorelick, N. (2024). geeLite: Client for Accessing and Processing Google Earth Engine Data. GitHub Repository. Available at: https://github.com/gee-community/geeLite\nGoogle Earth Engine Team. (2024). MODIS/061/MOD13A2: MODIS Terra Vegetation Indices 16-Day Global 1km. Google Earth Engine Data Catalog. Available at: https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2"
   },
   {
-    "objectID": "recipes.html",
-    "href": "recipes.html",
+    "objectID": "posts/document-management-quarto.html",
+    "href": "posts/document-management-quarto.html",
+    "title": "Quarto for Document Management",
+    "section": "",
+    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
+  },
+  {
+    "objectID": "posts/document-management-quarto.html#footnotes",
+    "href": "posts/document-management-quarto.html#footnotes",
+    "title": "Quarto for Document Management",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLike me↩︎"
+  },
+  {
+    "objectID": "recipes/tanem-helva.html",
+    "href": "recipes/tanem-helva.html",
+    "title": "Tenem Halva",
+    "section": "",
+    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#history",
+    "href": "recipes/tanem-helva.html#history",
+    "title": "Tenem Halva",
+    "section": "",
+    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#ingredients",
+    "href": "recipes/tanem-helva.html#ingredients",
+    "title": "Tenem Halva",
+    "section": "Ingredients",
+    "text": "Ingredients\n\nFlour\nMolasses or sugar\nNeutral oil\nCloves"
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#directions",
+    "href": "recipes/tanem-helva.html#directions",
+    "title": "Tenem Halva",
+    "section": "Directions",
+    "text": "Directions\nRoast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving."
+  },
+  {
+    "objectID": "recipes/goce.html",
+    "href": "recipes/goce.html",
+    "title": "Göce Soup",
+    "section": "",
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
+  },
+  {
+    "objectID": "recipes/goce.html#ingredients",
+    "href": "recipes/goce.html#ingredients",
+    "title": "Göce Soup",
+    "section": "",
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
+  },
+  {
+    "objectID": "recipes/goce.html#directions",
+    "href": "recipes/goce.html#directions",
+    "title": "Göce Soup",
+    "section": "Directions",
+    "text": "Directions\nStart by washing the cracked wheat 5-6 times until the water runs clear. Place the wheat in a pot and add enough water to cover it, then bring to a boil. As it cooks, keep adding chicken or beef broth whenever the liquid gets low.\nOnce the wheat becomes tender, give it a quick blend to break it up a bit. When the mixture starts boiling again, stir in 1 tablespoon of butter and 2 tablespoons of olive oil. If your soup looks too thin, add the flour and salt, then toss in those dried chili peppers for a gentle kick.\nWhile that’s simmering, grab a small bowl and mix together the yogurt with some crushed garlic. In a separate small pan, melt some butter and add a pinch of red pepper flakes - this will be your finishing touch.\nWhen you’re ready to serve, ladle the soup into bowls and top each one with a dollop of the garlic yogurt and a drizzle of that spiced butter."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html",
+    "href": "posts/einvoice-ivorycoast.html",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "",
+    "text": "At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual tax appendix. On 08/05/2025, the tax authority 1DGI announced their e-invoice portal called 2FNE and the migration calendar. In this blog, I will cover what I’ve learned so far."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#preface",
+    "href": "posts/einvoice-ivorycoast.html#preface",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "",
+    "text": "At the end of 2024, authorities in Ivory Coast announced e-invoice implementation in their annual tax appendix. On 08/05/2025, the tax authority 1DGI announced their e-invoice portal called 2FNE and the migration calendar. In this blog, I will cover what I’ve learned so far."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#what-is-fne",
+    "href": "posts/einvoice-ivorycoast.html#what-is-fne",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "What is FNE",
+    "text": "What is FNE\nFNE is the centralized e-invoice platform created by Ivorian tax authorities. All companies are subject to the obligation to issue standardized electronic invoices, regardless of their size or status, unless explicitly exempted by law.\nBased on a company’s legal status, issuing invoices through the platform is mandatory starting from 2025-06-01. All entities are expected to use the platform starting from 2025-09-01.\n\nHow it works\nAll entities must register on the FNE platform. Entities need to purchase electronic stamps on the FNE platform for document validation. Once a document is validated, a QR code will appear on it, and it will be sent to the buyer’s FNE inbox. There are three ways to issue a document:\n\nUsing FNE platform\nAuthorized billing terminals\nBilling systems interfaced with the FNE platform via an API.\n\nEntities may use one of these methods above to issue e-invoice or e-receipts.\n\nUsing FNE platform\nThe principal user who registered the platform can register new users with desired authorization levels, create establishments, points of sale, and nomenclature. Electronic stamps for document validation are purchased via the FNE platform.\nThere are several constraints I’ve observed so far when using the FNE platform:\n\nYou cannot register to different companies with same e-mail address.\nYou cannot save a document if you haven’t created point of sales.\nRegistered user can issue documents for only one establishment and one point of sales at a time.\nSaved documents cannot be deleted.\nYou cannot choose the document date; the date defaults to the invoice validation date with a full time stamp.\n\nSeveral VAT types are missing.\n\n\n\nAuthorized billing terminals\nFor small and micro-businesses subject to a flat-rate system, as well as for companies subject to a real tax system that use cash registers, it is planned to use TERNE3 for invoicing. This equipment will enable the issuance of standardized electronic receipts.\n\nElectronic payment terminal4\nMobile app of RNE5\n\nAs of 01/06/2025, there is no official publication of authorized vendors for electronic payment terminals or mobile applications.\n\n\nBilling systems interfaced with the FNE platform via an API\nTax authority published an technical API documentation for ERP integration. Companies are allowed to build their own solution via API key. However, as of 01/06/2025 there is no official agreed integration solution vendor published.\nSo far, I found only one vendor who offers ERP integration. Dexy Africa offers integration solution for ERP systems such as Sage, ODOO and Microsoft Dynamics 365."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#conclusion",
+    "href": "posts/einvoice-ivorycoast.html#conclusion",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn the long run, the e-invoice portal will help taxpayers and streamline their invoicing processes. However, the current implementation and schedule will be challenging for many companies and individuals, especially those outside Abidjan."
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#links-and-sources",
+    "href": "posts/einvoice-ivorycoast.html#links-and-sources",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "Links and Sources",
+    "text": "Links and Sources\nFNE has published several useful documents for registration and user guides:\nDGI FNE FNE PORTAL DEXY AFRICA"
+  },
+  {
+    "objectID": "posts/einvoice-ivorycoast.html#footnotes",
+    "href": "posts/einvoice-ivorycoast.html#footnotes",
+    "title": "E-Invoice Migration in Ivory Coast",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nDirection Générale des Impôts de Côte d’Ivoire↩︎\nFacture Normalisée Electronique↩︎\nTerminaux d’Emission de Reçus Normalisés Electroniques↩︎\nTerminal de paiement électronique↩︎\nReçu Normalisé Electronique↩︎"
+  },
+  {
+    "objectID": "posts/switching-linux.html",
+    "href": "posts/switching-linux.html",
+    "title": "I switched to Linux",
+    "section": "",
+    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to the many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nThe Installation process\nSince I didn’t know if I would be able to use it, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC drivers.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, dual boot options are also available, which I use on a regular basis. Give it a try!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Hi! I’m Melik, a financial controller living in Côte d’Ivoire. I’ve worked across West Africa and Turkey, mostly dealing with accounting and finance.\nI like working with data, automating stuff, 3d printing and cooking. This site has some of my thoughts and recipes I’ve collected along the way."
+  },
+  {
+    "objectID": "index.html#whats-here",
+    "href": "index.html#whats-here",
+    "title": "Welcome",
+    "section": "What’s here",
+    "text": "What’s here\n\nBlog posts - mostly about data and work stuff\nRecipes - things I’ve tried and might get lost over time\nProjects - simple things I’ve built from what I learned along the way"
+  },
+  {
+    "objectID": "blog-r.html",
+    "href": "blog-r.html",
     "title": "",
     "section": "",
-    "text": "Göce Soup\n\n\n\nSoup\n\n\n\nTraditional wheat soup\n\n\n\n\n\nJul 8, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nTenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "aboutme.html",
-    "href": "aboutme.html",
-    "title": "About Me",
-    "section": "",
-    "text": "📄 Download CV\n\n\n\nIf the PDF doesn’t display, click here to view it."
-  },
-  {
-    "objectID": "aboutme.html#cv",
-    "href": "aboutme.html#cv",
-    "title": "About Me",
-    "section": "",
-    "text": "📄 Download CV\n\n\n\nIf the PDF doesn’t display, click here to view it."
+    "text": "Exploring geeLite: An R Package for Local Remote Sensing Analysis\n\n\n\nR\n\nGeospatial\n\nGEE\n\n\n\nDemonstrating tree percentage analysis with geeLite\n\n\n\n\n\nJul 18, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nI switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   }
 ]
