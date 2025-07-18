@@ -3,6 +3,4 @@ title: "My CV"
 format: html
 ---
 
-  <object data="https://github.com/mkolgesiz/cv/raw/main/CV.pdf" type="application/pdf" width="100%" 
-  height="800px">
-
+  <a href="https://github.com/mkolgesiz/cv/blob/main/CV.pdf" target="_blank">View CV</a>
