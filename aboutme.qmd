@@ -3,4 +3,4 @@ title: "My CV"
 format: html
 ---
 
-  <a href="https://github.com/mkolgesiz/cv/blob/main/CV.pdf" target="_blank">View CV</a>
+<a href="https://github.com/mkolgesiz/cv/blob/main/CV.pdf" target="_blank">View CV</a>
