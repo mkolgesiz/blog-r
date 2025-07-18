@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: "https://github.com/mkolgesiz/cv/blob/main/CV.pdf"
+      - href: aboutme.qmd
         text: About Me
       - href: blog-r.qmd
         text: Blog-r
