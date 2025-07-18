@@ -75,7 +75,4 @@ In the long run, the e-invoice portal will help taxpayers and streamline their i
 
 FNE has published several useful documents for registration and user guides:
 
-[DGI](https://dgi.gouv.ci/) 
-[FNE](https://www.fne.dgi.gouv.ci/) 
-[FNE PORTAL](https://www.services.fne.dgi.gouv.ci/fr/login) 
-[DEXY AFRICA](https://www.dexyafrica.com/facturation-electronique-cote-ivoire/)
+[DGI](https://dgi.gouv.ci/) [FNE](https://www.fne.dgi.gouv.ci/) [FNE PORTAL](https://www.services.fne.dgi.gouv.ci/fr/login) [DEXY AFRICA](https://www.dexyafrica.com/facturation-electronique-cote-ivoire/)

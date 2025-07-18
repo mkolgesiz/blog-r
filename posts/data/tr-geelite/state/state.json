@@ -1,0 +1,15 @@
+{
+  "regions": ["TR"],
+  "source": {
+    "MODIS/061/MOD44B": {
+      "Percent_Tree_Cover": ["mean", "sd"]
+    },
+    "MODIS/061/MOD13A2": {
+      "NDVI": ["mean", "sd"]
+    }
+  },
+  "start": ["2020-01-01"],
+  "resol": [3],
+  "scale": {},
+  "limit": [10000]
+}
