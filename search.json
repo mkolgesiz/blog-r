@@ -4,7 +4,7 @@
     "href": "blog-r.html",
     "title": "",
     "section": "",
-    "text": "I switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
+    "text": "Exploring geeLite: An R Package for Local Remote Sensing Analysis\n\n\n\nR\n\nGeospatial\n\nGEE\n\n\n\nDemonstrating tree percentage analysis with geeLite\n\n\n\n\n\nJul 18, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nI switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -21,67 +21,11 @@
     "text": "What’s here\n\nBlog posts - mostly about data and work stuff\nRecipes - things I’ve tried and might get lost over time\nProjects - simple things I’ve built from what I learned along the way"
   },
   {
-    "objectID": "posts/document-management-quarto.html",
-    "href": "posts/document-management-quarto.html",
-    "title": "Quarto for Document Management",
+    "objectID": "posts/switching-linux.html",
+    "href": "posts/switching-linux.html",
+    "title": "I switched to Linux",
     "section": "",
-    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
-  },
-  {
-    "objectID": "posts/document-management-quarto.html#footnotes",
-    "href": "posts/document-management-quarto.html#footnotes",
-    "title": "Quarto for Document Management",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nLike me↩︎"
-  },
-  {
-    "objectID": "recipes/tanem-helva.html",
-    "href": "recipes/tanem-helva.html",
-    "title": "Tenem Halva",
-    "section": "",
-    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
-  },
-  {
-    "objectID": "recipes/tanem-helva.html#history",
-    "href": "recipes/tanem-helva.html#history",
-    "title": "Tenem Halva",
-    "section": "",
-    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
-  },
-  {
-    "objectID": "recipes/tanem-helva.html#ingredients",
-    "href": "recipes/tanem-helva.html#ingredients",
-    "title": "Tenem Halva",
-    "section": "Ingredients",
-    "text": "Ingredients\n\nFlour\nMolasses or sugar\nNeutral oil\nCloves"
-  },
-  {
-    "objectID": "recipes/tanem-helva.html#directions",
-    "href": "recipes/tanem-helva.html#directions",
-    "title": "Tenem Halva",
-    "section": "Directions",
-    "text": "Directions\nRoast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving."
-  },
-  {
-    "objectID": "recipes/goce.html",
-    "href": "recipes/goce.html",
-    "title": "Göce Soup",
-    "section": "",
-    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
-  },
-  {
-    "objectID": "recipes/goce.html#ingredients",
-    "href": "recipes/goce.html#ingredients",
-    "title": "Göce Soup",
-    "section": "",
-    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
-  },
-  {
-    "objectID": "recipes/goce.html#directions",
-    "href": "recipes/goce.html#directions",
-    "title": "Göce Soup",
-    "section": "Directions",
-    "text": "Directions\nStart by washing the cracked wheat 5-6 times until the water runs clear. Place the wheat in a pot and add enough water to cover it, then bring to a boil. As it cooks, keep adding chicken or beef broth whenever the liquid gets low.\nOnce the wheat becomes tender, give it a quick blend to break it up a bit. When the mixture starts boiling again, stir in 1 tablespoon of butter and 2 tablespoons of olive oil. If your soup looks too thin, add the flour and salt, then toss in those dried chili peppers for a gentle kick.\nWhile that’s simmering, grab a small bowl and mix together the yogurt with some crushed garlic. In a separate small pan, melt some butter and add a pinch of red pepper flakes - this will be your finishing touch.\nWhen you’re ready to serve, ladle the soup into bowls and top each one with a dollop of the garlic yogurt and a drizzle of that spiced butter."
+    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to the many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nThe Installation process\nSince I didn’t know if I would be able to use it, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC drivers.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, dual boot options are also available, which I use on a regular basis. Give it a try!"
   },
   {
     "objectID": "posts/einvoice-ivorycoast.html",
@@ -126,11 +70,130 @@
     "text": "Footnotes\n\n\nDirection Générale des Impôts de Côte d’Ivoire↩︎\nFacture Normalisée Electronique↩︎\nTerminaux d’Emission de Reçus Normalisés Electroniques↩︎\nTerminal de paiement électronique↩︎\nReçu Normalisé Electronique↩︎"
   },
   {
-    "objectID": "posts/switching-linux.html",
-    "href": "posts/switching-linux.html",
-    "title": "I switched to Linux",
+    "objectID": "recipes/goce.html",
+    "href": "recipes/goce.html",
+    "title": "Göce Soup",
     "section": "",
-    "text": "Windows 11 and Its Issues\nWindows 11 has become more bloated than ever. Even with paid products such as Microsoft Office, you can’t escape automatic updates and more. Even with 16 GB of RAM, the OS doesn’t run smoothly due to the many background processes. For me, the last straw was Microsoft showing their AI products in every single place they can imagine, namely Copilot. I use Excel on a daily basis. One day, the Copilot icon started to pop up in every single cell. It was more than annoying. Later that day, I decided to use Linux as an alternative and ordered a separate SSD.\n\n\nThe Installation process\nSince I didn’t know if I would be able to use it, I decided to install it on a separate SSD by following this YouTube video. It was relatively easy. I backed up my disk before the installation as a safeguard measure.\nAfter I successfully installed Ubuntu 24.04 LTS, without doing anything else, I installed Omakub. (Thank you DHH!) It worked like magic. Honestly, I was a bit surprised. I tried Linux in the early 2000s and 2010s. Back then, you had to babysit the OS and spend several hours in forums just to update your PC drivers.\nThe only caveat was installing the R packages. But I was able to find an amazing GitHub repo and forum post to resolve any issues.\n\n\nImpressions\nSo far, I’m very positive about my transition. The OS just works. No frills, no babysitting. Also, I’m learning new things about the Linux environment from the open source community. Compared to Windows 11, the system runs more quietly and consumes fewer resources, especially RAM usage. There are also privacy benefits of using Linux as well.\nI highly recommend trying Linux for everyday use. For those who need special software for their business, dual boot options are also available, which I use on a regular basis. Give it a try!"
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
+  },
+  {
+    "objectID": "recipes/goce.html#ingredients",
+    "href": "recipes/goce.html#ingredients",
+    "title": "Göce Soup",
+    "section": "",
+    "text": "250g cracked wheat (bulgur-like texture, hulled wheat)\n5 dried red chili peppers\nButter\nOlive oil\nChicken or beef broth\n1 head of garlic\nYogurt\nSalt\n1 tablespoon flour\n2.5 cups water"
+  },
+  {
+    "objectID": "recipes/goce.html#directions",
+    "href": "recipes/goce.html#directions",
+    "title": "Göce Soup",
+    "section": "Directions",
+    "text": "Directions\nStart by washing the cracked wheat 5-6 times until the water runs clear. Place the wheat in a pot and add enough water to cover it, then bring to a boil. As it cooks, keep adding chicken or beef broth whenever the liquid gets low.\nOnce the wheat becomes tender, give it a quick blend to break it up a bit. When the mixture starts boiling again, stir in 1 tablespoon of butter and 2 tablespoons of olive oil. If your soup looks too thin, add the flour and salt, then toss in those dried chili peppers for a gentle kick.\nWhile that’s simmering, grab a small bowl and mix together the yogurt with some crushed garlic. In a separate small pan, melt some butter and add a pinch of red pepper flakes - this will be your finishing touch.\nWhen you’re ready to serve, ladle the soup into bowls and top each one with a dollop of the garlic yogurt and a drizzle of that spiced butter."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html",
+    "href": "recipes/tanem-helva.html",
+    "title": "Tenem Halva",
+    "section": "",
+    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#history",
+    "href": "recipes/tanem-helva.html#history",
+    "title": "Tenem Halva",
+    "section": "",
+    "text": "This halva is made with only flour, molasses or sugar or in other forms in almost all Anatolia and distributed among neighbors as a blessing for the dead. The version made in Buldan for the same purpose uses flour and semolina together and is called ‘Tenem Halvasi’ because it can be easily dispersed during serving."
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#ingredients",
+    "href": "recipes/tanem-helva.html#ingredients",
+    "title": "Tenem Halva",
+    "section": "Ingredients",
+    "text": "Ingredients\n\nFlour\nMolasses or sugar\nNeutral oil\nCloves"
+  },
+  {
+    "objectID": "recipes/tanem-helva.html#directions",
+    "href": "recipes/tanem-helva.html#directions",
+    "title": "Tenem Halva",
+    "section": "Directions",
+    "text": "Directions\nRoast a little semolina and starch in any vegetable oil until it turns brown. On the other hand, gradually add the agda prepared in another bowl to this mixture while it is still warm. When the halva, which thickens as it is mixed, reaches the desired consistency, remove it from the stove, crush it well in the sinis, spread it and cool it. The next day, it is blended with powdered sugar and a little salt to provide the desired sweetness and served in portions. If pistachios are to be added to the Tenem halva, they are added towards the end of the roasting process and roasted together, giving the halva a distinct appearance and flavor. Crushed cloves can also be added on top of the portions during serving."
+  },
+  {
+    "objectID": "posts/document-management-quarto.html",
+    "href": "posts/document-management-quarto.html",
+    "title": "Quarto for Document Management",
+    "section": "",
+    "text": "Greetings! Today, I’m excited to share a tool that’s been helping the way I work: Quarto. As someone who prioritize streamlining processes and boosting productivity, Quarto has quickly become my go-to solution for creating, managing, and sharing documents with ease.\nSo, what exactly is Quarto? It is a comprehensive platform designed to streamline the process of creating high-quality documents with minimal effort. Whether you’re drafting reports, preparing guides for your team, or even writing blog posts like this one, Quarto provides a robust set of features to meet your diverse needs.\nOne of Quarto’s standout capabilities is its ability to generate a wide range of output formats, including standalone HTML files. Whether you’re a pro or a complete beginner1, Quarto makes it easy to create interactive documents that are both user-friendly and visually appealing.\nQuarto offers a range of themes and styling options, so you can tailor your documents to match your brand or personal preference. Whether you prefer a sleek, minimalist design or something with a bit more flair, Quarto has the tools to make it happen.\nInterested? Go to Quarto’s website to learn more and improve your document workflow today.\nHappy documenting!"
+  },
+  {
+    "objectID": "posts/document-management-quarto.html#footnotes",
+    "href": "posts/document-management-quarto.html#footnotes",
+    "title": "Quarto for Document Management",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLike me↩︎"
+  },
+  {
+    "objectID": "posts/geeLite.html",
+    "href": "posts/geeLite.html",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "",
+    "text": "Folks from World Bank data group published a R package that helps to run local R analysis via Google Earth Engine. I’ve already made a demo repository on Github. I think it’s very neat concept that should be kept speading."
+  },
+  {
+    "objectID": "posts/geeLite.html#what-is-geelite",
+    "href": "posts/geeLite.html#what-is-geelite",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "",
+    "text": "Folks from World Bank data group published a R package that helps to run local R analysis via Google Earth Engine. I’ve already made a demo repository on Github. I think it’s very neat concept that should be kept speading."
+  },
+  {
+    "objectID": "posts/geeLite.html#demo-dataset-turkeys-tree-percentage-analysis",
+    "href": "posts/geeLite.html#demo-dataset-turkeys-tree-percentage-analysis",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "Demo Dataset: Turkey’s Tree Percentage Analysis",
+    "text": "Demo Dataset: Turkey’s Tree Percentage Analysis\nFor this demo, I’ve used:\n\nSpatial Coverage: Turkey represented by hexagonal grid cells\nTemporal Range: Monthly observations from 2020-2024\nData Sources: MODIS PTC (tree cover) indices"
+  },
+  {
+    "objectID": "posts/geeLite.html#load-the-necessary-libraries",
+    "href": "posts/geeLite.html#load-the-necessary-libraries",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "Load the necessary libraries",
+    "text": "Load the necessary libraries\nInstall the packages with dependentices. Make sure to use Conda python environment.\n\n\nCode\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(sf)\nlibrary(leaflet)\nlibrary(DT)\nlibrary(tidyr)\nlibrary(htmlwidgets)\nlibrary(geeLite)"
+  },
+  {
+    "objectID": "posts/geeLite.html#pulling-db",
+    "href": "posts/geeLite.html#pulling-db",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "Pulling DB",
+    "text": "Pulling DB\nIn a typical geeLite workflow, you config an R file and download the SQLite DB via GEE API. SQLite database created by the geeLite package. This dataset includes both NDVI (vegetation health) and PTC (tree cover) measurements across hexagonal grid cells covering Turkey."
+  },
+  {
+    "objectID": "posts/geeLite.html#process-db-and-data-preparation",
+    "href": "posts/geeLite.html#process-db-and-data-preparation",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "Process DB and data preparation",
+    "text": "Process DB and data preparation\nThis section transforms the spatial data into formats suitable for time series analysis and visualization. We extract date columns, reshape the data from wide to long format, and calculate summary statistics for each time period including mean, median, and variability measures across all hexagonal grid cells.\n\n\nCode\n# Load geeLite database with proper path\ndb &lt;- read_db(path = \"data/tr-geelite\", freq = \"year\")\n\n# Load spatial data directly from geeLite database\nsf_data &lt;- merge(db$grid, db$`MODIS/061/MOD44B/Percent_Tree_Cover/mean`, by = \"id\")\n\n\n\n\nCode\n# Create a function to generate maps for different time periods\ncreate_tree_map &lt;- function(selected_date, data = sf_data, cols = date_cols) {\n  tree_values &lt;- data[[selected_date]]\n  valid_tree &lt;- tree_values[!is.na(tree_values)]\n  \n  # Create color palette with explicit domain range\n  pal &lt;- colorNumeric(\"viridis\", domain = range(valid_tree, na.rm = TRUE))\n  \n  # Create leaflet map following blog example\n  leaflet(data) %&gt;%\n    addTiles() %&gt;%\n    addPolygons(\n      fillColor = ~pal(tree_values),\n      weight = 1,\n      color = \"#333333\",\n      fillOpacity = 0.9,\n      popup = ~paste(\"Percent_Tree_Cover:\", round(tree_values, 1), \n                    \"&lt;br&gt;Date:\", selected_date,\n                    \"&lt;br&gt;Hex ID:\", id)\n    ) %&gt;%\n    addScaleBar() %&gt;%\n    addLegend(\n      pal = pal, \n      values = ~tree_values, \n      title = paste(\"Percent_Tree_Cover\", selected_date),\n      na.label = \"No data\",\n      position = \"bottomright\"\n    )\n}\n\n# Create maps for several key time periods\nsample_dates &lt;- c(\"2020-01-01\", \"2021-01-01\", \"2022-01-01\", \"2023-01-01\", \"2024-01-01\")\navailable_dates &lt;- intersect(sample_dates, date_cols)\n\n\n\n20202021202220232024"
+  },
+  {
+    "objectID": "posts/geeLite.html#time-series-analysis",
+    "href": "posts/geeLite.html#time-series-analysis",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "Time Series Analysis",
+    "text": "Time Series Analysis\nTemporal trends in tree cover across Turkey through two complementary visualizations. The first plot shows the overall trajectory of mean tree cover values, while the second plot illustrates variability and uncertainty by displaying confidence bands around the mean trend along with median values for comparison.\n\n\nCode\n# Time series plot of mean tree cover values\np1 &lt;- ggplot(tree_summary, aes(x = date, y = mean_tree)) +\n  geom_line(color = \"darkgreen\", linewidth = 1.2) +\n  geom_point(color = \"darkgreen\", size = 2) +\n  labs(\n    title = \"Turkey Tree Cover Time Series Analysis (2020-2024)\",\n    subtitle = \"Based on MODIS Tree Cover Data via geeLite\",\n    x = \"Date\",\n    y = \"Mean Tree Cover (%)\",\n    caption = \"Data source: Google Earth Engine via geeLite\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 16, face = \"bold\"),\n    plot.subtitle = element_text(size = 12),\n    axis.title = element_text(size = 12),\n    axis.text = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, hjust = 1)\n  )\n\nprint(p1)\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Plot showing tree cover variability over time\np2 &lt;- ggplot(tree_summary, aes(x = date)) +\n  geom_ribbon(aes(ymin = mean_tree - std_tree, ymax = mean_tree + std_tree), \n              alpha = 0.3, fill = \"green\") +\n  geom_line(aes(y = mean_tree), color = \"darkgreen\", linewidth = 1.2) +\n  geom_line(aes(y = median_tree), color = \"blue\", linewidth = 1, linetype = \"dashed\") +\n  labs(\n    title = \"Tree Cover Variability Across Turkey\",\n    subtitle = \"Mean ± Standard Deviation (green band) and Median (blue dashed)\",\n    x = \"Date\",\n    y = \"Tree Cover (%)\",\n    caption = \"Data source: Google Earth Engine via geeLite\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 16, face = \"bold\"),\n    plot.subtitle = element_text(size = 12),\n    axis.title = element_text(size = 12),\n    axis.text = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, hjust = 1)\n  )\n\nprint(p2)"
+  },
+  {
+    "objectID": "posts/geeLite.html#summary-statistics",
+    "href": "posts/geeLite.html#summary-statistics",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics\nStatistical summaries of the tree cover analysis, including key metrics about data coverage, temporal scope, and overall forest trends. The summary table presents essential findings in a structured format for easy interpretation.\n\n\nCode\n# Calculate overall statistics\nbaseline_tree &lt;- tree_summary$mean_tree[1]\nlatest_tree &lt;- tail(tree_summary$mean_tree, 1)\ntotal_change &lt;- latest_tree - baseline_tree\nmean_change_per_period &lt;- mean(diff(tree_summary$mean_tree), na.rm = TRUE)\n\n# Create summary table\nsummary_stats &lt;- data.frame(\n  Metric = c(\"Analysis Period\", \"Total Observations\", \"Hexagonal Cells\", \n             \"Baseline Tree Cover\", \"Latest Tree Cover\", \"Total Change\", \n             \"Average Change per Period\", \"Overall Trend\"),\n  Value = c(\n    paste(min(tree_summary$date), \"to\", max(tree_summary$date)),\n    format(nrow(sf_long), big.mark = \",\"),\n    nrow(sf_data),\n    paste(round(baseline_tree, 1), \"%\"),\n    paste(round(latest_tree, 1), \"%\"),\n    paste(round(total_change, 1), \"%\"),\n    paste(round(mean_change_per_period, 2), \"%\"),\n    ifelse(total_change &gt; 2, \"Forest Improvement\", \n           ifelse(total_change &lt; -2, \"Forest Decline\", \"Stable\"))\n  )\n)\n\n# Display summary table\nknitr::kable(summary_stats, \n             caption = \"Turkey Tree Cover Analysis Summary\",\n             col.names = c(\"Metric\", \"Value\"))\n\n\n\nTurkey Tree Cover Analysis Summary\n\n\nMetric\nValue\n\n\n\n\nAnalysis Period\n2020-01-01 to 2024-01-01\n\n\nTotal Observations\n290\n\n\nHexagonal Cells\n58\n\n\nBaseline Tree Cover\n10.6 %\n\n\nLatest Tree Cover\n11.2 %\n\n\nTotal Change\n0.6 %\n\n\nAverage Change per Period\n0.15 %\n\n\nOverall Trend\nStable\n\n\n\n\n\n\nInteractive Data Explorer\nThe interactive table below allows detailed exploration of the time series data. Users can search, sort, and filter the annual tree cover statistics to identify specific patterns or periods of interest. The table includes statistical measures for each time period across all hexagonal grid cells.\n\n\nCode\n# Create interactive data table\nDT::datatable(\n  tree_summary %&gt;%\n    mutate(\n      Date = format(date, \"%Y-%m-%d\"),\n      `Mean Tree Cover` = round(mean_tree, 1),\n      `Median Tree Cover` = round(median_tree, 1),\n      `Min Tree Cover` = round(min_tree, 1),\n      `Max Tree Cover` = round(max_tree, 1),\n      `Std Dev` = round(std_tree, 1),\n      `Valid Cells` = valid_cells\n    ) %&gt;%\n    select(-date, -mean_tree, -median_tree, -min_tree, -max_tree, -std_tree, -valid_cells),\n  caption = \"Turkey Tree Cover Time Series Data\",\n  options = list(\n    pageLength = 15,\n    scrollX = TRUE,\n    dom = 'Bfrtip'\n  ),\n  rownames = FALSE\n)\n\n\n\n\n\n\n\n\nAnalysis Results\nThe following table summarizes the key quantitative findings from our analysis, including data coverage metrics, temporal scope, tree cover value ranges, and overall forest change assessment based on the comparison between baseline and latest observations.\n\n\nCode\n# Create results summary data frame\nbaseline_tree &lt;- tree_summary$mean_tree[1]\nlatest_tree &lt;- tail(tree_summary$mean_tree, 1)\ntotal_change &lt;- latest_tree - baseline_tree\n\nresults_summary &lt;- data.frame(\n  Metric = c(\"Data Coverage\", \"Time Period\", \"Tree Cover Range\", \"Baseline Tree Cover\", \n             \"Latest Tree Cover\", \"Total Change\", \"Assessment\"),\n  Value = c(\n    paste(nrow(sf_data), \"hexagonal cells across Turkey\"),\n    paste(length(date_cols), \"annual observations from\", min(date_cols), \"to\", max(date_cols)),\n    paste(round(min(sf_long$Percent_Tree_Cover, na.rm = TRUE), 1), \"% to\", round(max(sf_long$Percent_Tree_Cover, na.rm = TRUE), 1), \"%\"),\n    paste(round(baseline_tree, 1), \"% (\", min(date_cols), \")\"),\n    paste(round(latest_tree, 1), \"% (\", max(date_cols), \")\"),\n    paste(round(total_change, 1), \"percentage points\"),\n    case_when(\n      total_change &gt; 2 ~ \"FOREST IMPROVEMENT DETECTED 🌱\",\n      total_change &lt; -2 ~ \"FOREST DECLINE DETECTED ⚠️\",\n      TRUE ~ \"Forest cover appears stable\"\n    )\n  )\n)\n\nknitr::kable(results_summary, col.names = c(\"**Metric**\", \"**Value**\"))\n\n\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\nData Coverage\n58 hexagonal cells across Turkey\n\n\nTime Period\n5 annual observations from 2020-01-01 to 2024-01-01\n\n\nTree Cover Range\n0.5 % to 44.9 %\n\n\nBaseline Tree Cover\n10.6 % ( 2020-01-01 )\n\n\nLatest Tree Cover\n11.2 % ( 2024-01-01 )\n\n\nTotal Change\n0.6 percentage points\n\n\nAssessment\nForest cover appears stable"
+  },
+  {
+    "objectID": "posts/geeLite.html#references",
+    "href": "posts/geeLite.html#references",
+    "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
+    "section": "References",
+    "text": "References\n\nWorld Bank Data Team. (2024). geeLite – an R package for tracking remote sensing data locally. World Bank Blogs - Open Data. Available at: https://blogs.worldbank.org/en/opendata/geelite–an-r-package-for-tracking-remote-sensing-datalocally-\nBraaten, J., Bullock, E., & Gorelick, N. (2024). geeLite: Client for Accessing and Processing Google Earth Engine Data. GitHub Repository. Available at: https://github.com/gee-community/geeLite\nGoogle Earth Engine Team. (2024). MODIS/061/MOD13A2: MODIS Terra Vegetation Indices 16-Day Global 1km. Google Earth Engine Data Catalog. Available at: https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2"
   },
   {
     "objectID": "recipes.html",

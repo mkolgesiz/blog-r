@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="M. Melik Kölgesiz">
+<meta name="dcterms.date" content="2025-07-18">
+<meta name="description" content="Demonstrating tree percentage analysis with geeLite">
+
+<title>Exploring geeLite: An R Package for Local Remote Sensing Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a8067cc1823b39fe189e714953bd6389.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
+<link href="../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="../site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="../site_libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="../site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.33/datatables.js"></script>
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mkolgesiz/cv/blob/main/CV.pdf"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog-r.html"> 
+<span class="menu-text">Blog-r</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://mkolgesiz.github.io/blog-py/blog.html"> 
+<span class="menu-text">Blog-py</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../recipes.html"> 
+<span class="menu-text">Recipes</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mkolgesiz"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/mkolgesiz.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/mkolgesiz"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="fa6-brands:linkedin" aria-label="Icon linkedin from fa6-brands Iconify.design set." title="Icon linkedin from fa6-brands Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://huggingface.co/mkolgesiz"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="simple-icons:huggingface" aria-label="Icon huggingface from simple-icons Iconify.design set." title="Icon huggingface from simple-icons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-geelite" id="toc-what-is-geelite" class="nav-link active" data-scroll-target="#what-is-geelite">What is geeLite?</a></li>
+  <li><a href="#demo-dataset-turkeys-tree-percentage-analysis" id="toc-demo-dataset-turkeys-tree-percentage-analysis" class="nav-link" data-scroll-target="#demo-dataset-turkeys-tree-percentage-analysis">Demo Dataset: Turkey’s Tree Percentage Analysis</a></li>
+  <li><a href="#load-the-necessary-libraries" id="toc-load-the-necessary-libraries" class="nav-link" data-scroll-target="#load-the-necessary-libraries">Load the necessary libraries</a></li>
+  <li><a href="#pulling-db" id="toc-pulling-db" class="nav-link" data-scroll-target="#pulling-db">Pulling DB</a></li>
+  <li><a href="#process-db-and-data-preparation" id="toc-process-db-and-data-preparation" class="nav-link" data-scroll-target="#process-db-and-data-preparation">Process DB and data preparation</a></li>
+  <li><a href="#time-series-analysis" id="toc-time-series-analysis" class="nav-link" data-scroll-target="#time-series-analysis">Time Series Analysis</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a>
+  <ul class="collapse">
+  <li><a href="#interactive-data-explorer" id="toc-interactive-data-explorer" class="nav-link" data-scroll-target="#interactive-data-explorer">Interactive Data Explorer</a></li>
+  <li><a href="#analysis-results" id="toc-analysis-results" class="nav-link" data-scroll-target="#analysis-results">Analysis Results</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exploring geeLite: An R Package for Local Remote Sensing Analysis</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Geospatial</div>
+    <div class="quarto-category">GEE</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Demonstrating tree percentage analysis with geeLite
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>M. Melik Kölgesiz </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 18, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-is-geelite" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-geelite">What is geeLite?</h2>
+<p>Folks from World Bank data group published a R package that helps to run local R analysis via Google Earth Engine. I’ve already made a demo repository on <a href="https://github.com/mkolgesiz/geelite-demo/">Github</a>. I think it’s very neat concept that should be kept speading.</p>
+</section>
+<section id="demo-dataset-turkeys-tree-percentage-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="demo-dataset-turkeys-tree-percentage-analysis">Demo Dataset: Turkey’s Tree Percentage Analysis</h2>
+<p>For this demo, I’ve used:</p>
+<ul>
+<li><strong>Spatial Coverage</strong>: Turkey represented by hexagonal grid cells</li>
+<li><strong>Temporal Range</strong>: Monthly observations from 2020-2024</li>
+<li><strong>Data Sources</strong>: MODIS PTC (tree cover) indices</li>
+</ul>
+</section>
+<section id="load-the-necessary-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="load-the-necessary-libraries">Load the necessary libraries</h2>
+<p>Install the packages with dependentices. Make sure to use Conda python environment.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmlwidgets)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geeLite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="pulling-db" class="level2">
+<h2 class="anchored" data-anchor-id="pulling-db">Pulling DB</h2>
+<p>In a typical geeLite workflow, you config an R file and download the SQLite DB via GEE API. SQLite database created by the geeLite package. This dataset includes both NDVI (vegetation health) and PTC (tree cover) measurements across hexagonal grid cells covering Turkey.</p>
+</section>
+<section id="process-db-and-data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="process-db-and-data-preparation">Process DB and data preparation</h2>
+<p>This section transforms the spatial data into formats suitable for time series analysis and visualization. We extract date columns, reshape the data from wide to long format, and calculate summary statistics for each time period including mean, median, and variability measures across all hexagonal grid cells.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load geeLite database with proper path</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">read_db</span>(<span class="at">path =</span> <span class="st">"data/tr-geelite"</span>, <span class="at">freq =</span> <span class="st">"year"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load spatial data directly from geeLite database</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sf_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(db<span class="sc">$</span>grid, db<span class="sc">$</span><span class="st">`</span><span class="at">MODIS/061/MOD44B/Percent_Tree_Cover/mean</span><span class="st">`</span>, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a function to generate maps for different time periods</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>create_tree_map <span class="ot">&lt;-</span> <span class="cf">function</span>(selected_date, <span class="at">data =</span> sf_data, <span class="at">cols =</span> date_cols) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  tree_values <span class="ot">&lt;-</span> data[[selected_date]]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  valid_tree <span class="ot">&lt;-</span> tree_values[<span class="sc">!</span><span class="fu">is.na</span>(tree_values)]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create color palette with explicit domain range</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  pal <span class="ot">&lt;-</span> <span class="fu">colorNumeric</span>(<span class="st">"viridis"</span>, <span class="at">domain =</span> <span class="fu">range</span>(valid_tree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create leaflet map following blog example</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leaflet</span>(data) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addPolygons</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">fillColor =</span> <span class="sc">~</span><span class="fu">pal</span>(tree_values),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">weight =</span> <span class="dv">1</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"#333333"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">fillOpacity =</span> <span class="fl">0.9</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(<span class="st">"Percent_Tree_Cover:"</span>, <span class="fu">round</span>(tree_values, <span class="dv">1</span>), </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"&lt;br&gt;Date:"</span>, selected_date,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"&lt;br&gt;Hex ID:"</span>, id)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addScaleBar</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addLegend</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">pal =</span> pal, </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">values =</span> <span class="sc">~</span>tree_values, </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Percent_Tree_Cover"</span>, selected_date),</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">na.label =</span> <span class="st">"No data"</span>,</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">position =</span> <span class="st">"bottomright"</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Create maps for several key time periods</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>sample_dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"2020-01-01"</span>, <span class="st">"2021-01-01"</span>, <span class="st">"2022-01-01"</span>, <span class="st">"2023-01-01"</span>, <span class="st">"2024-01-01"</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>available_dates <span class="ot">&lt;-</span> <span class="fu">intersect</span>(sample_dates, date_cols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">2020</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2021</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">2022</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">2023</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-dbd8c79743df2d844289" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-dbd8c79743df2d844289">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addPolygons","args":[[[[{"lng":[26.75392713696018,26.69444832655208,27.41889247136163,28.20561641084367,28.27582003281616,27.54862992875092,26.75392713696018],"lat":[41.41639200107732,40.77110362157863,40.40014108506871,40.67153760127161,41.31558927630959,41.68953194273748,41.41639200107732]}]],[[{"lng":[25.90955019734398,25.8566561527047,26.57801634529262,27.35540155921771,27.41889247136163,26.69444832655208,25.90955019734398],"lat":[40.48938330460453,39.83864906002427,39.47064903027519,39.75047152140711,40.40014108506871,40.77110362157863,40.48938330460453]}]],[[{"lng":[27.41889247136163,27.35540155921771,28.06817079531339,28.84686884717912,28.92076561720102,28.20561641084367,27.41889247136163],"lat":[40.40014108506871,39.75047152140711,39.37355976167923,39.64331054771269,40.29156972573303,40.67153760127161,40.40014108506871]}]],[[{"lng":[43.46432377003566,44.04498513651647,44.5403979156662,44.78917069642782,44.96658033859127,44.38550731669547,43.88232974070638,43.63078883928756,43.46432377003566],"lat":[39.48310661543461,39.03471835622047,39.1399668625514,39.19042626649574,39.79634372406262,40.24932117512771,40.14339295748996,40.09098548661677,39.48310661543461]}]],[[{"lng":[42.27595072881267,42.11651610751938,42.71268598324743,43.46432377003566,43.63078883928756,43.03870972671675,42.27595072881267],"lat":[40.37421891237964,39.76221332071589,39.31801170266608,39.48310661543461,40.09098548661677,40.5379143795347,40.37421891237964]}]],[[{"lng":[42.71268598324743,42.55271260195798,43.13752145794886,43.87827633045024,44.04498513651647,43.46432377003566,42.71268598324743],"lat":[39.31801170266608,38.70304190833014,38.25742550967681,38.42402287550505,39.03471835622047,39.48310661543461,39.31801170266608]}]],[[{"lng":[43.13752145794886,42.97711466948047,43.55089210890026,44.28099871327971,44.44785987206311,43.87827633045024,43.13752145794886],"lat":[38.25742550967681,37.63988301518088,37.19334310339934,37.36153449315948,37.97465830944774,38.42402287550505,38.25742550967681]}]],[[{"lng":[40.89705848930085,40.74511278127022,41.35657591970917,42.11651610751938,42.27595072881267,41.66807932931008,40.89705848930085],"lat":[40.64395673035828,40.02802969422817,39.58855898492218,39.76221332071589,40.37421891237964,40.81651360826753,40.64395673035828]}]],[[{"lng":[41.82686156553261,41.66807932931008,42.27595072881267,43.03870972671675,43.20483211516566,42.60098340311145,41.82686156553261],"lat":[41.42517469528692,40.81651360826753,40.37421891237964,40.5379143795347,41.14259876763571,41.58758498853158,41.42517469528692]}]],[[{"lng":[39.49510454786297,39.35110031304906,39.97757007195356,40.74511278127022,40.89705848930085,40.27364106514176,39.49510454786297],"lat":[40.89930692683948,40.27967998813411,39.84548333301931,40.02802969422817,40.64395673035828,41.08106308548847,40.89930692683948]}]],[[{"lng":[40.44702850706764,40.30082036180866,40.90393830075324,41.65010849535905,41.80362990355213,41.20378260090939,40.44702850706764],"lat":[38.78606593762386,38.16029427741795,37.72195972074655,37.90641729561219,38.52818125598115,38.96951630812845,38.78606593762386]}]],[[{"lng":[41.35657591970917,41.20378260090939,41.80362990355213,42.55271260195798,42.71268598324743,42.11651610751938,41.35657591970917],"lat":[39.58855898492218,38.96951630812845,38.52818125598115,38.70304190833014,39.31801170266608,39.76221332071589,39.58855898492218]}]],[[{"lng":[40.90393830075324,40.75681983483856,41.34874010814596,42.08453011389582,42.23866844240896,41.65010849535905,40.90393830075324],"lat":[37.72195972074655,37.09372208549631,36.65408054433784,36.83963771514377,37.46371825217525,37.90641729561219,37.72195972074655]}]],[[{"lng":[41.80362990355213,41.65010849535905,42.23866844240896,42.97711466948047,43.13752145794886,42.55271260195798,41.80362990355213],"lat":[38.52818125598115,37.90641729561219,37.46371825217525,37.63988301518088,38.25742550967681,38.70304190833014,38.52818125598115]}]],[[{"lng":[39.06869121950607,38.93021759674642,39.54760269073364,40.30082036180866,40.44702850706764,39.83239702118404,39.06869121950607],"lat":[39.030236543477,38.40068741342036,37.96724011219477,38.16029427741795,38.78606593762386,39.22258562300163,39.030236543477]}]],[[{"lng":[39.97757007195356,39.83239702118404,40.44702850706764,41.20378260090939,41.35657591970917,40.74511278127022,39.97757007195356],"lat":[39.84548333301931,39.22258562300163,38.78606593762386,38.96951630812845,39.58855898492218,40.02802969422817,39.84548333301931]}]],[[{"lng":[39.54760269073364,39.40791451802404,40.01390390535312,40.75681983483856,40.90393830075324,40.30082036180866,39.54760269073364],"lat":[37.96724011219477,37.33507129627533,36.89986549574836,37.09372208549631,37.72195972074655,38.16029427741795,37.96724011219477]}]],[[{"lng":[33.68154151485255,33.57356478818899,34.25569329920059,35.04536658336036,35.16295215521244,34.48135696744161,33.68154151485255],"lat":[41.76002281300546,41.12812672764258,40.72029384206024,40.94129069308124,41.57052929593052,41.98146857772053,41.76002281300546]}]],[[{"lng":[34.25569329920059,34.14517888552743,34.81497841853324,35.59461531057752,35.71438837201353,35.04536658336036,34.25569329920059],"lat":[40.72029384206024,40.0844744378635,39.67243888835663,39.89310904128938,40.52610366217259,40.94129069308124,40.72029384206024]}]],[[{"lng":[35.16295215521244,35.04536658336036,35.71438837201353,36.49989244588108,36.62670018676323,35.95888975914823,35.16295215521244],"lat":[41.57052929593052,40.94129069308124,40.52610366217259,40.73710931274847,41.36340748051559,41.78167713429249,41.57052929593052]}]],[[{"lng":[32.18416093077614,32.08615225875723,32.78072229592114,33.57356478818899,33.68154151485255,32.98680118625447,32.18416093077614],"lat":[41.93120042635866,41.29694332763068,40.89694020634369,41.12812672764258,41.76002281300546,42.16313655584668,41.93120042635866]}]],[[{"lng":[32.78072229592114,32.67982486678349,33.36205936480856,34.14517888552743,34.25569329920059,33.57356478818899,32.78072229592114],"lat":[40.89694020634369,40.2585904108818,39.8539165470676,40.0844744378635,40.72029384206024,41.12812672764258,40.89694020634369]}]],[[{"lng":[33.92863236095966,33.82254156386477,34.48088998665223,35.24482483410058,35.35986436648889,34.70211322336851,33.92863236095966],"lat":[38.80305550764803,38.15774326462537,37.74530526425103,37.97493975922033,38.61738429085779,39.03309857636183,38.80305550764803]}]],[[{"lng":[34.81497841853324,34.70211322336851,35.35986436648889,36.1295780477436,36.25136402457679,35.59461531057752,34.81497841853324],"lat":[39.67243888835663,39.03309857636183,38.61738429085779,38.83784195852542,39.47419090525831,39.89310904128938,39.67243888835663]}]],[[{"lng":[34.48088998665223,34.37247395140693,35.01926920399873,35.77375792162133,35.89080530101953,35.24482483410058,34.48088998665223],"lat":[37.74530526425103,37.09715169756353,36.68163245897765,36.91095673461511,37.5560761706642,37.97493975922033,37.74530526425103]}]],[[{"lng":[35.35986436648889,35.24482483410058,35.89080530101953,36.65071528162084,36.77434984540357,36.1295780477436,35.35986436648889],"lat":[38.61738429085779,37.97493975922033,37.5560761706642,37.77642720733404,38.41571527061354,38.83784195852542,38.61738429085779]}]],[[{"lng":[32.48217066356338,32.38535877695387,33.05548256244556,33.82254156386477,33.92863236095966,33.25847140885456,32.48217066356338],"lat":[38.97207461816092,38.32419732667995,37.91864749464704,38.15774326462537,38.80305550764803,39.21187669737884,38.97207461816092]}]],[[{"lng":[33.36205936480856,33.25847140885456,33.92863236095966,34.70211322336851,34.81497841853324,34.14517888552743,33.36205936480856],"lat":[39.8539165470676,39.21187669737884,38.80305550764803,39.03309857636183,39.67243888835663,40.0844744378635,39.8539165470676]}]],[[{"lng":[33.05548256244556,32.95602687537129,33.61458372321314,34.37247395140693,34.48088998665223,33.82254156386477,33.05548256244556],"lat":[37.91864749464704,37.26775932101902,36.85866401664056,37.09715169756353,37.74530526425103,38.15774326462537,37.91864749464704]}]],[[{"lng":[37.15521777583515,37.02656909321291,37.66972391336357,38.4395998803737,38.57672065964872,37.93560490675943,37.15521777583515],"lat":[40.3150658165757,39.68517640087391,39.25987403101075,39.46140972892039,40.08792834344594,40.51631286338927,40.3150658165757]}]],[[{"lng":[38.07122507599479,37.93560490675943,38.57672065964872,39.35110031304906,39.49510454786297,38.85646296383545,38.07122507599479],"lat":[41.1394020850563,40.51631286338927,40.08792834344594,40.27967998813411,40.89930692683948,41.33067402303146,41.1394020850563]}]],[[{"lng":[37.66972391336357,37.53939574400638,38.17068872902224,38.93021759674642,39.06869121950607,38.4395998803737,37.66972391336357],"lat":[39.25987403101075,38.62679387483306,38.19875202083543,38.40068741342036,39.030236543477,39.46140972892039,39.25987403101075]}]],[[{"lng":[38.57672065964872,38.4395998803737,39.06869121950607,39.83239702118404,39.97757007195356,39.35110031304906,38.57672065964872],"lat":[40.08792834344594,39.46140972892039,39.030236543477,39.22258562300163,39.84548333301931,40.27967998813411,40.08792834344594]}]],[[{"lng":[35.71438837201353,35.59461531057752,36.25136402457679,37.02656909321291,37.15521777583515,36.49989244588108,35.71438837201353],"lat":[40.52610366217259,39.89310904128938,39.47419090525831,39.68517640087391,40.3150658165757,40.73710931274847,40.52610366217259]}]],[[{"lng":[36.62670018676323,36.49989244588108,37.15521777583515,37.93560490675943,38.07122507599479,37.41775926946102,36.62670018676323],"lat":[41.36340748051559,40.73710931274847,40.3150658165757,40.51631286338927,41.1394020850563,41.56448638206296,41.36340748051559]}]],[[{"lng":[36.25136402457679,36.1295780477436,36.77434984540357,37.53939574400638,37.66972391336357,37.02656909321291,36.25136402457679],"lat":[39.47419090525831,38.83784195852542,38.41571527061354,38.62679387483306,39.25987403101075,39.68517640087391,39.47419090525831]}]],[[{"lng":[30.41317908910699,30.32910696838931,31.02210603841925,31.80023823094864,31.89421854765742,31.20023596728733,30.41317908910699],"lat":[40.1640337045118,39.51752281763152,39.12384360782131,39.37354260399444,40.01797673556467,40.41483320155767,40.1640337045118]}]],[[{"lng":[31.29118686344163,31.20023596728733,31.89421854765742,32.67982486678349,32.78072229592114,32.08615225875723,31.29118686344163],"lat":[41.05540607047603,40.41483320155767,40.01797673556467,40.2585904108818,40.89694020634369,41.29694332763068,41.05540607047603]}]],[[{"lng":[31.02210603841925,30.93487605957411,31.6161179120294,32.38535877695387,32.48217066356338,31.80023823094864,31.02210603841925],"lat":[39.12384360782131,38.47371675001193,38.07549591433029,38.32419732667995,38.97207461816092,39.37354260399444,39.12384360782131]}]],[[{"lng":[31.89421854765742,31.80023823094864,32.48217066356338,33.25847140885456,33.36205936480856,32.67982486678349,31.89421854765742],"lat":[40.01797673556467,39.37354260399444,38.97207461816092,39.21187669737884,39.8539165470676,40.2585904108818,40.01797673556467]}]],[[{"lng":[28.92076561720102,28.84686884717912,29.55016649146245,30.32910696838931,30.41317908910699,29.70820350979227,28.92076561720102],"lat":[40.29156972573303,39.64331054771269,39.25782736657834,39.51752281763152,40.1640337045118,40.55264444865455,40.29156972573303]}]],[[{"lng":[29.78891102554876,29.70820350979227,30.41317908910699,31.20023596728733,31.29118686344163,30.58491366768429,29.78891102554876],"lat":[41.19512137576952,40.55264444865455,40.1640337045118,40.41483320155767,41.05540607047603,41.44713007511783,41.19512137576952]}]],[[{"lng":[29.55016649146245,29.47279077114591,30.16443143146895,30.93487605957411,31.02210603841925,30.32910696838931,29.55016649146245],"lat":[39.25782736657834,38.6057779803535,38.21530146274488,38.47371675001193,39.12384360782131,39.51752281763152,39.25782736657834]}]],[[{"lng":[37.28380169054273,37.15847316225135,37.780160694358,38.52532435638908,38.65856621949614,38.03883261668503,37.28380169054273],"lat":[37.35161848319326,36.709818345525,36.28285603308113,36.49442404260413,37.1326349046004,37.56289437280511,37.35161848319326]}]],[[{"lng":[38.17068872902224,38.03883261668503,38.65856621949614,39.40791451802404,39.54760269073364,38.93021759674642,38.17068872902224],"lat":[38.19875202083543,37.56289437280511,37.1326349046004,37.33507129627533,37.96724011219477,38.40068741342036,38.19875202083543]}]],[[{"lng":[38.65856621949614,38.52532435638908,39.13379456767612,39.87313057089867,40.01390390535312,39.40791451802404,38.65856621949614],"lat":[37.1326349046004,36.49442404260413,36.06246930016206,36.26549804329453,36.89986549574836,37.33507129627533,37.1326349046004]}]],[[{"lng":[35.89080530101953,35.77375792162133,36.40824201853938,37.15847316225135,37.28380169054273,36.65071528162084,35.89080530101953],"lat":[37.5560761706642,36.91095673461511,36.48947674024333,36.709818345525,37.35161848319326,37.77642720733404,37.5560761706642]}]],[[{"lng":[36.77434984540357,36.65071528162084,37.28380169054273,38.03883261668503,38.17068872902224,37.53939574400638,36.77434984540357],"lat":[38.41571527061354,37.77642720733404,37.35161848319326,37.56289437280511,38.19875202083543,38.62679387483306,38.41571527061354]}]],[[{"lng":[27.23107993317469,27.17021260843733,27.86910331182821,28.63128556124237,28.7021497665707,28.00088783039564,27.23107993317469],"lat":[38.44191317489881,37.78332971808115,37.40412642214208,37.68041148590275,38.3375790713167,38.71992501118346,38.44191317489881]}]],[[{"lng":[28.7021497665707,28.63128556124237,29.32121398335472,30.08378129811129,30.16443143146895,29.47279077114591,28.7021497665707],"lat":[38.3375790713167,37.68041148590275,37.2931582080128,37.55989481350725,38.21530146274488,38.6057779803535,38.3375790713167]}]],[[{"lng":[27.86910331182821,27.80456403265456,28.49244726274084,29.24697030924795,29.32121398335472,28.63128556124237,27.86910331182821],"lat":[37.40412642214208,36.74228052489006,36.35826642744043,36.63290490648417,37.2931582080128,37.68041148590275,37.40412642214208]}]],[[{"lng":[26.57801634529262,26.52102791076366,27.23107993317469,28.00088783039564,28.06817079531339,27.35540155921771,26.57801634529262],"lat":[39.47064903027519,38.81577462532137,38.44191317489881,38.71992501118346,39.37355976167923,39.75047152140711,39.47064903027519]}]],[[{"lng":[28.06817079531339,28.00088783039564,28.7021497665707,29.47279077114591,29.55016649146245,28.84686884717912,28.06817079531339],"lat":[39.37355976167923,38.71992501118346,38.3375790713167,38.6057779803535,39.25782736657834,39.64331054771269,39.37355976167923]}]],[[{"lng":[30.76396371564612,30.68023432106981,31.34916042309334,32.10266809080842,32.19563296732724,31.52592687997848,30.76396371564612],"lat":[37.16495701437888,36.50664005724216,36.10778100817674,36.36391192782734,37.01995875684867,37.422185997514,37.16495701437888]}]],[[{"lng":[32.19563296732724,32.10266809080842,32.76106116843498,33.51266233023499,33.61458372321314,32.95602687537129,32.19563296732724],"lat":[37.01995875684867,36.36391192782734,35.95821975632126,36.20520968330217,36.85866401664056,37.26775932101902,37.01995875684867]}]],[[{"lng":[30.16443143146895,30.08378129811129,30.76396371564612,31.52592687997848,31.6161179120294,30.93487605957411,30.16443143146895],"lat":[38.21530146274488,37.55989481350725,37.16495701437888,37.422185997514,38.07549591433029,38.47371675001193,38.21530146274488]}]],[[{"lng":[31.6161179120294,31.52592687997848,32.19563296732724,32.95602687537129,33.05548256244556,32.38535877695387,31.6161179120294],"lat":[38.07549591433029,37.422185997514,37.01995875684867,37.26775932101902,37.91864749464704,38.32419732667995,38.07549591433029]}]],[[{"lng":[29.32121398335472,29.24697030924795,29.9257440988867,30.68023432106981,30.76396371564612,30.08378129811129,29.32121398335472],"lat":[37.2931582080128,36.63290490648417,36.24128085327695,36.50664005724216,37.16495701437888,37.55989481350725,37.2931582080128]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#333333","weight":1,"opacity":0.5,"fill":true,"fillColor":["#414487","#22A785","#228B8D","#481668","#482173","#460C5F","#471365","#463480","#2C728E","#287D8E","#481D6F","#471264","#46085C","#482173","#481F70","#482374","#481F70","#63CB5F","#453882","#238A8D","#FDE725","#3E4A89","#46095C","#481C6E","#3A538B","#443B84","#440154","#46095C","#450357","#404688","#62CB5F","#470F62","#46337F","#39558C","#90D743","#46085B","#414287","#75D054","#471164","#460A5D","#1F968B","#63CB5F","#3C4F8A","#46075B","#481B6D","#46085C","#33628D","#481A6C","#2D718E","#433E85","#1E9D89","#2C718E","#2C718E","#29798E","#404688","#3C508B","#482071","#3B518B"],"fillOpacity":0.9,"smoothFactor":1,"noClip":false},["Percent_Tree_Cover: 8.6 <br>Date: 2020-01-01 <br>Hex ID: 831ec8fffffffff","Percent_Tree_Cover: 24.6 <br>Date: 2020-01-01 <br>Hex ID: 831ecafffffffff","Percent_Tree_Cover: 19.9 <br>Date: 2020-01-01 <br>Hex ID: 831ecbfffffffff","Percent_Tree_Cover: 2.8 <br>Date: 2020-01-01 <br>Hex ID: 832c00fffffffff","Percent_Tree_Cover: 4.1 <br>Date: 2020-01-01 <br>Hex ID: 832c04fffffffff","Percent_Tree_Cover: 1.7 <br>Date: 2020-01-01 <br>Hex ID: 832c06fffffffff","Percent_Tree_Cover: 2.4 <br>Date: 2020-01-01 <br>Hex ID: 832c15fffffffff","Percent_Tree_Cover: 6.6 <br>Date: 2020-01-01 <br>Hex ID: 832c22fffffffff","Percent_Tree_Cover: 15.7 <br>Date: 2020-01-01 <br>Hex ID: 832c23fffffffff","Percent_Tree_Cover: 17.4 <br>Date: 2020-01-01 <br>Hex ID: 832c26fffffffff","Percent_Tree_Cover: 3.6 <br>Date: 2020-01-01 <br>Hex ID: 832c30fffffffff","Percent_Tree_Cover: 2.3 <br>Date: 2020-01-01 <br>Hex ID: 832c31fffffffff","Percent_Tree_Cover: 1.3 <br>Date: 2020-01-01 <br>Hex ID: 832c32fffffffff","Percent_Tree_Cover: 4.1 <br>Date: 2020-01-01 <br>Hex ID: 832c33fffffffff","Percent_Tree_Cover: 3.9 <br>Date: 2020-01-01 <br>Hex ID: 832c34fffffffff","Percent_Tree_Cover: 4.3 <br>Date: 2020-01-01 <br>Hex ID: 832c35fffffffff","Percent_Tree_Cover: 3.8 <br>Date: 2020-01-01 <br>Hex ID: 832c36fffffffff","Percent_Tree_Cover: 31.3 <br>Date: 2020-01-01 <br>Hex ID: 832d00fffffffff","Percent_Tree_Cover: 7 <br>Date: 2020-01-01 <br>Hex ID: 832d02fffffffff","Percent_Tree_Cover: 19.7 <br>Date: 2020-01-01 <br>Hex ID: 832d03fffffffff","Percent_Tree_Cover: 41 <br>Date: 2020-01-01 <br>Hex ID: 832d04fffffffff","Percent_Tree_Cover: 9.5 <br>Date: 2020-01-01 <br>Hex ID: 832d06fffffffff","Percent_Tree_Cover: 1.4 <br>Date: 2020-01-01 <br>Hex ID: 832d10fffffffff","Percent_Tree_Cover: 3.5 <br>Date: 2020-01-01 <br>Hex ID: 832d11fffffffff","Percent_Tree_Cover: 10.8 <br>Date: 2020-01-01 <br>Hex ID: 832d12fffffffff","Percent_Tree_Cover: 7.5 <br>Date: 2020-01-01 <br>Hex ID: 832d13fffffffff","Percent_Tree_Cover: 0.5 <br>Date: 2020-01-01 <br>Hex ID: 832d14fffffffff","Percent_Tree_Cover: 1.3 <br>Date: 2020-01-01 <br>Hex ID: 832d15fffffffff","Percent_Tree_Cover: 0.8 <br>Date: 2020-01-01 <br>Hex ID: 832d16fffffffff","Percent_Tree_Cover: 9 <br>Date: 2020-01-01 <br>Hex ID: 832d18fffffffff","Percent_Tree_Cover: 31.2 <br>Date: 2020-01-01 <br>Hex ID: 832d19fffffffff","Percent_Tree_Cover: 2 <br>Date: 2020-01-01 <br>Hex ID: 832d1afffffffff","Percent_Tree_Cover: 6.3 <br>Date: 2020-01-01 <br>Hex ID: 832d1bfffffffff","Percent_Tree_Cover: 11.1 <br>Date: 2020-01-01 <br>Hex ID: 832d1cfffffffff","Percent_Tree_Cover: 34.3 <br>Date: 2020-01-01 <br>Hex ID: 832d1dfffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2020-01-01 <br>Hex ID: 832d1efffffffff","Percent_Tree_Cover: 8.5 <br>Date: 2020-01-01 <br>Hex ID: 832d30fffffffff","Percent_Tree_Cover: 32.5 <br>Date: 2020-01-01 <br>Hex ID: 832d31fffffffff","Percent_Tree_Cover: 2.2 <br>Date: 2020-01-01 <br>Hex ID: 832d32fffffffff","Percent_Tree_Cover: 1.4 <br>Date: 2020-01-01 <br>Hex ID: 832d33fffffffff","Percent_Tree_Cover: 21.8 <br>Date: 2020-01-01 <br>Hex ID: 832d34fffffffff","Percent_Tree_Cover: 31.3 <br>Date: 2020-01-01 <br>Hex ID: 832d35fffffffff","Percent_Tree_Cover: 10.1 <br>Date: 2020-01-01 <br>Hex ID: 832d36fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2020-01-01 <br>Hex ID: 832da8fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2020-01-01 <br>Hex ID: 832da9fffffffff","Percent_Tree_Cover: 1.3 <br>Date: 2020-01-01 <br>Hex ID: 832dabfffffffff","Percent_Tree_Cover: 13.1 <br>Date: 2020-01-01 <br>Hex ID: 832dacfffffffff","Percent_Tree_Cover: 3.2 <br>Date: 2020-01-01 <br>Hex ID: 832dadfffffffff","Percent_Tree_Cover: 15.4 <br>Date: 2020-01-01 <br>Hex ID: 833f60fffffffff","Percent_Tree_Cover: 7.9 <br>Date: 2020-01-01 <br>Hex ID: 833f61fffffffff","Percent_Tree_Cover: 22.9 <br>Date: 2020-01-01 <br>Hex ID: 833f63fffffffff","Percent_Tree_Cover: 15.6 <br>Date: 2020-01-01 <br>Hex ID: 833f64fffffffff","Percent_Tree_Cover: 15.6 <br>Date: 2020-01-01 <br>Hex ID: 833f65fffffffff","Percent_Tree_Cover: 16.9 <br>Date: 2020-01-01 <br>Hex ID: 833f68fffffffff","Percent_Tree_Cover: 9 <br>Date: 2020-01-01 <br>Hex ID: 833f69fffffffff","Percent_Tree_Cover: 10.3 <br>Date: 2020-01-01 <br>Hex ID: 833f6cfffffffff","Percent_Tree_Cover: 4 <br>Date: 2020-01-01 <br>Hex ID: 833f6dfffffffff","Percent_Tree_Cover: 10.5 <br>Date: 2020-01-01 <br>Hex ID: 833f6efffffffff"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"topright"}]},{"method":"addLegend","args":[{"colors":["#440154 , #482878 11.1257025012021%, #3D4E8A 23.4848296346982%, #2E6E8E 35.8439567681942%, #228C8D 48.2030839016902%, #23A983 60.5622110351863%, #52C569 72.9213381686823%, #9CD93C 85.2804653021784%, #EFE51C 97.6395924356744%, #FDE725 "],"labels":["5","10","15","20","25","30","35","40"],"na_color":null,"na_label":"No data","opacity":0.5,"position":"bottomright","type":"numeric","title":"Percent_Tree_Cover 2020-01-01","extra":{"p_1":0.1112570250120212,"p_n":0.9763959243567438},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[35.95821975632126,42.16313655584668],"lng":[25.8566561527047,44.96658033859127]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-659836534f7c9780f45c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-659836534f7c9780f45c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addPolygons","args":[[[[{"lng":[26.75392713696018,26.69444832655208,27.41889247136163,28.20561641084367,28.27582003281616,27.54862992875092,26.75392713696018],"lat":[41.41639200107732,40.77110362157863,40.40014108506871,40.67153760127161,41.31558927630959,41.68953194273748,41.41639200107732]}]],[[{"lng":[25.90955019734398,25.8566561527047,26.57801634529262,27.35540155921771,27.41889247136163,26.69444832655208,25.90955019734398],"lat":[40.48938330460453,39.83864906002427,39.47064903027519,39.75047152140711,40.40014108506871,40.77110362157863,40.48938330460453]}]],[[{"lng":[27.41889247136163,27.35540155921771,28.06817079531339,28.84686884717912,28.92076561720102,28.20561641084367,27.41889247136163],"lat":[40.40014108506871,39.75047152140711,39.37355976167923,39.64331054771269,40.29156972573303,40.67153760127161,40.40014108506871]}]],[[{"lng":[43.46432377003566,44.04498513651647,44.5403979156662,44.78917069642782,44.96658033859127,44.38550731669547,43.88232974070638,43.63078883928756,43.46432377003566],"lat":[39.48310661543461,39.03471835622047,39.1399668625514,39.19042626649574,39.79634372406262,40.24932117512771,40.14339295748996,40.09098548661677,39.48310661543461]}]],[[{"lng":[42.27595072881267,42.11651610751938,42.71268598324743,43.46432377003566,43.63078883928756,43.03870972671675,42.27595072881267],"lat":[40.37421891237964,39.76221332071589,39.31801170266608,39.48310661543461,40.09098548661677,40.5379143795347,40.37421891237964]}]],[[{"lng":[42.71268598324743,42.55271260195798,43.13752145794886,43.87827633045024,44.04498513651647,43.46432377003566,42.71268598324743],"lat":[39.31801170266608,38.70304190833014,38.25742550967681,38.42402287550505,39.03471835622047,39.48310661543461,39.31801170266608]}]],[[{"lng":[43.13752145794886,42.97711466948047,43.55089210890026,44.28099871327971,44.44785987206311,43.87827633045024,43.13752145794886],"lat":[38.25742550967681,37.63988301518088,37.19334310339934,37.36153449315948,37.97465830944774,38.42402287550505,38.25742550967681]}]],[[{"lng":[40.89705848930085,40.74511278127022,41.35657591970917,42.11651610751938,42.27595072881267,41.66807932931008,40.89705848930085],"lat":[40.64395673035828,40.02802969422817,39.58855898492218,39.76221332071589,40.37421891237964,40.81651360826753,40.64395673035828]}]],[[{"lng":[41.82686156553261,41.66807932931008,42.27595072881267,43.03870972671675,43.20483211516566,42.60098340311145,41.82686156553261],"lat":[41.42517469528692,40.81651360826753,40.37421891237964,40.5379143795347,41.14259876763571,41.58758498853158,41.42517469528692]}]],[[{"lng":[39.49510454786297,39.35110031304906,39.97757007195356,40.74511278127022,40.89705848930085,40.27364106514176,39.49510454786297],"lat":[40.89930692683948,40.27967998813411,39.84548333301931,40.02802969422817,40.64395673035828,41.08106308548847,40.89930692683948]}]],[[{"lng":[40.44702850706764,40.30082036180866,40.90393830075324,41.65010849535905,41.80362990355213,41.20378260090939,40.44702850706764],"lat":[38.78606593762386,38.16029427741795,37.72195972074655,37.90641729561219,38.52818125598115,38.96951630812845,38.78606593762386]}]],[[{"lng":[41.35657591970917,41.20378260090939,41.80362990355213,42.55271260195798,42.71268598324743,42.11651610751938,41.35657591970917],"lat":[39.58855898492218,38.96951630812845,38.52818125598115,38.70304190833014,39.31801170266608,39.76221332071589,39.58855898492218]}]],[[{"lng":[40.90393830075324,40.75681983483856,41.34874010814596,42.08453011389582,42.23866844240896,41.65010849535905,40.90393830075324],"lat":[37.72195972074655,37.09372208549631,36.65408054433784,36.83963771514377,37.46371825217525,37.90641729561219,37.72195972074655]}]],[[{"lng":[41.80362990355213,41.65010849535905,42.23866844240896,42.97711466948047,43.13752145794886,42.55271260195798,41.80362990355213],"lat":[38.52818125598115,37.90641729561219,37.46371825217525,37.63988301518088,38.25742550967681,38.70304190833014,38.52818125598115]}]],[[{"lng":[39.06869121950607,38.93021759674642,39.54760269073364,40.30082036180866,40.44702850706764,39.83239702118404,39.06869121950607],"lat":[39.030236543477,38.40068741342036,37.96724011219477,38.16029427741795,38.78606593762386,39.22258562300163,39.030236543477]}]],[[{"lng":[39.97757007195356,39.83239702118404,40.44702850706764,41.20378260090939,41.35657591970917,40.74511278127022,39.97757007195356],"lat":[39.84548333301931,39.22258562300163,38.78606593762386,38.96951630812845,39.58855898492218,40.02802969422817,39.84548333301931]}]],[[{"lng":[39.54760269073364,39.40791451802404,40.01390390535312,40.75681983483856,40.90393830075324,40.30082036180866,39.54760269073364],"lat":[37.96724011219477,37.33507129627533,36.89986549574836,37.09372208549631,37.72195972074655,38.16029427741795,37.96724011219477]}]],[[{"lng":[33.68154151485255,33.57356478818899,34.25569329920059,35.04536658336036,35.16295215521244,34.48135696744161,33.68154151485255],"lat":[41.76002281300546,41.12812672764258,40.72029384206024,40.94129069308124,41.57052929593052,41.98146857772053,41.76002281300546]}]],[[{"lng":[34.25569329920059,34.14517888552743,34.81497841853324,35.59461531057752,35.71438837201353,35.04536658336036,34.25569329920059],"lat":[40.72029384206024,40.0844744378635,39.67243888835663,39.89310904128938,40.52610366217259,40.94129069308124,40.72029384206024]}]],[[{"lng":[35.16295215521244,35.04536658336036,35.71438837201353,36.49989244588108,36.62670018676323,35.95888975914823,35.16295215521244],"lat":[41.57052929593052,40.94129069308124,40.52610366217259,40.73710931274847,41.36340748051559,41.78167713429249,41.57052929593052]}]],[[{"lng":[32.18416093077614,32.08615225875723,32.78072229592114,33.57356478818899,33.68154151485255,32.98680118625447,32.18416093077614],"lat":[41.93120042635866,41.29694332763068,40.89694020634369,41.12812672764258,41.76002281300546,42.16313655584668,41.93120042635866]}]],[[{"lng":[32.78072229592114,32.67982486678349,33.36205936480856,34.14517888552743,34.25569329920059,33.57356478818899,32.78072229592114],"lat":[40.89694020634369,40.2585904108818,39.8539165470676,40.0844744378635,40.72029384206024,41.12812672764258,40.89694020634369]}]],[[{"lng":[33.92863236095966,33.82254156386477,34.48088998665223,35.24482483410058,35.35986436648889,34.70211322336851,33.92863236095966],"lat":[38.80305550764803,38.15774326462537,37.74530526425103,37.97493975922033,38.61738429085779,39.03309857636183,38.80305550764803]}]],[[{"lng":[34.81497841853324,34.70211322336851,35.35986436648889,36.1295780477436,36.25136402457679,35.59461531057752,34.81497841853324],"lat":[39.67243888835663,39.03309857636183,38.61738429085779,38.83784195852542,39.47419090525831,39.89310904128938,39.67243888835663]}]],[[{"lng":[34.48088998665223,34.37247395140693,35.01926920399873,35.77375792162133,35.89080530101953,35.24482483410058,34.48088998665223],"lat":[37.74530526425103,37.09715169756353,36.68163245897765,36.91095673461511,37.5560761706642,37.97493975922033,37.74530526425103]}]],[[{"lng":[35.35986436648889,35.24482483410058,35.89080530101953,36.65071528162084,36.77434984540357,36.1295780477436,35.35986436648889],"lat":[38.61738429085779,37.97493975922033,37.5560761706642,37.77642720733404,38.41571527061354,38.83784195852542,38.61738429085779]}]],[[{"lng":[32.48217066356338,32.38535877695387,33.05548256244556,33.82254156386477,33.92863236095966,33.25847140885456,32.48217066356338],"lat":[38.97207461816092,38.32419732667995,37.91864749464704,38.15774326462537,38.80305550764803,39.21187669737884,38.97207461816092]}]],[[{"lng":[33.36205936480856,33.25847140885456,33.92863236095966,34.70211322336851,34.81497841853324,34.14517888552743,33.36205936480856],"lat":[39.8539165470676,39.21187669737884,38.80305550764803,39.03309857636183,39.67243888835663,40.0844744378635,39.8539165470676]}]],[[{"lng":[33.05548256244556,32.95602687537129,33.61458372321314,34.37247395140693,34.48088998665223,33.82254156386477,33.05548256244556],"lat":[37.91864749464704,37.26775932101902,36.85866401664056,37.09715169756353,37.74530526425103,38.15774326462537,37.91864749464704]}]],[[{"lng":[37.15521777583515,37.02656909321291,37.66972391336357,38.4395998803737,38.57672065964872,37.93560490675943,37.15521777583515],"lat":[40.3150658165757,39.68517640087391,39.25987403101075,39.46140972892039,40.08792834344594,40.51631286338927,40.3150658165757]}]],[[{"lng":[38.07122507599479,37.93560490675943,38.57672065964872,39.35110031304906,39.49510454786297,38.85646296383545,38.07122507599479],"lat":[41.1394020850563,40.51631286338927,40.08792834344594,40.27967998813411,40.89930692683948,41.33067402303146,41.1394020850563]}]],[[{"lng":[37.66972391336357,37.53939574400638,38.17068872902224,38.93021759674642,39.06869121950607,38.4395998803737,37.66972391336357],"lat":[39.25987403101075,38.62679387483306,38.19875202083543,38.40068741342036,39.030236543477,39.46140972892039,39.25987403101075]}]],[[{"lng":[38.57672065964872,38.4395998803737,39.06869121950607,39.83239702118404,39.97757007195356,39.35110031304906,38.57672065964872],"lat":[40.08792834344594,39.46140972892039,39.030236543477,39.22258562300163,39.84548333301931,40.27967998813411,40.08792834344594]}]],[[{"lng":[35.71438837201353,35.59461531057752,36.25136402457679,37.02656909321291,37.15521777583515,36.49989244588108,35.71438837201353],"lat":[40.52610366217259,39.89310904128938,39.47419090525831,39.68517640087391,40.3150658165757,40.73710931274847,40.52610366217259]}]],[[{"lng":[36.62670018676323,36.49989244588108,37.15521777583515,37.93560490675943,38.07122507599479,37.41775926946102,36.62670018676323],"lat":[41.36340748051559,40.73710931274847,40.3150658165757,40.51631286338927,41.1394020850563,41.56448638206296,41.36340748051559]}]],[[{"lng":[36.25136402457679,36.1295780477436,36.77434984540357,37.53939574400638,37.66972391336357,37.02656909321291,36.25136402457679],"lat":[39.47419090525831,38.83784195852542,38.41571527061354,38.62679387483306,39.25987403101075,39.68517640087391,39.47419090525831]}]],[[{"lng":[30.41317908910699,30.32910696838931,31.02210603841925,31.80023823094864,31.89421854765742,31.20023596728733,30.41317908910699],"lat":[40.1640337045118,39.51752281763152,39.12384360782131,39.37354260399444,40.01797673556467,40.41483320155767,40.1640337045118]}]],[[{"lng":[31.29118686344163,31.20023596728733,31.89421854765742,32.67982486678349,32.78072229592114,32.08615225875723,31.29118686344163],"lat":[41.05540607047603,40.41483320155767,40.01797673556467,40.2585904108818,40.89694020634369,41.29694332763068,41.05540607047603]}]],[[{"lng":[31.02210603841925,30.93487605957411,31.6161179120294,32.38535877695387,32.48217066356338,31.80023823094864,31.02210603841925],"lat":[39.12384360782131,38.47371675001193,38.07549591433029,38.32419732667995,38.97207461816092,39.37354260399444,39.12384360782131]}]],[[{"lng":[31.89421854765742,31.80023823094864,32.48217066356338,33.25847140885456,33.36205936480856,32.67982486678349,31.89421854765742],"lat":[40.01797673556467,39.37354260399444,38.97207461816092,39.21187669737884,39.8539165470676,40.2585904108818,40.01797673556467]}]],[[{"lng":[28.92076561720102,28.84686884717912,29.55016649146245,30.32910696838931,30.41317908910699,29.70820350979227,28.92076561720102],"lat":[40.29156972573303,39.64331054771269,39.25782736657834,39.51752281763152,40.1640337045118,40.55264444865455,40.29156972573303]}]],[[{"lng":[29.78891102554876,29.70820350979227,30.41317908910699,31.20023596728733,31.29118686344163,30.58491366768429,29.78891102554876],"lat":[41.19512137576952,40.55264444865455,40.1640337045118,40.41483320155767,41.05540607047603,41.44713007511783,41.19512137576952]}]],[[{"lng":[29.55016649146245,29.47279077114591,30.16443143146895,30.93487605957411,31.02210603841925,30.32910696838931,29.55016649146245],"lat":[39.25782736657834,38.6057779803535,38.21530146274488,38.47371675001193,39.12384360782131,39.51752281763152,39.25782736657834]}]],[[{"lng":[37.28380169054273,37.15847316225135,37.780160694358,38.52532435638908,38.65856621949614,38.03883261668503,37.28380169054273],"lat":[37.35161848319326,36.709818345525,36.28285603308113,36.49442404260413,37.1326349046004,37.56289437280511,37.35161848319326]}]],[[{"lng":[38.17068872902224,38.03883261668503,38.65856621949614,39.40791451802404,39.54760269073364,38.93021759674642,38.17068872902224],"lat":[38.19875202083543,37.56289437280511,37.1326349046004,37.33507129627533,37.96724011219477,38.40068741342036,38.19875202083543]}]],[[{"lng":[38.65856621949614,38.52532435638908,39.13379456767612,39.87313057089867,40.01390390535312,39.40791451802404,38.65856621949614],"lat":[37.1326349046004,36.49442404260413,36.06246930016206,36.26549804329453,36.89986549574836,37.33507129627533,37.1326349046004]}]],[[{"lng":[35.89080530101953,35.77375792162133,36.40824201853938,37.15847316225135,37.28380169054273,36.65071528162084,35.89080530101953],"lat":[37.5560761706642,36.91095673461511,36.48947674024333,36.709818345525,37.35161848319326,37.77642720733404,37.5560761706642]}]],[[{"lng":[36.77434984540357,36.65071528162084,37.28380169054273,38.03883261668503,38.17068872902224,37.53939574400638,36.77434984540357],"lat":[38.41571527061354,37.77642720733404,37.35161848319326,37.56289437280511,38.19875202083543,38.62679387483306,38.41571527061354]}]],[[{"lng":[27.23107993317469,27.17021260843733,27.86910331182821,28.63128556124237,28.7021497665707,28.00088783039564,27.23107993317469],"lat":[38.44191317489881,37.78332971808115,37.40412642214208,37.68041148590275,38.3375790713167,38.71992501118346,38.44191317489881]}]],[[{"lng":[28.7021497665707,28.63128556124237,29.32121398335472,30.08378129811129,30.16443143146895,29.47279077114591,28.7021497665707],"lat":[38.3375790713167,37.68041148590275,37.2931582080128,37.55989481350725,38.21530146274488,38.6057779803535,38.3375790713167]}]],[[{"lng":[27.86910331182821,27.80456403265456,28.49244726274084,29.24697030924795,29.32121398335472,28.63128556124237,27.86910331182821],"lat":[37.40412642214208,36.74228052489006,36.35826642744043,36.63290490648417,37.2931582080128,37.68041148590275,37.40412642214208]}]],[[{"lng":[26.57801634529262,26.52102791076366,27.23107993317469,28.00088783039564,28.06817079531339,27.35540155921771,26.57801634529262],"lat":[39.47064903027519,38.81577462532137,38.44191317489881,38.71992501118346,39.37355976167923,39.75047152140711,39.47064903027519]}]],[[{"lng":[28.06817079531339,28.00088783039564,28.7021497665707,29.47279077114591,29.55016649146245,28.84686884717912,28.06817079531339],"lat":[39.37355976167923,38.71992501118346,38.3375790713167,38.6057779803535,39.25782736657834,39.64331054771269,39.37355976167923]}]],[[{"lng":[30.76396371564612,30.68023432106981,31.34916042309334,32.10266809080842,32.19563296732724,31.52592687997848,30.76396371564612],"lat":[37.16495701437888,36.50664005724216,36.10778100817674,36.36391192782734,37.01995875684867,37.422185997514,37.16495701437888]}]],[[{"lng":[32.19563296732724,32.10266809080842,32.76106116843498,33.51266233023499,33.61458372321314,32.95602687537129,32.19563296732724],"lat":[37.01995875684867,36.36391192782734,35.95821975632126,36.20520968330217,36.85866401664056,37.26775932101902,37.01995875684867]}]],[[{"lng":[30.16443143146895,30.08378129811129,30.76396371564612,31.52592687997848,31.6161179120294,30.93487605957411,30.16443143146895],"lat":[38.21530146274488,37.55989481350725,37.16495701437888,37.422185997514,38.07549591433029,38.47371675001193,38.21530146274488]}]],[[{"lng":[31.6161179120294,31.52592687997848,32.19563296732724,32.95602687537129,33.05548256244556,32.38535877695387,31.6161179120294],"lat":[38.07549591433029,37.422185997514,37.01995875684867,37.26775932101902,37.91864749464704,38.32419732667995,38.07549591433029]}]],[[{"lng":[29.32121398335472,29.24697030924795,29.9257440988867,30.68023432106981,30.76396371564612,30.08378129811129,29.32121398335472],"lat":[37.2931582080128,36.63290490648417,36.24128085327695,36.50664005724216,37.16495701437888,37.55989481350725,37.2931582080128]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#333333","weight":1,"opacity":0.5,"fill":true,"fillColor":["#443B84","#1FA187","#25848E","#470D60","#481A6C","#46085B","#470D60","#472E7C","#2F6B8E","#2B748E","#481668","#460C5F","#450559","#481B6D","#48186A","#481C6E","#481A6C","#62CB5F","#453781","#218E8D","#FDE725","#404688","#46075B","#481A6C","#404688","#453581","#440154","#46075B","#450357","#433E85","#48C16E","#460A5D","#472B7A","#3A538B","#8FD744","#450559","#433D84","#6CCD5A","#470E61","#46085C","#218F8D","#5DC962","#404688","#46075A","#481668","#450559","#38588C","#481568","#32658E","#453781","#218F8D","#30698E","#30698E","#306A8E","#433D84","#3F4788","#481C6E","#3E4C8A"],"fillOpacity":0.9,"smoothFactor":1,"noClip":false},["Percent_Tree_Cover: 8 <br>Date: 2021-01-01 <br>Hex ID: 831ec8fffffffff","Percent_Tree_Cover: 25.5 <br>Date: 2021-01-01 <br>Hex ID: 831ecafffffffff","Percent_Tree_Cover: 20.2 <br>Date: 2021-01-01 <br>Hex ID: 831ecbfffffffff","Percent_Tree_Cover: 1.8 <br>Date: 2021-01-01 <br>Hex ID: 832c00fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2021-01-01 <br>Hex ID: 832c04fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2021-01-01 <br>Hex ID: 832c06fffffffff","Percent_Tree_Cover: 1.8 <br>Date: 2021-01-01 <br>Hex ID: 832c15fffffffff","Percent_Tree_Cover: 6 <br>Date: 2021-01-01 <br>Hex ID: 832c22fffffffff","Percent_Tree_Cover: 15.6 <br>Date: 2021-01-01 <br>Hex ID: 832c23fffffffff","Percent_Tree_Cover: 17.2 <br>Date: 2021-01-01 <br>Hex ID: 832c26fffffffff","Percent_Tree_Cover: 2.8 <br>Date: 2021-01-01 <br>Hex ID: 832c30fffffffff","Percent_Tree_Cover: 1.7 <br>Date: 2021-01-01 <br>Hex ID: 832c31fffffffff","Percent_Tree_Cover: 1 <br>Date: 2021-01-01 <br>Hex ID: 832c32fffffffff","Percent_Tree_Cover: 3.5 <br>Date: 2021-01-01 <br>Hex ID: 832c33fffffffff","Percent_Tree_Cover: 3.2 <br>Date: 2021-01-01 <br>Hex ID: 832c34fffffffff","Percent_Tree_Cover: 3.7 <br>Date: 2021-01-01 <br>Hex ID: 832c35fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2021-01-01 <br>Hex ID: 832c36fffffffff","Percent_Tree_Cover: 33.6 <br>Date: 2021-01-01 <br>Hex ID: 832d00fffffffff","Percent_Tree_Cover: 7.3 <br>Date: 2021-01-01 <br>Hex ID: 832d02fffffffff","Percent_Tree_Cover: 21.9 <br>Date: 2021-01-01 <br>Hex ID: 832d03fffffffff","Percent_Tree_Cover: 44.1 <br>Date: 2021-01-01 <br>Hex ID: 832d04fffffffff","Percent_Tree_Cover: 9.5 <br>Date: 2021-01-01 <br>Hex ID: 832d06fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2021-01-01 <br>Hex ID: 832d10fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2021-01-01 <br>Hex ID: 832d11fffffffff","Percent_Tree_Cover: 9.6 <br>Date: 2021-01-01 <br>Hex ID: 832d12fffffffff","Percent_Tree_Cover: 7.1 <br>Date: 2021-01-01 <br>Hex ID: 832d13fffffffff","Percent_Tree_Cover: 0.5 <br>Date: 2021-01-01 <br>Hex ID: 832d14fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2021-01-01 <br>Hex ID: 832d15fffffffff","Percent_Tree_Cover: 0.8 <br>Date: 2021-01-01 <br>Hex ID: 832d16fffffffff","Percent_Tree_Cover: 8.3 <br>Date: 2021-01-01 <br>Hex ID: 832d18fffffffff","Percent_Tree_Cover: 31.5 <br>Date: 2021-01-01 <br>Hex ID: 832d19fffffffff","Percent_Tree_Cover: 1.6 <br>Date: 2021-01-01 <br>Hex ID: 832d1afffffffff","Percent_Tree_Cover: 5.7 <br>Date: 2021-01-01 <br>Hex ID: 832d1bfffffffff","Percent_Tree_Cover: 11.6 <br>Date: 2021-01-01 <br>Hex ID: 832d1cfffffffff","Percent_Tree_Cover: 36.9 <br>Date: 2021-01-01 <br>Hex ID: 832d1dfffffffff","Percent_Tree_Cover: 0.9 <br>Date: 2021-01-01 <br>Hex ID: 832d1efffffffff","Percent_Tree_Cover: 8.2 <br>Date: 2021-01-01 <br>Hex ID: 832d30fffffffff","Percent_Tree_Cover: 34.4 <br>Date: 2021-01-01 <br>Hex ID: 832d31fffffffff","Percent_Tree_Cover: 2 <br>Date: 2021-01-01 <br>Hex ID: 832d32fffffffff","Percent_Tree_Cover: 1.4 <br>Date: 2021-01-01 <br>Hex ID: 832d33fffffffff","Percent_Tree_Cover: 22 <br>Date: 2021-01-01 <br>Hex ID: 832d34fffffffff","Percent_Tree_Cover: 33.3 <br>Date: 2021-01-01 <br>Hex ID: 832d35fffffffff","Percent_Tree_Cover: 9.6 <br>Date: 2021-01-01 <br>Hex ID: 832d36fffffffff","Percent_Tree_Cover: 1.1 <br>Date: 2021-01-01 <br>Hex ID: 832da8fffffffff","Percent_Tree_Cover: 2.9 <br>Date: 2021-01-01 <br>Hex ID: 832da9fffffffff","Percent_Tree_Cover: 1 <br>Date: 2021-01-01 <br>Hex ID: 832dabfffffffff","Percent_Tree_Cover: 12.3 <br>Date: 2021-01-01 <br>Hex ID: 832dacfffffffff","Percent_Tree_Cover: 2.8 <br>Date: 2021-01-01 <br>Hex ID: 832dadfffffffff","Percent_Tree_Cover: 14.5 <br>Date: 2021-01-01 <br>Hex ID: 833f60fffffffff","Percent_Tree_Cover: 7.3 <br>Date: 2021-01-01 <br>Hex ID: 833f61fffffffff","Percent_Tree_Cover: 22.1 <br>Date: 2021-01-01 <br>Hex ID: 833f63fffffffff","Percent_Tree_Cover: 15.1 <br>Date: 2021-01-01 <br>Hex ID: 833f64fffffffff","Percent_Tree_Cover: 15.2 <br>Date: 2021-01-01 <br>Hex ID: 833f65fffffffff","Percent_Tree_Cover: 15.3 <br>Date: 2021-01-01 <br>Hex ID: 833f68fffffffff","Percent_Tree_Cover: 8.2 <br>Date: 2021-01-01 <br>Hex ID: 833f69fffffffff","Percent_Tree_Cover: 9.7 <br>Date: 2021-01-01 <br>Hex ID: 833f6cfffffffff","Percent_Tree_Cover: 3.7 <br>Date: 2021-01-01 <br>Hex ID: 833f6dfffffffff","Percent_Tree_Cover: 10.4 <br>Date: 2021-01-01 <br>Hex ID: 833f6efffffffff"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"topright"}]},{"method":"addLegend","args":[{"colors":["#440154 , #482576 10.3820766806776%, #3E4989 21.8338760294875%, #31688E 33.2856753782975%, #25838E 44.7374747271074%, #1F9F88 56.1892740759174%, #39B977 67.6410734247274%, #74D055 79.0928727735373%, #C0DF25 90.5446721223473%, #FDE725 "],"labels":["5","10","15","20","25","30","35","40"],"na_color":null,"na_label":"No data","opacity":0.5,"position":"bottomright","type":"numeric","title":"Percent_Tree_Cover 2021-01-01","extra":{"p_1":0.1038207668067757,"p_n":0.9054467212234726},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[35.95821975632126,42.16313655584668],"lng":[25.8566561527047,44.96658033859127]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-2b0900b005f861ff1670" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2b0900b005f861ff1670">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addPolygons","args":[[[[{"lng":[26.75392713696018,26.69444832655208,27.41889247136163,28.20561641084367,28.27582003281616,27.54862992875092,26.75392713696018],"lat":[41.41639200107732,40.77110362157863,40.40014108506871,40.67153760127161,41.31558927630959,41.68953194273748,41.41639200107732]}]],[[{"lng":[25.90955019734398,25.8566561527047,26.57801634529262,27.35540155921771,27.41889247136163,26.69444832655208,25.90955019734398],"lat":[40.48938330460453,39.83864906002427,39.47064903027519,39.75047152140711,40.40014108506871,40.77110362157863,40.48938330460453]}]],[[{"lng":[27.41889247136163,27.35540155921771,28.06817079531339,28.84686884717912,28.92076561720102,28.20561641084367,27.41889247136163],"lat":[40.40014108506871,39.75047152140711,39.37355976167923,39.64331054771269,40.29156972573303,40.67153760127161,40.40014108506871]}]],[[{"lng":[43.46432377003566,44.04498513651647,44.5403979156662,44.78917069642782,44.96658033859127,44.38550731669547,43.88232974070638,43.63078883928756,43.46432377003566],"lat":[39.48310661543461,39.03471835622047,39.1399668625514,39.19042626649574,39.79634372406262,40.24932117512771,40.14339295748996,40.09098548661677,39.48310661543461]}]],[[{"lng":[42.27595072881267,42.11651610751938,42.71268598324743,43.46432377003566,43.63078883928756,43.03870972671675,42.27595072881267],"lat":[40.37421891237964,39.76221332071589,39.31801170266608,39.48310661543461,40.09098548661677,40.5379143795347,40.37421891237964]}]],[[{"lng":[42.71268598324743,42.55271260195798,43.13752145794886,43.87827633045024,44.04498513651647,43.46432377003566,42.71268598324743],"lat":[39.31801170266608,38.70304190833014,38.25742550967681,38.42402287550505,39.03471835622047,39.48310661543461,39.31801170266608]}]],[[{"lng":[43.13752145794886,42.97711466948047,43.55089210890026,44.28099871327971,44.44785987206311,43.87827633045024,43.13752145794886],"lat":[38.25742550967681,37.63988301518088,37.19334310339934,37.36153449315948,37.97465830944774,38.42402287550505,38.25742550967681]}]],[[{"lng":[40.89705848930085,40.74511278127022,41.35657591970917,42.11651610751938,42.27595072881267,41.66807932931008,40.89705848930085],"lat":[40.64395673035828,40.02802969422817,39.58855898492218,39.76221332071589,40.37421891237964,40.81651360826753,40.64395673035828]}]],[[{"lng":[41.82686156553261,41.66807932931008,42.27595072881267,43.03870972671675,43.20483211516566,42.60098340311145,41.82686156553261],"lat":[41.42517469528692,40.81651360826753,40.37421891237964,40.5379143795347,41.14259876763571,41.58758498853158,41.42517469528692]}]],[[{"lng":[39.49510454786297,39.35110031304906,39.97757007195356,40.74511278127022,40.89705848930085,40.27364106514176,39.49510454786297],"lat":[40.89930692683948,40.27967998813411,39.84548333301931,40.02802969422817,40.64395673035828,41.08106308548847,40.89930692683948]}]],[[{"lng":[40.44702850706764,40.30082036180866,40.90393830075324,41.65010849535905,41.80362990355213,41.20378260090939,40.44702850706764],"lat":[38.78606593762386,38.16029427741795,37.72195972074655,37.90641729561219,38.52818125598115,38.96951630812845,38.78606593762386]}]],[[{"lng":[41.35657591970917,41.20378260090939,41.80362990355213,42.55271260195798,42.71268598324743,42.11651610751938,41.35657591970917],"lat":[39.58855898492218,38.96951630812845,38.52818125598115,38.70304190833014,39.31801170266608,39.76221332071589,39.58855898492218]}]],[[{"lng":[40.90393830075324,40.75681983483856,41.34874010814596,42.08453011389582,42.23866844240896,41.65010849535905,40.90393830075324],"lat":[37.72195972074655,37.09372208549631,36.65408054433784,36.83963771514377,37.46371825217525,37.90641729561219,37.72195972074655]}]],[[{"lng":[41.80362990355213,41.65010849535905,42.23866844240896,42.97711466948047,43.13752145794886,42.55271260195798,41.80362990355213],"lat":[38.52818125598115,37.90641729561219,37.46371825217525,37.63988301518088,38.25742550967681,38.70304190833014,38.52818125598115]}]],[[{"lng":[39.06869121950607,38.93021759674642,39.54760269073364,40.30082036180866,40.44702850706764,39.83239702118404,39.06869121950607],"lat":[39.030236543477,38.40068741342036,37.96724011219477,38.16029427741795,38.78606593762386,39.22258562300163,39.030236543477]}]],[[{"lng":[39.97757007195356,39.83239702118404,40.44702850706764,41.20378260090939,41.35657591970917,40.74511278127022,39.97757007195356],"lat":[39.84548333301931,39.22258562300163,38.78606593762386,38.96951630812845,39.58855898492218,40.02802969422817,39.84548333301931]}]],[[{"lng":[39.54760269073364,39.40791451802404,40.01390390535312,40.75681983483856,40.90393830075324,40.30082036180866,39.54760269073364],"lat":[37.96724011219477,37.33507129627533,36.89986549574836,37.09372208549631,37.72195972074655,38.16029427741795,37.96724011219477]}]],[[{"lng":[33.68154151485255,33.57356478818899,34.25569329920059,35.04536658336036,35.16295215521244,34.48135696744161,33.68154151485255],"lat":[41.76002281300546,41.12812672764258,40.72029384206024,40.94129069308124,41.57052929593052,41.98146857772053,41.76002281300546]}]],[[{"lng":[34.25569329920059,34.14517888552743,34.81497841853324,35.59461531057752,35.71438837201353,35.04536658336036,34.25569329920059],"lat":[40.72029384206024,40.0844744378635,39.67243888835663,39.89310904128938,40.52610366217259,40.94129069308124,40.72029384206024]}]],[[{"lng":[35.16295215521244,35.04536658336036,35.71438837201353,36.49989244588108,36.62670018676323,35.95888975914823,35.16295215521244],"lat":[41.57052929593052,40.94129069308124,40.52610366217259,40.73710931274847,41.36340748051559,41.78167713429249,41.57052929593052]}]],[[{"lng":[32.18416093077614,32.08615225875723,32.78072229592114,33.57356478818899,33.68154151485255,32.98680118625447,32.18416093077614],"lat":[41.93120042635866,41.29694332763068,40.89694020634369,41.12812672764258,41.76002281300546,42.16313655584668,41.93120042635866]}]],[[{"lng":[32.78072229592114,32.67982486678349,33.36205936480856,34.14517888552743,34.25569329920059,33.57356478818899,32.78072229592114],"lat":[40.89694020634369,40.2585904108818,39.8539165470676,40.0844744378635,40.72029384206024,41.12812672764258,40.89694020634369]}]],[[{"lng":[33.92863236095966,33.82254156386477,34.48088998665223,35.24482483410058,35.35986436648889,34.70211322336851,33.92863236095966],"lat":[38.80305550764803,38.15774326462537,37.74530526425103,37.97493975922033,38.61738429085779,39.03309857636183,38.80305550764803]}]],[[{"lng":[34.81497841853324,34.70211322336851,35.35986436648889,36.1295780477436,36.25136402457679,35.59461531057752,34.81497841853324],"lat":[39.67243888835663,39.03309857636183,38.61738429085779,38.83784195852542,39.47419090525831,39.89310904128938,39.67243888835663]}]],[[{"lng":[34.48088998665223,34.37247395140693,35.01926920399873,35.77375792162133,35.89080530101953,35.24482483410058,34.48088998665223],"lat":[37.74530526425103,37.09715169756353,36.68163245897765,36.91095673461511,37.5560761706642,37.97493975922033,37.74530526425103]}]],[[{"lng":[35.35986436648889,35.24482483410058,35.89080530101953,36.65071528162084,36.77434984540357,36.1295780477436,35.35986436648889],"lat":[38.61738429085779,37.97493975922033,37.5560761706642,37.77642720733404,38.41571527061354,38.83784195852542,38.61738429085779]}]],[[{"lng":[32.48217066356338,32.38535877695387,33.05548256244556,33.82254156386477,33.92863236095966,33.25847140885456,32.48217066356338],"lat":[38.97207461816092,38.32419732667995,37.91864749464704,38.15774326462537,38.80305550764803,39.21187669737884,38.97207461816092]}]],[[{"lng":[33.36205936480856,33.25847140885456,33.92863236095966,34.70211322336851,34.81497841853324,34.14517888552743,33.36205936480856],"lat":[39.8539165470676,39.21187669737884,38.80305550764803,39.03309857636183,39.67243888835663,40.0844744378635,39.8539165470676]}]],[[{"lng":[33.05548256244556,32.95602687537129,33.61458372321314,34.37247395140693,34.48088998665223,33.82254156386477,33.05548256244556],"lat":[37.91864749464704,37.26775932101902,36.85866401664056,37.09715169756353,37.74530526425103,38.15774326462537,37.91864749464704]}]],[[{"lng":[37.15521777583515,37.02656909321291,37.66972391336357,38.4395998803737,38.57672065964872,37.93560490675943,37.15521777583515],"lat":[40.3150658165757,39.68517640087391,39.25987403101075,39.46140972892039,40.08792834344594,40.51631286338927,40.3150658165757]}]],[[{"lng":[38.07122507599479,37.93560490675943,38.57672065964872,39.35110031304906,39.49510454786297,38.85646296383545,38.07122507599479],"lat":[41.1394020850563,40.51631286338927,40.08792834344594,40.27967998813411,40.89930692683948,41.33067402303146,41.1394020850563]}]],[[{"lng":[37.66972391336357,37.53939574400638,38.17068872902224,38.93021759674642,39.06869121950607,38.4395998803737,37.66972391336357],"lat":[39.25987403101075,38.62679387483306,38.19875202083543,38.40068741342036,39.030236543477,39.46140972892039,39.25987403101075]}]],[[{"lng":[38.57672065964872,38.4395998803737,39.06869121950607,39.83239702118404,39.97757007195356,39.35110031304906,38.57672065964872],"lat":[40.08792834344594,39.46140972892039,39.030236543477,39.22258562300163,39.84548333301931,40.27967998813411,40.08792834344594]}]],[[{"lng":[35.71438837201353,35.59461531057752,36.25136402457679,37.02656909321291,37.15521777583515,36.49989244588108,35.71438837201353],"lat":[40.52610366217259,39.89310904128938,39.47419090525831,39.68517640087391,40.3150658165757,40.73710931274847,40.52610366217259]}]],[[{"lng":[36.62670018676323,36.49989244588108,37.15521777583515,37.93560490675943,38.07122507599479,37.41775926946102,36.62670018676323],"lat":[41.36340748051559,40.73710931274847,40.3150658165757,40.51631286338927,41.1394020850563,41.56448638206296,41.36340748051559]}]],[[{"lng":[36.25136402457679,36.1295780477436,36.77434984540357,37.53939574400638,37.66972391336357,37.02656909321291,36.25136402457679],"lat":[39.47419090525831,38.83784195852542,38.41571527061354,38.62679387483306,39.25987403101075,39.68517640087391,39.47419090525831]}]],[[{"lng":[30.41317908910699,30.32910696838931,31.02210603841925,31.80023823094864,31.89421854765742,31.20023596728733,30.41317908910699],"lat":[40.1640337045118,39.51752281763152,39.12384360782131,39.37354260399444,40.01797673556467,40.41483320155767,40.1640337045118]}]],[[{"lng":[31.29118686344163,31.20023596728733,31.89421854765742,32.67982486678349,32.78072229592114,32.08615225875723,31.29118686344163],"lat":[41.05540607047603,40.41483320155767,40.01797673556467,40.2585904108818,40.89694020634369,41.29694332763068,41.05540607047603]}]],[[{"lng":[31.02210603841925,30.93487605957411,31.6161179120294,32.38535877695387,32.48217066356338,31.80023823094864,31.02210603841925],"lat":[39.12384360782131,38.47371675001193,38.07549591433029,38.32419732667995,38.97207461816092,39.37354260399444,39.12384360782131]}]],[[{"lng":[31.89421854765742,31.80023823094864,32.48217066356338,33.25847140885456,33.36205936480856,32.67982486678349,31.89421854765742],"lat":[40.01797673556467,39.37354260399444,38.97207461816092,39.21187669737884,39.8539165470676,40.2585904108818,40.01797673556467]}]],[[{"lng":[28.92076561720102,28.84686884717912,29.55016649146245,30.32910696838931,30.41317908910699,29.70820350979227,28.92076561720102],"lat":[40.29156972573303,39.64331054771269,39.25782736657834,39.51752281763152,40.1640337045118,40.55264444865455,40.29156972573303]}]],[[{"lng":[29.78891102554876,29.70820350979227,30.41317908910699,31.20023596728733,31.29118686344163,30.58491366768429,29.78891102554876],"lat":[41.19512137576952,40.55264444865455,40.1640337045118,40.41483320155767,41.05540607047603,41.44713007511783,41.19512137576952]}]],[[{"lng":[29.55016649146245,29.47279077114591,30.16443143146895,30.93487605957411,31.02210603841925,30.32910696838931,29.55016649146245],"lat":[39.25782736657834,38.6057779803535,38.21530146274488,38.47371675001193,39.12384360782131,39.51752281763152,39.25782736657834]}]],[[{"lng":[37.28380169054273,37.15847316225135,37.780160694358,38.52532435638908,38.65856621949614,38.03883261668503,37.28380169054273],"lat":[37.35161848319326,36.709818345525,36.28285603308113,36.49442404260413,37.1326349046004,37.56289437280511,37.35161848319326]}]],[[{"lng":[38.17068872902224,38.03883261668503,38.65856621949614,39.40791451802404,39.54760269073364,38.93021759674642,38.17068872902224],"lat":[38.19875202083543,37.56289437280511,37.1326349046004,37.33507129627533,37.96724011219477,38.40068741342036,38.19875202083543]}]],[[{"lng":[38.65856621949614,38.52532435638908,39.13379456767612,39.87313057089867,40.01390390535312,39.40791451802404,38.65856621949614],"lat":[37.1326349046004,36.49442404260413,36.06246930016206,36.26549804329453,36.89986549574836,37.33507129627533,37.1326349046004]}]],[[{"lng":[35.89080530101953,35.77375792162133,36.40824201853938,37.15847316225135,37.28380169054273,36.65071528162084,35.89080530101953],"lat":[37.5560761706642,36.91095673461511,36.48947674024333,36.709818345525,37.35161848319326,37.77642720733404,37.5560761706642]}]],[[{"lng":[36.77434984540357,36.65071528162084,37.28380169054273,38.03883261668503,38.17068872902224,37.53939574400638,36.77434984540357],"lat":[38.41571527061354,37.77642720733404,37.35161848319326,37.56289437280511,38.19875202083543,38.62679387483306,38.41571527061354]}]],[[{"lng":[27.23107993317469,27.17021260843733,27.86910331182821,28.63128556124237,28.7021497665707,28.00088783039564,27.23107993317469],"lat":[38.44191317489881,37.78332971808115,37.40412642214208,37.68041148590275,38.3375790713167,38.71992501118346,38.44191317489881]}]],[[{"lng":[28.7021497665707,28.63128556124237,29.32121398335472,30.08378129811129,30.16443143146895,29.47279077114591,28.7021497665707],"lat":[38.3375790713167,37.68041148590275,37.2931582080128,37.55989481350725,38.21530146274488,38.6057779803535,38.3375790713167]}]],[[{"lng":[27.86910331182821,27.80456403265456,28.49244726274084,29.24697030924795,29.32121398335472,28.63128556124237,27.86910331182821],"lat":[37.40412642214208,36.74228052489006,36.35826642744043,36.63290490648417,37.2931582080128,37.68041148590275,37.40412642214208]}]],[[{"lng":[26.57801634529262,26.52102791076366,27.23107993317469,28.00088783039564,28.06817079531339,27.35540155921771,26.57801634529262],"lat":[39.47064903027519,38.81577462532137,38.44191317489881,38.71992501118346,39.37355976167923,39.75047152140711,39.47064903027519]}]],[[{"lng":[28.06817079531339,28.00088783039564,28.7021497665707,29.47279077114591,29.55016649146245,28.84686884717912,28.06817079531339],"lat":[39.37355976167923,38.71992501118346,38.3375790713167,38.6057779803535,39.25782736657834,39.64331054771269,39.37355976167923]}]],[[{"lng":[30.76396371564612,30.68023432106981,31.34916042309334,32.10266809080842,32.19563296732724,31.52592687997848,30.76396371564612],"lat":[37.16495701437888,36.50664005724216,36.10778100817674,36.36391192782734,37.01995875684867,37.422185997514,37.16495701437888]}]],[[{"lng":[32.19563296732724,32.10266809080842,32.76106116843498,33.51266233023499,33.61458372321314,32.95602687537129,32.19563296732724],"lat":[37.01995875684867,36.36391192782734,35.95821975632126,36.20520968330217,36.85866401664056,37.26775932101902,37.01995875684867]}]],[[{"lng":[30.16443143146895,30.08378129811129,30.76396371564612,31.52592687997848,31.6161179120294,30.93487605957411,30.16443143146895],"lat":[38.21530146274488,37.55989481350725,37.16495701437888,37.422185997514,38.07549591433029,38.47371675001193,38.21530146274488]}]],[[{"lng":[31.6161179120294,31.52592687997848,32.19563296732724,32.95602687537129,33.05548256244556,32.38535877695387,31.6161179120294],"lat":[38.07549591433029,37.422185997514,37.01995875684867,37.26775932101902,37.91864749464704,38.32419732667995,38.07549591433029]}]],[[{"lng":[29.32121398335472,29.24697030924795,29.9257440988867,30.68023432106981,30.76396371564612,30.08378129811129,29.32121398335472],"lat":[37.2931582080128,36.63290490648417,36.24128085327695,36.50664005724216,37.16495701437888,37.55989481350725,37.2931582080128]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#333333","weight":1,"opacity":0.5,"fill":true,"fillColor":["#453882","#1F9E89","#26828E","#470C5F","#481A6C","#46085B","#460B5E","#482979","#32658E","#2B758E","#481A6C","#470E61","#450457","#481B6D","#481A6C","#481F70","#481B6D","#4AC16D","#46317E","#238A8D","#FDE725","#433E85","#46085C","#481A6C","#404688","#453681","#440154","#450659","#450457","#433E85","#45C06F","#460B5E","#472D7B","#3A548C","#88D548","#450558","#433D84","#6FCE58","#471063","#46085B","#228C8D","#5DC863","#3E4A89","#450659","#481769","#450559","#365C8D","#481668","#33638D","#443983","#23888E","#31678E","#31678E","#31688E","#443B84","#3F4788","#481B6D","#3E4A89"],"fillOpacity":0.9,"smoothFactor":1,"noClip":false},["Percent_Tree_Cover: 7.8 <br>Date: 2022-01-01 <br>Hex ID: 831ec8fffffffff","Percent_Tree_Cover: 25.2 <br>Date: 2022-01-01 <br>Hex ID: 831ecafffffffff","Percent_Tree_Cover: 20.3 <br>Date: 2022-01-01 <br>Hex ID: 831ecbfffffffff","Percent_Tree_Cover: 2 <br>Date: 2022-01-01 <br>Hex ID: 832c00fffffffff","Percent_Tree_Cover: 3.7 <br>Date: 2022-01-01 <br>Hex ID: 832c04fffffffff","Percent_Tree_Cover: 1.4 <br>Date: 2022-01-01 <br>Hex ID: 832c06fffffffff","Percent_Tree_Cover: 1.9 <br>Date: 2022-01-01 <br>Hex ID: 832c15fffffffff","Percent_Tree_Cover: 5.7 <br>Date: 2022-01-01 <br>Hex ID: 832c22fffffffff","Percent_Tree_Cover: 14.9 <br>Date: 2022-01-01 <br>Hex ID: 832c23fffffffff","Percent_Tree_Cover: 17.8 <br>Date: 2022-01-01 <br>Hex ID: 832c26fffffffff","Percent_Tree_Cover: 3.6 <br>Date: 2022-01-01 <br>Hex ID: 832c30fffffffff","Percent_Tree_Cover: 2.2 <br>Date: 2022-01-01 <br>Hex ID: 832c31fffffffff","Percent_Tree_Cover: 1 <br>Date: 2022-01-01 <br>Hex ID: 832c32fffffffff","Percent_Tree_Cover: 3.8 <br>Date: 2022-01-01 <br>Hex ID: 832c33fffffffff","Percent_Tree_Cover: 3.7 <br>Date: 2022-01-01 <br>Hex ID: 832c34fffffffff","Percent_Tree_Cover: 4.3 <br>Date: 2022-01-01 <br>Hex ID: 832c35fffffffff","Percent_Tree_Cover: 3.8 <br>Date: 2022-01-01 <br>Hex ID: 832c36fffffffff","Percent_Tree_Cover: 32.2 <br>Date: 2022-01-01 <br>Hex ID: 832d00fffffffff","Percent_Tree_Cover: 6.8 <br>Date: 2022-01-01 <br>Hex ID: 832d02fffffffff","Percent_Tree_Cover: 21.6 <br>Date: 2022-01-01 <br>Hex ID: 832d03fffffffff","Percent_Tree_Cover: 44.9 <br>Date: 2022-01-01 <br>Hex ID: 832d04fffffffff","Percent_Tree_Cover: 8.7 <br>Date: 2022-01-01 <br>Hex ID: 832d06fffffffff","Percent_Tree_Cover: 1.5 <br>Date: 2022-01-01 <br>Hex ID: 832d10fffffffff","Percent_Tree_Cover: 3.6 <br>Date: 2022-01-01 <br>Hex ID: 832d11fffffffff","Percent_Tree_Cover: 9.9 <br>Date: 2022-01-01 <br>Hex ID: 832d12fffffffff","Percent_Tree_Cover: 7.5 <br>Date: 2022-01-01 <br>Hex ID: 832d13fffffffff","Percent_Tree_Cover: 0.7 <br>Date: 2022-01-01 <br>Hex ID: 832d14fffffffff","Percent_Tree_Cover: 1.3 <br>Date: 2022-01-01 <br>Hex ID: 832d15fffffffff","Percent_Tree_Cover: 1 <br>Date: 2022-01-01 <br>Hex ID: 832d16fffffffff","Percent_Tree_Cover: 8.6 <br>Date: 2022-01-01 <br>Hex ID: 832d18fffffffff","Percent_Tree_Cover: 31.8 <br>Date: 2022-01-01 <br>Hex ID: 832d19fffffffff","Percent_Tree_Cover: 1.9 <br>Date: 2022-01-01 <br>Hex ID: 832d1afffffffff","Percent_Tree_Cover: 6.2 <br>Date: 2022-01-01 <br>Hex ID: 832d1bfffffffff","Percent_Tree_Cover: 12.2 <br>Date: 2022-01-01 <br>Hex ID: 832d1cfffffffff","Percent_Tree_Cover: 37 <br>Date: 2022-01-01 <br>Hex ID: 832d1dfffffffff","Percent_Tree_Cover: 1.1 <br>Date: 2022-01-01 <br>Hex ID: 832d1efffffffff","Percent_Tree_Cover: 8.5 <br>Date: 2022-01-01 <br>Hex ID: 832d30fffffffff","Percent_Tree_Cover: 35.2 <br>Date: 2022-01-01 <br>Hex ID: 832d31fffffffff","Percent_Tree_Cover: 2.3 <br>Date: 2022-01-01 <br>Hex ID: 832d32fffffffff","Percent_Tree_Cover: 1.4 <br>Date: 2022-01-01 <br>Hex ID: 832d33fffffffff","Percent_Tree_Cover: 22.1 <br>Date: 2022-01-01 <br>Hex ID: 832d34fffffffff","Percent_Tree_Cover: 33.8 <br>Date: 2022-01-01 <br>Hex ID: 832d35fffffffff","Percent_Tree_Cover: 10.5 <br>Date: 2022-01-01 <br>Hex ID: 832d36fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2022-01-01 <br>Hex ID: 832da8fffffffff","Percent_Tree_Cover: 3.3 <br>Date: 2022-01-01 <br>Hex ID: 832da9fffffffff","Percent_Tree_Cover: 1.1 <br>Date: 2022-01-01 <br>Hex ID: 832dabfffffffff","Percent_Tree_Cover: 13.3 <br>Date: 2022-01-01 <br>Hex ID: 832dacfffffffff","Percent_Tree_Cover: 3.1 <br>Date: 2022-01-01 <br>Hex ID: 832dadfffffffff","Percent_Tree_Cover: 14.5 <br>Date: 2022-01-01 <br>Hex ID: 833f60fffffffff","Percent_Tree_Cover: 8 <br>Date: 2022-01-01 <br>Hex ID: 833f61fffffffff","Percent_Tree_Cover: 21.3 <br>Date: 2022-01-01 <br>Hex ID: 833f63fffffffff","Percent_Tree_Cover: 15.2 <br>Date: 2022-01-01 <br>Hex ID: 833f64fffffffff","Percent_Tree_Cover: 15.1 <br>Date: 2022-01-01 <br>Hex ID: 833f65fffffffff","Percent_Tree_Cover: 15.5 <br>Date: 2022-01-01 <br>Hex ID: 833f68fffffffff","Percent_Tree_Cover: 8.3 <br>Date: 2022-01-01 <br>Hex ID: 833f69fffffffff","Percent_Tree_Cover: 10 <br>Date: 2022-01-01 <br>Hex ID: 833f6cfffffffff","Percent_Tree_Cover: 3.8 <br>Date: 2022-01-01 <br>Hex ID: 833f6dfffffffff","Percent_Tree_Cover: 10.6 <br>Date: 2022-01-01 <br>Hex ID: 833f6efffffffff"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"topright"}]},{"method":"addLegend","args":[{"colors":["#440154 , #482475 9.82815566190458%, #3F4788 21.1369456104537%, #31668E 32.4457355590028%, #26828E 43.754525507552%, #1E9C89 55.0633154561011%, #34B679 66.3721054046503%, #6CCD5A 77.6808953531994%, #B5DE2B 88.9896853017485%, #FDE725 "],"labels":["5","10","15","20","25","30","35","40"],"na_color":null,"na_label":"No data","opacity":0.5,"position":"bottomright","type":"numeric","title":"Percent_Tree_Cover 2022-01-01","extra":{"p_1":0.09828155661904577,"p_n":0.8898968530174852},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[35.95821975632126,42.16313655584668],"lng":[25.8566561527047,44.96658033859127]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-04455ff447f6b88d7b33" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-04455ff447f6b88d7b33">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addPolygons","args":[[[[{"lng":[26.75392713696018,26.69444832655208,27.41889247136163,28.20561641084367,28.27582003281616,27.54862992875092,26.75392713696018],"lat":[41.41639200107732,40.77110362157863,40.40014108506871,40.67153760127161,41.31558927630959,41.68953194273748,41.41639200107732]}]],[[{"lng":[25.90955019734398,25.8566561527047,26.57801634529262,27.35540155921771,27.41889247136163,26.69444832655208,25.90955019734398],"lat":[40.48938330460453,39.83864906002427,39.47064903027519,39.75047152140711,40.40014108506871,40.77110362157863,40.48938330460453]}]],[[{"lng":[27.41889247136163,27.35540155921771,28.06817079531339,28.84686884717912,28.92076561720102,28.20561641084367,27.41889247136163],"lat":[40.40014108506871,39.75047152140711,39.37355976167923,39.64331054771269,40.29156972573303,40.67153760127161,40.40014108506871]}]],[[{"lng":[43.46432377003566,44.04498513651647,44.5403979156662,44.78917069642782,44.96658033859127,44.38550731669547,43.88232974070638,43.63078883928756,43.46432377003566],"lat":[39.48310661543461,39.03471835622047,39.1399668625514,39.19042626649574,39.79634372406262,40.24932117512771,40.14339295748996,40.09098548661677,39.48310661543461]}]],[[{"lng":[42.27595072881267,42.11651610751938,42.71268598324743,43.46432377003566,43.63078883928756,43.03870972671675,42.27595072881267],"lat":[40.37421891237964,39.76221332071589,39.31801170266608,39.48310661543461,40.09098548661677,40.5379143795347,40.37421891237964]}]],[[{"lng":[42.71268598324743,42.55271260195798,43.13752145794886,43.87827633045024,44.04498513651647,43.46432377003566,42.71268598324743],"lat":[39.31801170266608,38.70304190833014,38.25742550967681,38.42402287550505,39.03471835622047,39.48310661543461,39.31801170266608]}]],[[{"lng":[43.13752145794886,42.97711466948047,43.55089210890026,44.28099871327971,44.44785987206311,43.87827633045024,43.13752145794886],"lat":[38.25742550967681,37.63988301518088,37.19334310339934,37.36153449315948,37.97465830944774,38.42402287550505,38.25742550967681]}]],[[{"lng":[40.89705848930085,40.74511278127022,41.35657591970917,42.11651610751938,42.27595072881267,41.66807932931008,40.89705848930085],"lat":[40.64395673035828,40.02802969422817,39.58855898492218,39.76221332071589,40.37421891237964,40.81651360826753,40.64395673035828]}]],[[{"lng":[41.82686156553261,41.66807932931008,42.27595072881267,43.03870972671675,43.20483211516566,42.60098340311145,41.82686156553261],"lat":[41.42517469528692,40.81651360826753,40.37421891237964,40.5379143795347,41.14259876763571,41.58758498853158,41.42517469528692]}]],[[{"lng":[39.49510454786297,39.35110031304906,39.97757007195356,40.74511278127022,40.89705848930085,40.27364106514176,39.49510454786297],"lat":[40.89930692683948,40.27967998813411,39.84548333301931,40.02802969422817,40.64395673035828,41.08106308548847,40.89930692683948]}]],[[{"lng":[40.44702850706764,40.30082036180866,40.90393830075324,41.65010849535905,41.80362990355213,41.20378260090939,40.44702850706764],"lat":[38.78606593762386,38.16029427741795,37.72195972074655,37.90641729561219,38.52818125598115,38.96951630812845,38.78606593762386]}]],[[{"lng":[41.35657591970917,41.20378260090939,41.80362990355213,42.55271260195798,42.71268598324743,42.11651610751938,41.35657591970917],"lat":[39.58855898492218,38.96951630812845,38.52818125598115,38.70304190833014,39.31801170266608,39.76221332071589,39.58855898492218]}]],[[{"lng":[40.90393830075324,40.75681983483856,41.34874010814596,42.08453011389582,42.23866844240896,41.65010849535905,40.90393830075324],"lat":[37.72195972074655,37.09372208549631,36.65408054433784,36.83963771514377,37.46371825217525,37.90641729561219,37.72195972074655]}]],[[{"lng":[41.80362990355213,41.65010849535905,42.23866844240896,42.97711466948047,43.13752145794886,42.55271260195798,41.80362990355213],"lat":[38.52818125598115,37.90641729561219,37.46371825217525,37.63988301518088,38.25742550967681,38.70304190833014,38.52818125598115]}]],[[{"lng":[39.06869121950607,38.93021759674642,39.54760269073364,40.30082036180866,40.44702850706764,39.83239702118404,39.06869121950607],"lat":[39.030236543477,38.40068741342036,37.96724011219477,38.16029427741795,38.78606593762386,39.22258562300163,39.030236543477]}]],[[{"lng":[39.97757007195356,39.83239702118404,40.44702850706764,41.20378260090939,41.35657591970917,40.74511278127022,39.97757007195356],"lat":[39.84548333301931,39.22258562300163,38.78606593762386,38.96951630812845,39.58855898492218,40.02802969422817,39.84548333301931]}]],[[{"lng":[39.54760269073364,39.40791451802404,40.01390390535312,40.75681983483856,40.90393830075324,40.30082036180866,39.54760269073364],"lat":[37.96724011219477,37.33507129627533,36.89986549574836,37.09372208549631,37.72195972074655,38.16029427741795,37.96724011219477]}]],[[{"lng":[33.68154151485255,33.57356478818899,34.25569329920059,35.04536658336036,35.16295215521244,34.48135696744161,33.68154151485255],"lat":[41.76002281300546,41.12812672764258,40.72029384206024,40.94129069308124,41.57052929593052,41.98146857772053,41.76002281300546]}]],[[{"lng":[34.25569329920059,34.14517888552743,34.81497841853324,35.59461531057752,35.71438837201353,35.04536658336036,34.25569329920059],"lat":[40.72029384206024,40.0844744378635,39.67243888835663,39.89310904128938,40.52610366217259,40.94129069308124,40.72029384206024]}]],[[{"lng":[35.16295215521244,35.04536658336036,35.71438837201353,36.49989244588108,36.62670018676323,35.95888975914823,35.16295215521244],"lat":[41.57052929593052,40.94129069308124,40.52610366217259,40.73710931274847,41.36340748051559,41.78167713429249,41.57052929593052]}]],[[{"lng":[32.18416093077614,32.08615225875723,32.78072229592114,33.57356478818899,33.68154151485255,32.98680118625447,32.18416093077614],"lat":[41.93120042635866,41.29694332763068,40.89694020634369,41.12812672764258,41.76002281300546,42.16313655584668,41.93120042635866]}]],[[{"lng":[32.78072229592114,32.67982486678349,33.36205936480856,34.14517888552743,34.25569329920059,33.57356478818899,32.78072229592114],"lat":[40.89694020634369,40.2585904108818,39.8539165470676,40.0844744378635,40.72029384206024,41.12812672764258,40.89694020634369]}]],[[{"lng":[33.92863236095966,33.82254156386477,34.48088998665223,35.24482483410058,35.35986436648889,34.70211322336851,33.92863236095966],"lat":[38.80305550764803,38.15774326462537,37.74530526425103,37.97493975922033,38.61738429085779,39.03309857636183,38.80305550764803]}]],[[{"lng":[34.81497841853324,34.70211322336851,35.35986436648889,36.1295780477436,36.25136402457679,35.59461531057752,34.81497841853324],"lat":[39.67243888835663,39.03309857636183,38.61738429085779,38.83784195852542,39.47419090525831,39.89310904128938,39.67243888835663]}]],[[{"lng":[34.48088998665223,34.37247395140693,35.01926920399873,35.77375792162133,35.89080530101953,35.24482483410058,34.48088998665223],"lat":[37.74530526425103,37.09715169756353,36.68163245897765,36.91095673461511,37.5560761706642,37.97493975922033,37.74530526425103]}]],[[{"lng":[35.35986436648889,35.24482483410058,35.89080530101953,36.65071528162084,36.77434984540357,36.1295780477436,35.35986436648889],"lat":[38.61738429085779,37.97493975922033,37.5560761706642,37.77642720733404,38.41571527061354,38.83784195852542,38.61738429085779]}]],[[{"lng":[32.48217066356338,32.38535877695387,33.05548256244556,33.82254156386477,33.92863236095966,33.25847140885456,32.48217066356338],"lat":[38.97207461816092,38.32419732667995,37.91864749464704,38.15774326462537,38.80305550764803,39.21187669737884,38.97207461816092]}]],[[{"lng":[33.36205936480856,33.25847140885456,33.92863236095966,34.70211322336851,34.81497841853324,34.14517888552743,33.36205936480856],"lat":[39.8539165470676,39.21187669737884,38.80305550764803,39.03309857636183,39.67243888835663,40.0844744378635,39.8539165470676]}]],[[{"lng":[33.05548256244556,32.95602687537129,33.61458372321314,34.37247395140693,34.48088998665223,33.82254156386477,33.05548256244556],"lat":[37.91864749464704,37.26775932101902,36.85866401664056,37.09715169756353,37.74530526425103,38.15774326462537,37.91864749464704]}]],[[{"lng":[37.15521777583515,37.02656909321291,37.66972391336357,38.4395998803737,38.57672065964872,37.93560490675943,37.15521777583515],"lat":[40.3150658165757,39.68517640087391,39.25987403101075,39.46140972892039,40.08792834344594,40.51631286338927,40.3150658165757]}]],[[{"lng":[38.07122507599479,37.93560490675943,38.57672065964872,39.35110031304906,39.49510454786297,38.85646296383545,38.07122507599479],"lat":[41.1394020850563,40.51631286338927,40.08792834344594,40.27967998813411,40.89930692683948,41.33067402303146,41.1394020850563]}]],[[{"lng":[37.66972391336357,37.53939574400638,38.17068872902224,38.93021759674642,39.06869121950607,38.4395998803737,37.66972391336357],"lat":[39.25987403101075,38.62679387483306,38.19875202083543,38.40068741342036,39.030236543477,39.46140972892039,39.25987403101075]}]],[[{"lng":[38.57672065964872,38.4395998803737,39.06869121950607,39.83239702118404,39.97757007195356,39.35110031304906,38.57672065964872],"lat":[40.08792834344594,39.46140972892039,39.030236543477,39.22258562300163,39.84548333301931,40.27967998813411,40.08792834344594]}]],[[{"lng":[35.71438837201353,35.59461531057752,36.25136402457679,37.02656909321291,37.15521777583515,36.49989244588108,35.71438837201353],"lat":[40.52610366217259,39.89310904128938,39.47419090525831,39.68517640087391,40.3150658165757,40.73710931274847,40.52610366217259]}]],[[{"lng":[36.62670018676323,36.49989244588108,37.15521777583515,37.93560490675943,38.07122507599479,37.41775926946102,36.62670018676323],"lat":[41.36340748051559,40.73710931274847,40.3150658165757,40.51631286338927,41.1394020850563,41.56448638206296,41.36340748051559]}]],[[{"lng":[36.25136402457679,36.1295780477436,36.77434984540357,37.53939574400638,37.66972391336357,37.02656909321291,36.25136402457679],"lat":[39.47419090525831,38.83784195852542,38.41571527061354,38.62679387483306,39.25987403101075,39.68517640087391,39.47419090525831]}]],[[{"lng":[30.41317908910699,30.32910696838931,31.02210603841925,31.80023823094864,31.89421854765742,31.20023596728733,30.41317908910699],"lat":[40.1640337045118,39.51752281763152,39.12384360782131,39.37354260399444,40.01797673556467,40.41483320155767,40.1640337045118]}]],[[{"lng":[31.29118686344163,31.20023596728733,31.89421854765742,32.67982486678349,32.78072229592114,32.08615225875723,31.29118686344163],"lat":[41.05540607047603,40.41483320155767,40.01797673556467,40.2585904108818,40.89694020634369,41.29694332763068,41.05540607047603]}]],[[{"lng":[31.02210603841925,30.93487605957411,31.6161179120294,32.38535877695387,32.48217066356338,31.80023823094864,31.02210603841925],"lat":[39.12384360782131,38.47371675001193,38.07549591433029,38.32419732667995,38.97207461816092,39.37354260399444,39.12384360782131]}]],[[{"lng":[31.89421854765742,31.80023823094864,32.48217066356338,33.25847140885456,33.36205936480856,32.67982486678349,31.89421854765742],"lat":[40.01797673556467,39.37354260399444,38.97207461816092,39.21187669737884,39.8539165470676,40.2585904108818,40.01797673556467]}]],[[{"lng":[28.92076561720102,28.84686884717912,29.55016649146245,30.32910696838931,30.41317908910699,29.70820350979227,28.92076561720102],"lat":[40.29156972573303,39.64331054771269,39.25782736657834,39.51752281763152,40.1640337045118,40.55264444865455,40.29156972573303]}]],[[{"lng":[29.78891102554876,29.70820350979227,30.41317908910699,31.20023596728733,31.29118686344163,30.58491366768429,29.78891102554876],"lat":[41.19512137576952,40.55264444865455,40.1640337045118,40.41483320155767,41.05540607047603,41.44713007511783,41.19512137576952]}]],[[{"lng":[29.55016649146245,29.47279077114591,30.16443143146895,30.93487605957411,31.02210603841925,30.32910696838931,29.55016649146245],"lat":[39.25782736657834,38.6057779803535,38.21530146274488,38.47371675001193,39.12384360782131,39.51752281763152,39.25782736657834]}]],[[{"lng":[37.28380169054273,37.15847316225135,37.780160694358,38.52532435638908,38.65856621949614,38.03883261668503,37.28380169054273],"lat":[37.35161848319326,36.709818345525,36.28285603308113,36.49442404260413,37.1326349046004,37.56289437280511,37.35161848319326]}]],[[{"lng":[38.17068872902224,38.03883261668503,38.65856621949614,39.40791451802404,39.54760269073364,38.93021759674642,38.17068872902224],"lat":[38.19875202083543,37.56289437280511,37.1326349046004,37.33507129627533,37.96724011219477,38.40068741342036,38.19875202083543]}]],[[{"lng":[38.65856621949614,38.52532435638908,39.13379456767612,39.87313057089867,40.01390390535312,39.40791451802404,38.65856621949614],"lat":[37.1326349046004,36.49442404260413,36.06246930016206,36.26549804329453,36.89986549574836,37.33507129627533,37.1326349046004]}]],[[{"lng":[35.89080530101953,35.77375792162133,36.40824201853938,37.15847316225135,37.28380169054273,36.65071528162084,35.89080530101953],"lat":[37.5560761706642,36.91095673461511,36.48947674024333,36.709818345525,37.35161848319326,37.77642720733404,37.5560761706642]}]],[[{"lng":[36.77434984540357,36.65071528162084,37.28380169054273,38.03883261668503,38.17068872902224,37.53939574400638,36.77434984540357],"lat":[38.41571527061354,37.77642720733404,37.35161848319326,37.56289437280511,38.19875202083543,38.62679387483306,38.41571527061354]}]],[[{"lng":[27.23107993317469,27.17021260843733,27.86910331182821,28.63128556124237,28.7021497665707,28.00088783039564,27.23107993317469],"lat":[38.44191317489881,37.78332971808115,37.40412642214208,37.68041148590275,38.3375790713167,38.71992501118346,38.44191317489881]}]],[[{"lng":[28.7021497665707,28.63128556124237,29.32121398335472,30.08378129811129,30.16443143146895,29.47279077114591,28.7021497665707],"lat":[38.3375790713167,37.68041148590275,37.2931582080128,37.55989481350725,38.21530146274488,38.6057779803535,38.3375790713167]}]],[[{"lng":[27.86910331182821,27.80456403265456,28.49244726274084,29.24697030924795,29.32121398335472,28.63128556124237,27.86910331182821],"lat":[37.40412642214208,36.74228052489006,36.35826642744043,36.63290490648417,37.2931582080128,37.68041148590275,37.40412642214208]}]],[[{"lng":[26.57801634529262,26.52102791076366,27.23107993317469,28.00088783039564,28.06817079531339,27.35540155921771,26.57801634529262],"lat":[39.47064903027519,38.81577462532137,38.44191317489881,38.71992501118346,39.37355976167923,39.75047152140711,39.47064903027519]}]],[[{"lng":[28.06817079531339,28.00088783039564,28.7021497665707,29.47279077114591,29.55016649146245,28.84686884717912,28.06817079531339],"lat":[39.37355976167923,38.71992501118346,38.3375790713167,38.6057779803535,39.25782736657834,39.64331054771269,39.37355976167923]}]],[[{"lng":[30.76396371564612,30.68023432106981,31.34916042309334,32.10266809080842,32.19563296732724,31.52592687997848,30.76396371564612],"lat":[37.16495701437888,36.50664005724216,36.10778100817674,36.36391192782734,37.01995875684867,37.422185997514,37.16495701437888]}]],[[{"lng":[32.19563296732724,32.10266809080842,32.76106116843498,33.51266233023499,33.61458372321314,32.95602687537129,32.19563296732724],"lat":[37.01995875684867,36.36391192782734,35.95821975632126,36.20520968330217,36.85866401664056,37.26775932101902,37.01995875684867]}]],[[{"lng":[30.16443143146895,30.08378129811129,30.76396371564612,31.52592687997848,31.6161179120294,30.93487605957411,30.16443143146895],"lat":[38.21530146274488,37.55989481350725,37.16495701437888,37.422185997514,38.07549591433029,38.47371675001193,38.21530146274488]}]],[[{"lng":[31.6161179120294,31.52592687997848,32.19563296732724,32.95602687537129,33.05548256244556,32.38535877695387,31.6161179120294],"lat":[38.07549591433029,37.422185997514,37.01995875684867,37.26775932101902,37.91864749464704,38.32419732667995,38.07549591433029]}]],[[{"lng":[29.32121398335472,29.24697030924795,29.9257440988867,30.68023432106981,30.76396371564612,30.08378129811129,29.32121398335472],"lat":[37.2931582080128,36.63290490648417,36.24128085327695,36.50664005724216,37.16495701437888,37.55989481350725,37.2931582080128]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#333333","weight":1,"opacity":0.5,"fill":true,"fillColor":["#443A83","#1FA287","#228B8D","#481769","#482475","#470F62","#481466","#46327E","#2C728E","#297A8E","#482173","#48186A","#450659","#482677","#482071","#482878","#48196B","#4CC26C","#443983","#21918C","#FDE725","#414287","#460B5E","#482071","#3B528B","#414287","#440154","#46085C","#450457","#3F4889","#66CC5D","#471365","#453882","#355E8D","#9CD93C","#460A5D","#404588","#7BD250","#481466","#46095D","#1F958B","#6ECE58","#3A548C","#450559","#48196B","#450558","#31678E","#481B6D","#2C728E","#414487","#1F988B","#2B748E","#2B758E","#297A8E","#404688","#3A548C","#482273","#39558C"],"fillOpacity":0.9,"smoothFactor":1,"noClip":false},["Percent_Tree_Cover: 7.8 <br>Date: 2023-01-01 <br>Hex ID: 831ec8fffffffff","Percent_Tree_Cover: 24.7 <br>Date: 2023-01-01 <br>Hex ID: 831ecafffffffff","Percent_Tree_Cover: 20.6 <br>Date: 2023-01-01 <br>Hex ID: 831ecbfffffffff","Percent_Tree_Cover: 3.1 <br>Date: 2023-01-01 <br>Hex ID: 832c00fffffffff","Percent_Tree_Cover: 4.8 <br>Date: 2023-01-01 <br>Hex ID: 832c04fffffffff","Percent_Tree_Cover: 2.2 <br>Date: 2023-01-01 <br>Hex ID: 832c06fffffffff","Percent_Tree_Cover: 2.7 <br>Date: 2023-01-01 <br>Hex ID: 832c15fffffffff","Percent_Tree_Cover: 6.6 <br>Date: 2023-01-01 <br>Hex ID: 832c22fffffffff","Percent_Tree_Cover: 16.3 <br>Date: 2023-01-01 <br>Hex ID: 832c23fffffffff","Percent_Tree_Cover: 17.7 <br>Date: 2023-01-01 <br>Hex ID: 832c26fffffffff","Percent_Tree_Cover: 4.4 <br>Date: 2023-01-01 <br>Hex ID: 832c30fffffffff","Percent_Tree_Cover: 3.3 <br>Date: 2023-01-01 <br>Hex ID: 832c31fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2023-01-01 <br>Hex ID: 832c32fffffffff","Percent_Tree_Cover: 5.1 <br>Date: 2023-01-01 <br>Hex ID: 832c33fffffffff","Percent_Tree_Cover: 4.3 <br>Date: 2023-01-01 <br>Hex ID: 832c34fffffffff","Percent_Tree_Cover: 5.3 <br>Date: 2023-01-01 <br>Hex ID: 832c35fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2023-01-01 <br>Hex ID: 832c36fffffffff","Percent_Tree_Cover: 30.5 <br>Date: 2023-01-01 <br>Hex ID: 832d00fffffffff","Percent_Tree_Cover: 7.5 <br>Date: 2023-01-01 <br>Hex ID: 832d02fffffffff","Percent_Tree_Cover: 21.5 <br>Date: 2023-01-01 <br>Hex ID: 832d03fffffffff","Percent_Tree_Cover: 42.3 <br>Date: 2023-01-01 <br>Hex ID: 832d04fffffffff","Percent_Tree_Cover: 8.8 <br>Date: 2023-01-01 <br>Hex ID: 832d06fffffffff","Percent_Tree_Cover: 1.8 <br>Date: 2023-01-01 <br>Hex ID: 832d10fffffffff","Percent_Tree_Cover: 4.3 <br>Date: 2023-01-01 <br>Hex ID: 832d11fffffffff","Percent_Tree_Cover: 11.1 <br>Date: 2023-01-01 <br>Hex ID: 832d12fffffffff","Percent_Tree_Cover: 8.8 <br>Date: 2023-01-01 <br>Hex ID: 832d13fffffffff","Percent_Tree_Cover: 0.7 <br>Date: 2023-01-01 <br>Hex ID: 832d14fffffffff","Percent_Tree_Cover: 1.5 <br>Date: 2023-01-01 <br>Hex ID: 832d15fffffffff","Percent_Tree_Cover: 1 <br>Date: 2023-01-01 <br>Hex ID: 832d16fffffffff","Percent_Tree_Cover: 9.7 <br>Date: 2023-01-01 <br>Hex ID: 832d18fffffffff","Percent_Tree_Cover: 32.6 <br>Date: 2023-01-01 <br>Hex ID: 832d19fffffffff","Percent_Tree_Cover: 2.7 <br>Date: 2023-01-01 <br>Hex ID: 832d1afffffffff","Percent_Tree_Cover: 7.4 <br>Date: 2023-01-01 <br>Hex ID: 832d1bfffffffff","Percent_Tree_Cover: 13 <br>Date: 2023-01-01 <br>Hex ID: 832d1cfffffffff","Percent_Tree_Cover: 36.1 <br>Date: 2023-01-01 <br>Hex ID: 832d1dfffffffff","Percent_Tree_Cover: 1.6 <br>Date: 2023-01-01 <br>Hex ID: 832d1efffffffff","Percent_Tree_Cover: 9.2 <br>Date: 2023-01-01 <br>Hex ID: 832d30fffffffff","Percent_Tree_Cover: 34.1 <br>Date: 2023-01-01 <br>Hex ID: 832d31fffffffff","Percent_Tree_Cover: 2.7 <br>Date: 2023-01-01 <br>Hex ID: 832d32fffffffff","Percent_Tree_Cover: 1.6 <br>Date: 2023-01-01 <br>Hex ID: 832d33fffffffff","Percent_Tree_Cover: 22.4 <br>Date: 2023-01-01 <br>Hex ID: 832d34fffffffff","Percent_Tree_Cover: 33.2 <br>Date: 2023-01-01 <br>Hex ID: 832d35fffffffff","Percent_Tree_Cover: 11.4 <br>Date: 2023-01-01 <br>Hex ID: 832d36fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2023-01-01 <br>Hex ID: 832da8fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2023-01-01 <br>Hex ID: 832da9fffffffff","Percent_Tree_Cover: 1.1 <br>Date: 2023-01-01 <br>Hex ID: 832dabfffffffff","Percent_Tree_Cover: 14.5 <br>Date: 2023-01-01 <br>Hex ID: 832dacfffffffff","Percent_Tree_Cover: 3.7 <br>Date: 2023-01-01 <br>Hex ID: 832dadfffffffff","Percent_Tree_Cover: 16.3 <br>Date: 2023-01-01 <br>Hex ID: 833f60fffffffff","Percent_Tree_Cover: 9 <br>Date: 2023-01-01 <br>Hex ID: 833f61fffffffff","Percent_Tree_Cover: 22.9 <br>Date: 2023-01-01 <br>Hex ID: 833f63fffffffff","Percent_Tree_Cover: 16.6 <br>Date: 2023-01-01 <br>Hex ID: 833f64fffffffff","Percent_Tree_Cover: 16.8 <br>Date: 2023-01-01 <br>Hex ID: 833f65fffffffff","Percent_Tree_Cover: 17.7 <br>Date: 2023-01-01 <br>Hex ID: 833f68fffffffff","Percent_Tree_Cover: 9.4 <br>Date: 2023-01-01 <br>Hex ID: 833f69fffffffff","Percent_Tree_Cover: 11.4 <br>Date: 2023-01-01 <br>Hex ID: 833f6cfffffffff","Percent_Tree_Cover: 4.5 <br>Date: 2023-01-01 <br>Hex ID: 833f6dfffffffff","Percent_Tree_Cover: 11.6 <br>Date: 2023-01-01 <br>Hex ID: 833f6efffffffff"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"topright"}]},{"method":"addLegend","args":[{"colors":["#440154 , #482576 10.354773030949%, #3E4A89 22.3749361728726%, #2F6B8E 34.3950993147961%, #24878E 46.4152624567197%, #20A486 58.4354255986432%, #45C06F 70.4555887405668%, #8AD547 82.4757518824903%, #DAE319 94.4959150244139%, #FDE725 "],"labels":["5","10","15","20","25","30","35","40"],"na_color":null,"na_label":"No data","opacity":0.5,"position":"bottomright","type":"numeric","title":"Percent_Tree_Cover 2023-01-01","extra":{"p_1":0.1035477303094901,"p_n":0.944959150244139},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[35.95821975632126,42.16313655584668],"lng":[25.8566561527047,44.96658033859127]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-457a4315a0443732b4db" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-457a4315a0443732b4db">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addPolygons","args":[[[[{"lng":[26.75392713696018,26.69444832655208,27.41889247136163,28.20561641084367,28.27582003281616,27.54862992875092,26.75392713696018],"lat":[41.41639200107732,40.77110362157863,40.40014108506871,40.67153760127161,41.31558927630959,41.68953194273748,41.41639200107732]}]],[[{"lng":[25.90955019734398,25.8566561527047,26.57801634529262,27.35540155921771,27.41889247136163,26.69444832655208,25.90955019734398],"lat":[40.48938330460453,39.83864906002427,39.47064903027519,39.75047152140711,40.40014108506871,40.77110362157863,40.48938330460453]}]],[[{"lng":[27.41889247136163,27.35540155921771,28.06817079531339,28.84686884717912,28.92076561720102,28.20561641084367,27.41889247136163],"lat":[40.40014108506871,39.75047152140711,39.37355976167923,39.64331054771269,40.29156972573303,40.67153760127161,40.40014108506871]}]],[[{"lng":[43.46432377003566,44.04498513651647,44.5403979156662,44.78917069642782,44.96658033859127,44.38550731669547,43.88232974070638,43.63078883928756,43.46432377003566],"lat":[39.48310661543461,39.03471835622047,39.1399668625514,39.19042626649574,39.79634372406262,40.24932117512771,40.14339295748996,40.09098548661677,39.48310661543461]}]],[[{"lng":[42.27595072881267,42.11651610751938,42.71268598324743,43.46432377003566,43.63078883928756,43.03870972671675,42.27595072881267],"lat":[40.37421891237964,39.76221332071589,39.31801170266608,39.48310661543461,40.09098548661677,40.5379143795347,40.37421891237964]}]],[[{"lng":[42.71268598324743,42.55271260195798,43.13752145794886,43.87827633045024,44.04498513651647,43.46432377003566,42.71268598324743],"lat":[39.31801170266608,38.70304190833014,38.25742550967681,38.42402287550505,39.03471835622047,39.48310661543461,39.31801170266608]}]],[[{"lng":[43.13752145794886,42.97711466948047,43.55089210890026,44.28099871327971,44.44785987206311,43.87827633045024,43.13752145794886],"lat":[38.25742550967681,37.63988301518088,37.19334310339934,37.36153449315948,37.97465830944774,38.42402287550505,38.25742550967681]}]],[[{"lng":[40.89705848930085,40.74511278127022,41.35657591970917,42.11651610751938,42.27595072881267,41.66807932931008,40.89705848930085],"lat":[40.64395673035828,40.02802969422817,39.58855898492218,39.76221332071589,40.37421891237964,40.81651360826753,40.64395673035828]}]],[[{"lng":[41.82686156553261,41.66807932931008,42.27595072881267,43.03870972671675,43.20483211516566,42.60098340311145,41.82686156553261],"lat":[41.42517469528692,40.81651360826753,40.37421891237964,40.5379143795347,41.14259876763571,41.58758498853158,41.42517469528692]}]],[[{"lng":[39.49510454786297,39.35110031304906,39.97757007195356,40.74511278127022,40.89705848930085,40.27364106514176,39.49510454786297],"lat":[40.89930692683948,40.27967998813411,39.84548333301931,40.02802969422817,40.64395673035828,41.08106308548847,40.89930692683948]}]],[[{"lng":[40.44702850706764,40.30082036180866,40.90393830075324,41.65010849535905,41.80362990355213,41.20378260090939,40.44702850706764],"lat":[38.78606593762386,38.16029427741795,37.72195972074655,37.90641729561219,38.52818125598115,38.96951630812845,38.78606593762386]}]],[[{"lng":[41.35657591970917,41.20378260090939,41.80362990355213,42.55271260195798,42.71268598324743,42.11651610751938,41.35657591970917],"lat":[39.58855898492218,38.96951630812845,38.52818125598115,38.70304190833014,39.31801170266608,39.76221332071589,39.58855898492218]}]],[[{"lng":[40.90393830075324,40.75681983483856,41.34874010814596,42.08453011389582,42.23866844240896,41.65010849535905,40.90393830075324],"lat":[37.72195972074655,37.09372208549631,36.65408054433784,36.83963771514377,37.46371825217525,37.90641729561219,37.72195972074655]}]],[[{"lng":[41.80362990355213,41.65010849535905,42.23866844240896,42.97711466948047,43.13752145794886,42.55271260195798,41.80362990355213],"lat":[38.52818125598115,37.90641729561219,37.46371825217525,37.63988301518088,38.25742550967681,38.70304190833014,38.52818125598115]}]],[[{"lng":[39.06869121950607,38.93021759674642,39.54760269073364,40.30082036180866,40.44702850706764,39.83239702118404,39.06869121950607],"lat":[39.030236543477,38.40068741342036,37.96724011219477,38.16029427741795,38.78606593762386,39.22258562300163,39.030236543477]}]],[[{"lng":[39.97757007195356,39.83239702118404,40.44702850706764,41.20378260090939,41.35657591970917,40.74511278127022,39.97757007195356],"lat":[39.84548333301931,39.22258562300163,38.78606593762386,38.96951630812845,39.58855898492218,40.02802969422817,39.84548333301931]}]],[[{"lng":[39.54760269073364,39.40791451802404,40.01390390535312,40.75681983483856,40.90393830075324,40.30082036180866,39.54760269073364],"lat":[37.96724011219477,37.33507129627533,36.89986549574836,37.09372208549631,37.72195972074655,38.16029427741795,37.96724011219477]}]],[[{"lng":[33.68154151485255,33.57356478818899,34.25569329920059,35.04536658336036,35.16295215521244,34.48135696744161,33.68154151485255],"lat":[41.76002281300546,41.12812672764258,40.72029384206024,40.94129069308124,41.57052929593052,41.98146857772053,41.76002281300546]}]],[[{"lng":[34.25569329920059,34.14517888552743,34.81497841853324,35.59461531057752,35.71438837201353,35.04536658336036,34.25569329920059],"lat":[40.72029384206024,40.0844744378635,39.67243888835663,39.89310904128938,40.52610366217259,40.94129069308124,40.72029384206024]}]],[[{"lng":[35.16295215521244,35.04536658336036,35.71438837201353,36.49989244588108,36.62670018676323,35.95888975914823,35.16295215521244],"lat":[41.57052929593052,40.94129069308124,40.52610366217259,40.73710931274847,41.36340748051559,41.78167713429249,41.57052929593052]}]],[[{"lng":[32.18416093077614,32.08615225875723,32.78072229592114,33.57356478818899,33.68154151485255,32.98680118625447,32.18416093077614],"lat":[41.93120042635866,41.29694332763068,40.89694020634369,41.12812672764258,41.76002281300546,42.16313655584668,41.93120042635866]}]],[[{"lng":[32.78072229592114,32.67982486678349,33.36205936480856,34.14517888552743,34.25569329920059,33.57356478818899,32.78072229592114],"lat":[40.89694020634369,40.2585904108818,39.8539165470676,40.0844744378635,40.72029384206024,41.12812672764258,40.89694020634369]}]],[[{"lng":[33.92863236095966,33.82254156386477,34.48088998665223,35.24482483410058,35.35986436648889,34.70211322336851,33.92863236095966],"lat":[38.80305550764803,38.15774326462537,37.74530526425103,37.97493975922033,38.61738429085779,39.03309857636183,38.80305550764803]}]],[[{"lng":[34.81497841853324,34.70211322336851,35.35986436648889,36.1295780477436,36.25136402457679,35.59461531057752,34.81497841853324],"lat":[39.67243888835663,39.03309857636183,38.61738429085779,38.83784195852542,39.47419090525831,39.89310904128938,39.67243888835663]}]],[[{"lng":[34.48088998665223,34.37247395140693,35.01926920399873,35.77375792162133,35.89080530101953,35.24482483410058,34.48088998665223],"lat":[37.74530526425103,37.09715169756353,36.68163245897765,36.91095673461511,37.5560761706642,37.97493975922033,37.74530526425103]}]],[[{"lng":[35.35986436648889,35.24482483410058,35.89080530101953,36.65071528162084,36.77434984540357,36.1295780477436,35.35986436648889],"lat":[38.61738429085779,37.97493975922033,37.5560761706642,37.77642720733404,38.41571527061354,38.83784195852542,38.61738429085779]}]],[[{"lng":[32.48217066356338,32.38535877695387,33.05548256244556,33.82254156386477,33.92863236095966,33.25847140885456,32.48217066356338],"lat":[38.97207461816092,38.32419732667995,37.91864749464704,38.15774326462537,38.80305550764803,39.21187669737884,38.97207461816092]}]],[[{"lng":[33.36205936480856,33.25847140885456,33.92863236095966,34.70211322336851,34.81497841853324,34.14517888552743,33.36205936480856],"lat":[39.8539165470676,39.21187669737884,38.80305550764803,39.03309857636183,39.67243888835663,40.0844744378635,39.8539165470676]}]],[[{"lng":[33.05548256244556,32.95602687537129,33.61458372321314,34.37247395140693,34.48088998665223,33.82254156386477,33.05548256244556],"lat":[37.91864749464704,37.26775932101902,36.85866401664056,37.09715169756353,37.74530526425103,38.15774326462537,37.91864749464704]}]],[[{"lng":[37.15521777583515,37.02656909321291,37.66972391336357,38.4395998803737,38.57672065964872,37.93560490675943,37.15521777583515],"lat":[40.3150658165757,39.68517640087391,39.25987403101075,39.46140972892039,40.08792834344594,40.51631286338927,40.3150658165757]}]],[[{"lng":[38.07122507599479,37.93560490675943,38.57672065964872,39.35110031304906,39.49510454786297,38.85646296383545,38.07122507599479],"lat":[41.1394020850563,40.51631286338927,40.08792834344594,40.27967998813411,40.89930692683948,41.33067402303146,41.1394020850563]}]],[[{"lng":[37.66972391336357,37.53939574400638,38.17068872902224,38.93021759674642,39.06869121950607,38.4395998803737,37.66972391336357],"lat":[39.25987403101075,38.62679387483306,38.19875202083543,38.40068741342036,39.030236543477,39.46140972892039,39.25987403101075]}]],[[{"lng":[38.57672065964872,38.4395998803737,39.06869121950607,39.83239702118404,39.97757007195356,39.35110031304906,38.57672065964872],"lat":[40.08792834344594,39.46140972892039,39.030236543477,39.22258562300163,39.84548333301931,40.27967998813411,40.08792834344594]}]],[[{"lng":[35.71438837201353,35.59461531057752,36.25136402457679,37.02656909321291,37.15521777583515,36.49989244588108,35.71438837201353],"lat":[40.52610366217259,39.89310904128938,39.47419090525831,39.68517640087391,40.3150658165757,40.73710931274847,40.52610366217259]}]],[[{"lng":[36.62670018676323,36.49989244588108,37.15521777583515,37.93560490675943,38.07122507599479,37.41775926946102,36.62670018676323],"lat":[41.36340748051559,40.73710931274847,40.3150658165757,40.51631286338927,41.1394020850563,41.56448638206296,41.36340748051559]}]],[[{"lng":[36.25136402457679,36.1295780477436,36.77434984540357,37.53939574400638,37.66972391336357,37.02656909321291,36.25136402457679],"lat":[39.47419090525831,38.83784195852542,38.41571527061354,38.62679387483306,39.25987403101075,39.68517640087391,39.47419090525831]}]],[[{"lng":[30.41317908910699,30.32910696838931,31.02210603841925,31.80023823094864,31.89421854765742,31.20023596728733,30.41317908910699],"lat":[40.1640337045118,39.51752281763152,39.12384360782131,39.37354260399444,40.01797673556467,40.41483320155767,40.1640337045118]}]],[[{"lng":[31.29118686344163,31.20023596728733,31.89421854765742,32.67982486678349,32.78072229592114,32.08615225875723,31.29118686344163],"lat":[41.05540607047603,40.41483320155767,40.01797673556467,40.2585904108818,40.89694020634369,41.29694332763068,41.05540607047603]}]],[[{"lng":[31.02210603841925,30.93487605957411,31.6161179120294,32.38535877695387,32.48217066356338,31.80023823094864,31.02210603841925],"lat":[39.12384360782131,38.47371675001193,38.07549591433029,38.32419732667995,38.97207461816092,39.37354260399444,39.12384360782131]}]],[[{"lng":[31.89421854765742,31.80023823094864,32.48217066356338,33.25847140885456,33.36205936480856,32.67982486678349,31.89421854765742],"lat":[40.01797673556467,39.37354260399444,38.97207461816092,39.21187669737884,39.8539165470676,40.2585904108818,40.01797673556467]}]],[[{"lng":[28.92076561720102,28.84686884717912,29.55016649146245,30.32910696838931,30.41317908910699,29.70820350979227,28.92076561720102],"lat":[40.29156972573303,39.64331054771269,39.25782736657834,39.51752281763152,40.1640337045118,40.55264444865455,40.29156972573303]}]],[[{"lng":[29.78891102554876,29.70820350979227,30.41317908910699,31.20023596728733,31.29118686344163,30.58491366768429,29.78891102554876],"lat":[41.19512137576952,40.55264444865455,40.1640337045118,40.41483320155767,41.05540607047603,41.44713007511783,41.19512137576952]}]],[[{"lng":[29.55016649146245,29.47279077114591,30.16443143146895,30.93487605957411,31.02210603841925,30.32910696838931,29.55016649146245],"lat":[39.25782736657834,38.6057779803535,38.21530146274488,38.47371675001193,39.12384360782131,39.51752281763152,39.25782736657834]}]],[[{"lng":[37.28380169054273,37.15847316225135,37.780160694358,38.52532435638908,38.65856621949614,38.03883261668503,37.28380169054273],"lat":[37.35161848319326,36.709818345525,36.28285603308113,36.49442404260413,37.1326349046004,37.56289437280511,37.35161848319326]}]],[[{"lng":[38.17068872902224,38.03883261668503,38.65856621949614,39.40791451802404,39.54760269073364,38.93021759674642,38.17068872902224],"lat":[38.19875202083543,37.56289437280511,37.1326349046004,37.33507129627533,37.96724011219477,38.40068741342036,38.19875202083543]}]],[[{"lng":[38.65856621949614,38.52532435638908,39.13379456767612,39.87313057089867,40.01390390535312,39.40791451802404,38.65856621949614],"lat":[37.1326349046004,36.49442404260413,36.06246930016206,36.26549804329453,36.89986549574836,37.33507129627533,37.1326349046004]}]],[[{"lng":[35.89080530101953,35.77375792162133,36.40824201853938,37.15847316225135,37.28380169054273,36.65071528162084,35.89080530101953],"lat":[37.5560761706642,36.91095673461511,36.48947674024333,36.709818345525,37.35161848319326,37.77642720733404,37.5560761706642]}]],[[{"lng":[36.77434984540357,36.65071528162084,37.28380169054273,38.03883261668503,38.17068872902224,37.53939574400638,36.77434984540357],"lat":[38.41571527061354,37.77642720733404,37.35161848319326,37.56289437280511,38.19875202083543,38.62679387483306,38.41571527061354]}]],[[{"lng":[27.23107993317469,27.17021260843733,27.86910331182821,28.63128556124237,28.7021497665707,28.00088783039564,27.23107993317469],"lat":[38.44191317489881,37.78332971808115,37.40412642214208,37.68041148590275,38.3375790713167,38.71992501118346,38.44191317489881]}]],[[{"lng":[28.7021497665707,28.63128556124237,29.32121398335472,30.08378129811129,30.16443143146895,29.47279077114591,28.7021497665707],"lat":[38.3375790713167,37.68041148590275,37.2931582080128,37.55989481350725,38.21530146274488,38.6057779803535,38.3375790713167]}]],[[{"lng":[27.86910331182821,27.80456403265456,28.49244726274084,29.24697030924795,29.32121398335472,28.63128556124237,27.86910331182821],"lat":[37.40412642214208,36.74228052489006,36.35826642744043,36.63290490648417,37.2931582080128,37.68041148590275,37.40412642214208]}]],[[{"lng":[26.57801634529262,26.52102791076366,27.23107993317469,28.00088783039564,28.06817079531339,27.35540155921771,26.57801634529262],"lat":[39.47064903027519,38.81577462532137,38.44191317489881,38.71992501118346,39.37355976167923,39.75047152140711,39.47064903027519]}]],[[{"lng":[28.06817079531339,28.00088783039564,28.7021497665707,29.47279077114591,29.55016649146245,28.84686884717912,28.06817079531339],"lat":[39.37355976167923,38.71992501118346,38.3375790713167,38.6057779803535,39.25782736657834,39.64331054771269,39.37355976167923]}]],[[{"lng":[30.76396371564612,30.68023432106981,31.34916042309334,32.10266809080842,32.19563296732724,31.52592687997848,30.76396371564612],"lat":[37.16495701437888,36.50664005724216,36.10778100817674,36.36391192782734,37.01995875684867,37.422185997514,37.16495701437888]}]],[[{"lng":[32.19563296732724,32.10266809080842,32.76106116843498,33.51266233023499,33.61458372321314,32.95602687537129,32.19563296732724],"lat":[37.01995875684867,36.36391192782734,35.95821975632126,36.20520968330217,36.85866401664056,37.26775932101902,37.01995875684867]}]],[[{"lng":[30.16443143146895,30.08378129811129,30.76396371564612,31.52592687997848,31.6161179120294,30.93487605957411,30.16443143146895],"lat":[38.21530146274488,37.55989481350725,37.16495701437888,37.422185997514,38.07549591433029,38.47371675001193,38.21530146274488]}]],[[{"lng":[31.6161179120294,31.52592687997848,32.19563296732724,32.95602687537129,33.05548256244556,32.38535877695387,31.6161179120294],"lat":[38.07549591433029,37.422185997514,37.01995875684867,37.26775932101902,37.91864749464704,38.32419732667995,38.07549591433029]}]],[[{"lng":[29.32121398335472,29.24697030924795,29.9257440988867,30.68023432106981,30.76396371564612,30.08378129811129,29.32121398335472],"lat":[37.2931582080128,36.63290490648417,36.24128085327695,36.50664005724216,37.16495701437888,37.55989481350725,37.2931582080128]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#333333","weight":1,"opacity":0.5,"fill":true,"fillColor":["#443B84","#1FA287","#23888E","#482071","#472E7C","#48186A","#481B6D","#453781","#2A778E","#2B758E","#482374","#481C6E","#46095D","#472C7A","#482374","#482777","#48186A","#56C667","#443A83","#228B8D","#FDE725","#3F4889","#460B5E","#482072","#39568C","#414487","#440154","#46085C","#450458","#3E4C8A","#63CB5F","#481568","#433D84","#34618D","#B0DD2F","#46095C","#404588","#76D054","#471164","#46085B","#21908D","#57C666","#3C4F8A","#46075A","#481B6D","#450659","#2F6B8E","#481F70","#2F6C8E","#424086","#1F9A8A","#2D708E","#2D718E","#287D8E","#3E4B89","#39558C","#482576","#39568C"],"fillOpacity":0.9,"smoothFactor":1,"noClip":false},["Percent_Tree_Cover: 7.7 <br>Date: 2024-01-01 <br>Hex ID: 831ec8fffffffff","Percent_Tree_Cover: 24.5 <br>Date: 2024-01-01 <br>Hex ID: 831ecafffffffff","Percent_Tree_Cover: 20 <br>Date: 2024-01-01 <br>Hex ID: 831ecbfffffffff","Percent_Tree_Cover: 4.1 <br>Date: 2024-01-01 <br>Hex ID: 832c00fffffffff","Percent_Tree_Cover: 5.9 <br>Date: 2024-01-01 <br>Hex ID: 832c04fffffffff","Percent_Tree_Cover: 3.1 <br>Date: 2024-01-01 <br>Hex ID: 832c06fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2024-01-01 <br>Hex ID: 832c15fffffffff","Percent_Tree_Cover: 7 <br>Date: 2024-01-01 <br>Hex ID: 832c22fffffffff","Percent_Tree_Cover: 17 <br>Date: 2024-01-01 <br>Hex ID: 832c23fffffffff","Percent_Tree_Cover: 16.7 <br>Date: 2024-01-01 <br>Hex ID: 832c26fffffffff","Percent_Tree_Cover: 4.5 <br>Date: 2024-01-01 <br>Hex ID: 832c30fffffffff","Percent_Tree_Cover: 3.6 <br>Date: 2024-01-01 <br>Hex ID: 832c31fffffffff","Percent_Tree_Cover: 1.4 <br>Date: 2024-01-01 <br>Hex ID: 832c32fffffffff","Percent_Tree_Cover: 5.6 <br>Date: 2024-01-01 <br>Hex ID: 832c33fffffffff","Percent_Tree_Cover: 4.4 <br>Date: 2024-01-01 <br>Hex ID: 832c34fffffffff","Percent_Tree_Cover: 5 <br>Date: 2024-01-01 <br>Hex ID: 832c35fffffffff","Percent_Tree_Cover: 3.1 <br>Date: 2024-01-01 <br>Hex ID: 832c36fffffffff","Percent_Tree_Cover: 31.2 <br>Date: 2024-01-01 <br>Hex ID: 832d00fffffffff","Percent_Tree_Cover: 7.5 <br>Date: 2024-01-01 <br>Hex ID: 832d02fffffffff","Percent_Tree_Cover: 20.5 <br>Date: 2024-01-01 <br>Hex ID: 832d03fffffffff","Percent_Tree_Cover: 42.2 <br>Date: 2024-01-01 <br>Hex ID: 832d04fffffffff","Percent_Tree_Cover: 9.5 <br>Date: 2024-01-01 <br>Hex ID: 832d06fffffffff","Percent_Tree_Cover: 1.6 <br>Date: 2024-01-01 <br>Hex ID: 832d10fffffffff","Percent_Tree_Cover: 4.2 <br>Date: 2024-01-01 <br>Hex ID: 832d11fffffffff","Percent_Tree_Cover: 11.6 <br>Date: 2024-01-01 <br>Hex ID: 832d12fffffffff","Percent_Tree_Cover: 8.8 <br>Date: 2024-01-01 <br>Hex ID: 832d13fffffffff","Percent_Tree_Cover: 0.5 <br>Date: 2024-01-01 <br>Hex ID: 832d14fffffffff","Percent_Tree_Cover: 1.3 <br>Date: 2024-01-01 <br>Hex ID: 832d15fffffffff","Percent_Tree_Cover: 0.9 <br>Date: 2024-01-01 <br>Hex ID: 832d16fffffffff","Percent_Tree_Cover: 10 <br>Date: 2024-01-01 <br>Hex ID: 832d18fffffffff","Percent_Tree_Cover: 32.3 <br>Date: 2024-01-01 <br>Hex ID: 832d19fffffffff","Percent_Tree_Cover: 2.7 <br>Date: 2024-01-01 <br>Hex ID: 832d1afffffffff","Percent_Tree_Cover: 7.9 <br>Date: 2024-01-01 <br>Hex ID: 832d1bfffffffff","Percent_Tree_Cover: 13.3 <br>Date: 2024-01-01 <br>Hex ID: 832d1cfffffffff","Percent_Tree_Cover: 37.3 <br>Date: 2024-01-01 <br>Hex ID: 832d1dfffffffff","Percent_Tree_Cover: 1.4 <br>Date: 2024-01-01 <br>Hex ID: 832d1efffffffff","Percent_Tree_Cover: 9 <br>Date: 2024-01-01 <br>Hex ID: 832d30fffffffff","Percent_Tree_Cover: 33.6 <br>Date: 2024-01-01 <br>Hex ID: 832d31fffffffff","Percent_Tree_Cover: 2.3 <br>Date: 2024-01-01 <br>Hex ID: 832d32fffffffff","Percent_Tree_Cover: 1.2 <br>Date: 2024-01-01 <br>Hex ID: 832d33fffffffff","Percent_Tree_Cover: 21.3 <br>Date: 2024-01-01 <br>Hex ID: 832d34fffffffff","Percent_Tree_Cover: 31.3 <br>Date: 2024-01-01 <br>Hex ID: 832d35fffffffff","Percent_Tree_Cover: 10.6 <br>Date: 2024-01-01 <br>Hex ID: 832d36fffffffff","Percent_Tree_Cover: 1.1 <br>Date: 2024-01-01 <br>Hex ID: 832da8fffffffff","Percent_Tree_Cover: 3.4 <br>Date: 2024-01-01 <br>Hex ID: 832da9fffffffff","Percent_Tree_Cover: 1 <br>Date: 2024-01-01 <br>Hex ID: 832dabfffffffff","Percent_Tree_Cover: 14.8 <br>Date: 2024-01-01 <br>Hex ID: 832dacfffffffff","Percent_Tree_Cover: 3.9 <br>Date: 2024-01-01 <br>Hex ID: 832dadfffffffff","Percent_Tree_Cover: 15.1 <br>Date: 2024-01-01 <br>Hex ID: 833f60fffffffff","Percent_Tree_Cover: 8.4 <br>Date: 2024-01-01 <br>Hex ID: 833f61fffffffff","Percent_Tree_Cover: 23.1 <br>Date: 2024-01-01 <br>Hex ID: 833f63fffffffff","Percent_Tree_Cover: 15.7 <br>Date: 2024-01-01 <br>Hex ID: 833f64fffffffff","Percent_Tree_Cover: 15.9 <br>Date: 2024-01-01 <br>Hex ID: 833f65fffffffff","Percent_Tree_Cover: 18 <br>Date: 2024-01-01 <br>Hex ID: 833f68fffffffff","Percent_Tree_Cover: 9.9 <br>Date: 2024-01-01 <br>Hex ID: 833f69fffffffff","Percent_Tree_Cover: 11.4 <br>Date: 2024-01-01 <br>Hex ID: 833f6cfffffffff","Percent_Tree_Cover: 4.8 <br>Date: 2024-01-01 <br>Hex ID: 833f6dfffffffff","Percent_Tree_Cover: 11.6 <br>Date: 2024-01-01 <br>Hex ID: 833f6efffffffff"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"topright"}]},{"method":"addLegend","args":[{"colors":["#440154 , #482778 10.8026762234764%, #3E4C8A 22.7811869506629%, #2F6C8E 34.7596976778493%, #23888E 46.7382084050358%, #21A585 58.7167191322223%, #47C06F 70.6952298594087%, #8BD646 82.6737405865952%, #DBE319 94.6522513137816%, #FDE725 "],"labels":["5","10","15","20","25","30","35","40"],"na_color":null,"na_label":"No data","opacity":0.5,"position":"bottomright","type":"numeric","title":"Percent_Tree_Cover 2024-01-01","extra":{"p_1":0.1080267622347642,"p_n":0.9465225131378163},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[35.95821975632126,42.16313655584668],"lng":[25.8566561527047,44.96658033859127]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="time-series-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="time-series-analysis">Time Series Analysis</h2>
+<p>Temporal trends in tree cover across Turkey through two complementary visualizations. The first plot shows the overall trajectory of mean tree cover values, while the second plot illustrates variability and uncertainty by displaying confidence bands around the mean trend along with median values for comparison.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time series plot of mean tree cover values</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(tree_summary, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> mean_tree)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Turkey Tree Cover Time Series Analysis (2020-2024)"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Based on MODIS Tree Cover Data via geeLite"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean Tree Cover (%)"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Google Earth Engine via geeLite"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="geeLite_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing tree cover variability over time</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(tree_summary, <span class="fu">aes</span>(<span class="at">x =</span> date)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean_tree <span class="sc">-</span> std_tree, <span class="at">ymax =</span> mean_tree <span class="sc">+</span> std_tree), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">fill =</span> <span class="st">"green"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> mean_tree), <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> median_tree), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tree Cover Variability Across Turkey"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Mean ± Standard Deviation (green band) and Median (blue dashed)"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Tree Cover (%)"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Google Earth Engine via geeLite"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="geeLite_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<p>Statistical summaries of the tree cover analysis, including key metrics about data coverage, temporal scope, and overall forest trends. The summary table presents essential findings in a structured format for easy interpretation.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate overall statistics</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>baseline_tree <span class="ot">&lt;-</span> tree_summary<span class="sc">$</span>mean_tree[<span class="dv">1</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>latest_tree <span class="ot">&lt;-</span> <span class="fu">tail</span>(tree_summary<span class="sc">$</span>mean_tree, <span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>total_change <span class="ot">&lt;-</span> latest_tree <span class="sc">-</span> baseline_tree</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>mean_change_per_period <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">diff</span>(tree_summary<span class="sc">$</span>mean_tree), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create summary table</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">"Analysis Period"</span>, <span class="st">"Total Observations"</span>, <span class="st">"Hexagonal Cells"</span>, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Baseline Tree Cover"</span>, <span class="st">"Latest Tree Cover"</span>, <span class="st">"Total Change"</span>, </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Average Change per Period"</span>, <span class="st">"Overall Trend"</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Value =</span> <span class="fu">c</span>(</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">min</span>(tree_summary<span class="sc">$</span>date), <span class="st">"to"</span>, <span class="fu">max</span>(tree_summary<span class="sc">$</span>date)),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">format</span>(<span class="fu">nrow</span>(sf_long), <span class="at">big.mark =</span> <span class="st">","</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nrow</span>(sf_data),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(baseline_tree, <span class="dv">1</span>), <span class="st">"%"</span>),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(latest_tree, <span class="dv">1</span>), <span class="st">"%"</span>),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(total_change, <span class="dv">1</span>), <span class="st">"%"</span>),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(mean_change_per_period, <span class="dv">2</span>), <span class="st">"%"</span>),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ifelse</span>(total_change <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="st">"Forest Improvement"</span>, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>           <span class="fu">ifelse</span>(total_change <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">2</span>, <span class="st">"Forest Decline"</span>, <span class="st">"Stable"</span>))</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary table</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_stats, </span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">"Turkey Tree Cover Analysis Summary"</span>,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Metric"</span>, <span class="st">"Value"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Turkey Tree Cover Analysis Summary</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Analysis Period</td>
+<td style="text-align: left;">2020-01-01 to 2024-01-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total Observations</td>
+<td style="text-align: left;">290</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hexagonal Cells</td>
+<td style="text-align: left;">58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baseline Tree Cover</td>
+<td style="text-align: left;">10.6 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Latest Tree Cover</td>
+<td style="text-align: left;">11.2 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total Change</td>
+<td style="text-align: left;">0.6 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Average Change per Period</td>
+<td style="text-align: left;">0.15 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Overall Trend</td>
+<td style="text-align: left;">Stable</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="interactive-data-explorer" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-data-explorer">Interactive Data Explorer</h3>
+<p>The interactive table below allows detailed exploration of the time series data. Users can search, sort, and filter the annual tree cover statistics to identify specific patterns or periods of interest. The table includes statistical measures for each time period across all hexagonal grid cells.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create interactive data table</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  tree_summary <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">Date =</span> <span class="fu">format</span>(date, <span class="st">"%Y-%m-%d"</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Mean Tree Cover</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(mean_tree, <span class="dv">1</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Median Tree Cover</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(median_tree, <span class="dv">1</span>),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Min Tree Cover</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(min_tree, <span class="dv">1</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Max Tree Cover</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(max_tree, <span class="dv">1</span>),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Std Dev</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(std_tree, <span class="dv">1</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Valid Cells</span><span class="st">`</span> <span class="ot">=</span> valid_cells</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>date, <span class="sc">-</span>mean_tree, <span class="sc">-</span>median_tree, <span class="sc">-</span>min_tree, <span class="sc">-</span>max_tree, <span class="sc">-</span>std_tree, <span class="sc">-</span>valid_cells),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Turkey Tree Cover Time Series Data"</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">pageLength =</span> <span class="dv">15</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">scrollX =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">dom =</span> <span class="st">'Bfrtip'</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">rownames =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1c5be0cce7d6ae215191" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1c5be0cce7d6ae215191">{"x":{"filter":"none","vertical":false,"caption":"<caption>Turkey Tree Cover Time Series Data<\/caption>","data":[["2020-01-01","2021-01-01","2022-01-01","2023-01-01","2024-01-01"],[10.6,10.5,10.7,11.2,11.2],[7.7,7.3,7.6,8.300000000000001,8.1],[0.5,0.5,0.7,0.7,0.5],[41,44.1,44.9,42.3,42.2],[10.1,10.8,10.8,10.4,10.3],[58,58,58,58,58]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Date<\/th>\n      <th>Mean Tree Cover<\/th>\n      <th>Median Tree Cover<\/th>\n      <th>Min Tree Cover<\/th>\n      <th>Max Tree Cover<\/th>\n      <th>Std Dev<\/th>\n      <th>Valid Cells<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":15,"scrollX":true,"dom":"Bfrtip","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]},{"name":"Date","targets":0},{"name":"Mean Tree Cover","targets":1},{"name":"Median Tree Cover","targets":2},{"name":"Min Tree Cover","targets":3},{"name":"Max Tree Cover","targets":4},{"name":"Std Dev","targets":5},{"name":"Valid Cells","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="analysis-results" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-results">Analysis Results</h3>
+<p>The following table summarizes the key quantitative findings from our analysis, including data coverage metrics, temporal scope, tree cover value ranges, and overall forest change assessment based on the comparison between baseline and latest observations.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create results summary data frame</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>baseline_tree <span class="ot">&lt;-</span> tree_summary<span class="sc">$</span>mean_tree[<span class="dv">1</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>latest_tree <span class="ot">&lt;-</span> <span class="fu">tail</span>(tree_summary<span class="sc">$</span>mean_tree, <span class="dv">1</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>total_change <span class="ot">&lt;-</span> latest_tree <span class="sc">-</span> baseline_tree</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>results_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">"Data Coverage"</span>, <span class="st">"Time Period"</span>, <span class="st">"Tree Cover Range"</span>, <span class="st">"Baseline Tree Cover"</span>, </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Latest Tree Cover"</span>, <span class="st">"Total Change"</span>, <span class="st">"Assessment"</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Value =</span> <span class="fu">c</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">nrow</span>(sf_data), <span class="st">"hexagonal cells across Turkey"</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">length</span>(date_cols), <span class="st">"annual observations from"</span>, <span class="fu">min</span>(date_cols), <span class="st">"to"</span>, <span class="fu">max</span>(date_cols)),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(<span class="fu">min</span>(sf_long<span class="sc">$</span>Percent_Tree_Cover, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>), <span class="st">"% to"</span>, <span class="fu">round</span>(<span class="fu">max</span>(sf_long<span class="sc">$</span>Percent_Tree_Cover, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>), <span class="st">"%"</span>),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(baseline_tree, <span class="dv">1</span>), <span class="st">"% ("</span>, <span class="fu">min</span>(date_cols), <span class="st">")"</span>),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(latest_tree, <span class="dv">1</span>), <span class="st">"% ("</span>, <span class="fu">max</span>(date_cols), <span class="st">")"</span>),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">round</span>(total_change, <span class="dv">1</span>), <span class="st">"percentage points"</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">case_when</span>(</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>      total_change <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"FOREST IMPROVEMENT DETECTED 🌱"</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>      total_change <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">"FOREST DECLINE DETECTED ⚠️"</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Forest cover appears stable"</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(results_summary, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"**Metric**"</span>, <span class="st">"**Value**"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Metric</strong></th>
+<th style="text-align: left;"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Data Coverage</td>
+<td style="text-align: left;">58 hexagonal cells across Turkey</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Time Period</td>
+<td style="text-align: left;">5 annual observations from 2020-01-01 to 2024-01-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tree Cover Range</td>
+<td style="text-align: left;">0.5 % to 44.9 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baseline Tree Cover</td>
+<td style="text-align: left;">10.6 % ( 2020-01-01 )</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Latest Tree Cover</td>
+<td style="text-align: left;">11.2 % ( 2024-01-01 )</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total Change</td>
+<td style="text-align: left;">0.6 percentage points</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Assessment</td>
+<td style="text-align: left;">Forest cover appears stable</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><p><strong>World Bank Data Team.</strong> (2024). <em>geeLite – an R package for tracking remote sensing data locally</em>. World Bank Blogs - Open Data. Available at: https://blogs.worldbank.org/en/opendata/geelite–an-r-package-for-tracking-remote-sensing-datalocally-</p></li>
+<li><p><strong>Braaten, J., Bullock, E., &amp; Gorelick, N.</strong> (2024). <em>geeLite: Client for Accessing and Processing Google Earth Engine Data</em>. GitHub Repository. Available at: https://github.com/gee-community/geeLite</p></li>
+<li><p><strong>Google Earth Engine Team.</strong> (2024). <em>MODIS/061/MOD13A2: MODIS Terra Vegetation Indices 16-Day Global 1km</em>. Google Earth Engine Data Catalog. Available at: https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mkolgesiz\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
