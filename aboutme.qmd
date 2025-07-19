@@ -1,6 +1,8 @@
 ---
-title: "My CV"
+title: "CV"
 format: html
 ---
 
-<a href="https://github.com/mkolgesiz/cv/blob/main/CV.pdf" target="_blank">View CV</a>
+This data driven [CV](https://github.com/mkolgesiz/cv) prepared via using the **`R`** package [vitae ](https://github.com/mitchelloharawild/vitae)
+
+<embed src="posts/data/cv/CV.pdf" type="application/pdf" width="100%" height="800px" />

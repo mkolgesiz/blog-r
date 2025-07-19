@@ -20,9 +20,9 @@ Folks from World Bank data group published a R package that helps to run local R
 
 For this demo, I've used:
 
-- **Spatial Coverage**: Turkey represented by hexagonal grid cells
-- **Temporal Range**: Monthly observations from 2020-2024
-- **Data Sources**: MODIS PTC (tree cover) indices
+-   **Spatial Coverage**: Turkey represented by hexagonal grid cells
+-   **Temporal Range**: Monthly observations from 2020-2024
+-   **Data Sources**: MODIS PTC (tree cover) indices
 
 ## Load the necessary libraries
 
@@ -172,7 +172,6 @@ available_dates <- intersect(sample_dates, date_cols)
 ```
 
 ::: panel-tabset
-
 Maps for each year are shown in tabset.
 
 #### 2020
@@ -244,11 +243,14 @@ p1 <- ggplot(tree_summary, aes(x = date, y = mean_tree)) +
   ) +
   theme_minimal() +
   theme(
-    plot.title = element_text(size = 16, face = "bold"),
-    plot.subtitle = element_text(size = 12),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 10),
-    axis.text.x = element_text(angle = 45, hjust = 1)
+    plot.background = element_rect(fill = "#d9d1ba", color = NA),
+    panel.background = element_rect(fill = "#d9d1ba", color = NA),
+    plot.title = element_text(size = 16, face = "bold", color = "#346b84"),
+    plot.subtitle = element_text(size = 12, color = "#346b84"),
+    axis.title = element_text(size = 12, color = "#1a3657"),
+    axis.text = element_text(size = 10, color = "#1a3657"),
+    axis.text.x = element_text(angle = 45, hjust = 1, color = "#1a3657"),
+    plot.caption = element_text(color = "#1a3657")
   )
 
 print(p1)
@@ -270,11 +272,14 @@ p2 <- ggplot(tree_summary, aes(x = date)) +
   ) +
   theme_minimal() +
   theme(
-    plot.title = element_text(size = 16, face = "bold"),
-    plot.subtitle = element_text(size = 12),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 10),
-    axis.text.x = element_text(angle = 45, hjust = 1)
+    plot.background = element_rect(fill = "#d9d1ba", color = NA),
+    panel.background = element_rect(fill = "#d9d1ba", color = NA),
+    plot.title = element_text(size = 16, face = "bold", color = "#346b84"),
+    plot.subtitle = element_text(size = 12, color = "#346b84"),
+    axis.title = element_text(size = 12, color = "#1a3657"),
+    axis.text = element_text(size = 10, color = "#1a3657"),
+    axis.text.x = element_text(angle = 45, hjust = 1, color = "#1a3657"),
+    plot.caption = element_text(color = "#1a3657")
   )
 
 print(p2)
