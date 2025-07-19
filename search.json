@@ -2,14 +2,14 @@
   {
     "objectID": "aboutme.html",
     "href": "aboutme.html",
-    "title": "My CV",
+    "title": "CV",
     "section": "",
-    "text": "View CV"
+    "text": "This data driven CV prepared via using the R package vitae"
   },
   {
     "objectID": "recipes.html",
     "href": "recipes.html",
-    "title": "",
+    "title": "recipes",
     "section": "",
     "text": "Göce Soup\n\n\n\nSoup\n\n\n\nTraditional wheat soup\n\n\n\n\n\nJul 8, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nTenem Halva\n\n\n\nDessert\n\n\n\nMy favorite dessert from my hometown\n\n\n\n\n\nJul 7, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   },
@@ -60,7 +60,7 @@
     "href": "posts/geeLite.html#time-series-analysis",
     "title": "Exploring geeLite: An R Package for Local Remote Sensing Analysis",
     "section": "Time Series Analysis",
-    "text": "Time Series Analysis\nTemporal trends in tree cover across Turkey through two complementary visualizations. The first plot shows the overall trajectory of mean tree cover values, while the second plot illustrates variability and uncertainty by displaying confidence bands around the mean trend along with median values for comparison.\n\n\nCode\n# Time series plot of mean tree cover values\np1 &lt;- ggplot(tree_summary, aes(x = date, y = mean_tree)) +\n  geom_line(color = \"darkgreen\", linewidth = 1.2) +\n  geom_point(color = \"darkgreen\", size = 2) +\n  labs(\n    title = \"Turkey Tree Cover Time Series Analysis (2020-2024)\",\n    subtitle = \"Based on MODIS Tree Cover Data via geeLite\",\n    x = \"Date\",\n    y = \"Mean Tree Cover (%)\",\n    caption = \"Data source: Google Earth Engine via geeLite\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 16, face = \"bold\"),\n    plot.subtitle = element_text(size = 12),\n    axis.title = element_text(size = 12),\n    axis.text = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, hjust = 1)\n  )\n\nprint(p1)\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Plot showing tree cover variability over time\np2 &lt;- ggplot(tree_summary, aes(x = date)) +\n  geom_ribbon(aes(ymin = mean_tree - std_tree, ymax = mean_tree + std_tree), \n              alpha = 0.3, fill = \"green\") +\n  geom_line(aes(y = mean_tree), color = \"darkgreen\", linewidth = 1.2) +\n  geom_line(aes(y = median_tree), color = \"blue\", linewidth = 1, linetype = \"dashed\") +\n  labs(\n    title = \"Tree Cover Variability Across Turkey\",\n    subtitle = \"Mean ± Standard Deviation (green band) and Median (blue dashed)\",\n    x = \"Date\",\n    y = \"Tree Cover (%)\",\n    caption = \"Data source: Google Earth Engine via geeLite\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 16, face = \"bold\"),\n    plot.subtitle = element_text(size = 12),\n    axis.title = element_text(size = 12),\n    axis.text = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, hjust = 1)\n  )\n\nprint(p2)"
+    "text": "Time Series Analysis\nTemporal trends in tree cover across Turkey through two complementary visualizations. The first plot shows the overall trajectory of mean tree cover values, while the second plot illustrates variability and uncertainty by displaying confidence bands around the mean trend along with median values for comparison.\n\n\nCode\n# Time series plot of mean tree cover values\np1 &lt;- ggplot(tree_summary, aes(x = date, y = mean_tree)) +\n  geom_line(color = \"darkgreen\", linewidth = 1.2) +\n  geom_point(color = \"darkgreen\", size = 2) +\n  labs(\n    title = \"Turkey Tree Cover Time Series Analysis (2020-2024)\",\n    subtitle = \"Based on MODIS Tree Cover Data via geeLite\",\n    x = \"Date\",\n    y = \"Mean Tree Cover (%)\",\n    caption = \"Data source: Google Earth Engine via geeLite\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.background = element_rect(fill = \"#d9d1ba\", color = NA),\n    panel.background = element_rect(fill = \"#d9d1ba\", color = NA),\n    plot.title = element_text(size = 16, face = \"bold\", color = \"#346b84\"),\n    plot.subtitle = element_text(size = 12, color = \"#346b84\"),\n    axis.title = element_text(size = 12, color = \"#1a3657\"),\n    axis.text = element_text(size = 10, color = \"#1a3657\"),\n    axis.text.x = element_text(angle = 45, hjust = 1, color = \"#1a3657\"),\n    plot.caption = element_text(color = \"#1a3657\")\n  )\n\nprint(p1)\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Plot showing tree cover variability over time\np2 &lt;- ggplot(tree_summary, aes(x = date)) +\n  geom_ribbon(aes(ymin = mean_tree - std_tree, ymax = mean_tree + std_tree), \n              alpha = 0.3, fill = \"green\") +\n  geom_line(aes(y = mean_tree), color = \"darkgreen\", linewidth = 1.2) +\n  geom_line(aes(y = median_tree), color = \"blue\", linewidth = 1, linetype = \"dashed\") +\n  labs(\n    title = \"Tree Cover Variability Across Turkey\",\n    subtitle = \"Mean ± Standard Deviation (green band) and Median (blue dashed)\",\n    x = \"Date\",\n    y = \"Tree Cover (%)\",\n    caption = \"Data source: Google Earth Engine via geeLite\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.background = element_rect(fill = \"#d9d1ba\", color = NA),\n    panel.background = element_rect(fill = \"#d9d1ba\", color = NA),\n    plot.title = element_text(size = 16, face = \"bold\", color = \"#346b84\"),\n    plot.subtitle = element_text(size = 12, color = \"#346b84\"),\n    axis.title = element_text(size = 12, color = \"#1a3657\"),\n    axis.text = element_text(size = 10, color = \"#1a3657\"),\n    axis.text.x = element_text(angle = 45, hjust = 1, color = \"#1a3657\"),\n    plot.caption = element_text(color = \"#1a3657\")\n  )\n\nprint(p2)"
   },
   {
     "objectID": "posts/geeLite.html#summary-statistics",
@@ -205,7 +205,7 @@
   {
     "objectID": "blog-r.html",
     "href": "blog-r.html",
-    "title": "",
+    "title": "blog-r",
     "section": "",
     "text": "Exploring geeLite: An R Package for Local Remote Sensing Analysis\n\n\n\nR\n\nGeospatial\n\nGEE\n\n\n\nDemonstrating tree percentage analysis with geeLite\n\n\n\n\n\nJul 18, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nI switched to Linux\n\n\n\nLinux\n\nR Studio\n\n\n\nA gentle guide for escaping from Windows 11\n\n\n\n\n\nJul 3, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nE-Invoice Migration in Ivory Coast\n\n\n\nAccounting\n\n\n\nCurrent Status of E-Invoice Implementation\n\n\n\n\n\nJun 1, 2025\n\n\nM. Melik Kölgesiz\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto for Document Management\n\n\n\nQuarto\n\nDocument Management\n\n\n\nStreamlining document management\n\n\n\n\n\nMay 13, 2024\n\n\nM. Melik Kölgesiz\n\n\n\n\n\nNo matching items"
   }
