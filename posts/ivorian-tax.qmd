@@ -1,0 +1,507 @@
+---
+title: "Ivorian Tax System"
+description: "A Comprehensive Guide of Côte d'Ivoire's tax framework"
+author: "M. Melik Kölgesiz"
+format: html
+editor: visual
+date: "2025-07-20"
+categories:
+  - Accounting
+  - Finance
+  - Taxation
+---
+
+## Introduction
+
+In this blog post, I try to explain Côte d'Ivoire's tax system by covering seven essential areas.
+
+::: callout-warning
+### Disclaimer
+
+This blog is not professional advice. The information provided is for educational purposes only. Readers should conduct their own research and consult with qualified tax professionals for specific guidance related to their circumstances.
+:::
+
+::: callout-note
+### Latest Update
+
+This guide was last updated on June, 2025, reflecting the most recent tax reforms and regulatory changes, including the major 2025 Tax Appendix reforms.
+:::
+
+## General Overview
+
+The Ivorian tax system operates through the following key components:
+
+- **Corporate Income Tax:** Standard rate of 25% (30% for telecommunications/IT sectors)
+- **Tax Regime Classification:** Four distinct regimes categorized by business size and annual turnover
+- **Electronic Filing:** Mandatory electronic invoicing implementation scheduled for September 2025
+- **Investment Provisions:** BIC reinvestment deduction mechanisms for qualifying investments exceeding 100 million CFA francs
+- **Digital Infrastructure:** Integrated e-impôt and e-CNPS platforms for tax administration
+- **Environmental Taxation:** VAT exemption provisions for solar energy equipment and related environmental measures
+- **Compliance Requirements:** FIBE beneficial ownership registry obligation for legal entities (effective June 2024)
+
+## Key Terms and Organizations
+
+**DGI (Direction Générale des Impôts)**
+
+:   The General Directorate of Taxes - Côte d'Ivoire's primary tax authority responsible for tax policy formulation, administration, and collection of direct and indirect taxes.
+
+**CNPS (Caisse Nationale de Prévoyance Sociale)**
+
+:   The National Social Security Fund - manages social security contributions and ensures compliance with social insurance legislation.
+
+**CNAM (Caisse Nationale d'Assurance Maladie)**
+
+:   The National Health Insurance Fund - manages the country's universal health coverage system.
+
+**E-impôt Platform**
+
+:   The DGI's online tax portal designed to simplify tax filing, payment, and compliance obligations for taxpayers, including businesses and individuals.
+
+**E-CNPS Platform**
+
+:   The CNPS online portal that facilitates social security administration for employers, employees, and self-employed workers, allowing users to register, submit declarations, make contributions, and access benefit information.
+
+**SYSCOHADA Accounting Standards**
+
+:   The harmonized accounting system used across West and Central African countries, providing the framework for financial reporting and tax compliance.
+
+## Tax System Structure
+
+The Ivorian tax system operates through a structured framework consisting of multiple taxation categories and administrative mechanisms. The system is designed to generate public revenue through various tax instruments while accommodating different business sizes and economic sectors.
+
+The tax framework comprises:
+- **Corporate income taxation** with scaled rates based on business size and industry classification
+- **Value-added taxation** incorporating standard rates and specific exemptions for designated goods and technologies
+- **Withholding tax mechanisms** applied across different income categories and transaction types
+- **Social security contribution systems** administered through specialized agencies
+
+The system has undergone digitization processes and administrative reforms aimed at enhancing collection efficiency and compliance mechanisms. Digital platforms have been implemented to facilitate tax filing, payment processing, and administrative communication between taxpayers and regulatory authorities.
+
+### Tax Regime Classification
+
+The Ivorian tax system operates four distinct tax regimes, each corresponding to specific business size categories based on annual turnover thresholds. Entity classification determines applicable tax rates, compliance obligations, and administrative requirements.
+
+The four established regimes are:
+
+1.  **Entrepreneur Regime (RE)** - applicable to micro-scale business operations and individual proprietors
+2.  **Micro-enterprise Regime (RME)** - designated for entities with annual turnover between 50,000,001 and 200,000,000 CFA francs
+3.  **Simplified Real Taxation Regime (RSI)** - intermediate classification with 27% BIC rate and simplified compliance procedures
+4.  **Normal Real Taxation Regime (RNI)** - comprehensive regime for large-scale operations with 35% BIC rate and full regulatory requirements
+
+#### **Entrepreneur Regime (RE)**
+
+Established by the tax annex to Finance Law No. 2020-972 of December 23, 2020, for the 2021 state budget. This regime includes the Municipal Entrepreneur Tax (TCE) and the State Entrepreneur Tax (TEE). It's designed for very small businesses and sole proprietors.
+
+#### **Micro-enterprise Regime (RME)**
+
+According to Article 71 bis of the General Tax Code, micro-enterprises subject to tax are defined as natural or legal persons with annual turnover, including all taxes, between 50,000,001 francs and 200,000,000 CFA francs.
+
+#### **Simplified Real Taxation Regime (RSI)**
+
+The simplified regime or simplified real profit regime is an intermediate regime between the synthetic tax and the normal real profit tax. The BIC rate is 27%. Regardless of its tax result (loss or profit), the taxpayer is required to pay a minimum flat-rate tax corresponding to 0.5% of its turnover including tax with a minimum tax of 3 million CFA francs.
+
+#### **Normal Real Taxation Regime (RNI)**
+
+The taxable profit, different from the accounting profit, is established according to specific rules. The applied rate is 35%. Payment of tax by individuals at this rate is liberating from general income tax. Regardless of its tax result (loss or profit), the taxpayer is required to pay a minimum flat-rate tax corresponding to 0.5% of its turnover including tax with a minimum tax of 3 million and a maximum of 35 million CFA francs.
+
+### Regulatory Authorities
+
+The main regulatory authorities are the General Directorate of Taxes (DGI), responsible for tax policy and tax collection; the National Social Security Fund (CNPS), which supervises social security contributions and benefits; and the National Health Insurance Fund (CNAM), which manages health insurance and universal healthcare. Other regulatory bodies focus on specific sectors such as customs, public procurement, telecommunications, etc., ensuring compliance and oversight in their respective domains.
+
+#### **Main Regulatory Authorities**
+
+The main tax regulatory body is the **General Directorate of Taxes (DGI)**, responsible for tax policy formulation, administration, and collection of direct and indirect taxes, including corporate income tax, VAT, and personal income tax.
+
+The **National Social Security Fund (CNPS)** handles the management of social security contributions and ensures compliance with social insurance legislation.
+
+The **National Health Insurance Fund (CNAM)** of Côte d'Ivoire is the national health insurance agency responsible for managing the country's universal health coverage system.
+
+#### **Other Authorities**
+
+Other regulatory bodies (non-exhaustive) are mentioned below.
+
+-   General Directorate of Mines and Geology (DGMG)
+-   General Directorate of Customs (DGD)
+-   Abidjan District
+-   Ivorian Anti-Pollution Center (CIAPOL)
+-   National Environment Agency (ANDE)
+-   Agency for Employment Studies and Promotion (AGEPE)
+-   Telecommunications/ICT Regulatory Authority of Côte d'Ivoire (ARTCI)
+
+### Recent Changes and Updates
+
+The 2024 tax annex was structured mainly around the following axes:
+
+-   measures aimed at strengthening the state's resource mobilization capacity;
+-   business support measures;
+-   environmental taxation strengthening measures
+
+These measures specifically include provisions aimed at improving tax morality and strengthening state resources.
+
+#### **2025 Tax Appendix - Latest Developments**
+
+The 2025 Tax Appendix represents a significant step in Côte d'Ivoire's ongoing tax modernization efforts. Key highlights include:
+
+**Legislative Progress:** The 2025 Tax Appendix was reviewed by the Economic and Financial Affairs Commission of the Ivorian National Assembly on November 18, 2024, and unanimously adopted on November 28, 2024. It was expected to be published in the Official Gazette in late December 2024, taking effect in early January 2025.
+
+**Strategic Focus:** The appendix focuses on three main objectives:
+- Boosting government revenue collection
+- Supporting business competitiveness 
+- Tackling climate change through environmental taxation
+
+**Key Reforms Include:**
+- Revisions to withholding taxes on corporate income tax and VAT
+- Mandatory electronic invoicing starting September 2025 (see my blog post [E-Invoice Migration guide](https://melik.cc/posts/einvoice-ivorycoast.html) for implementation specifics)
+- Enhanced BIC reinvestment deduction incentives for businesses investing over 100 million CFA francs in Côte d'Ivoire
+- Continued VAT exemptions for solar energy equipment to support environmental initiatives
+
+**Revenue Mobilization Strategy:** As part of the Medium-Term Revenue Mobilization Strategy for 2024–2028, the government aims to increase the tax-to-GDP ratio by 0.5% annually through enhanced collection mechanisms.
+
+## Tax Types
+
+The Ivorian tax system is based on a coherent set of legal and regulatory provisions organized around tax regimes and composite taxes and duties.
+
+### Industrial and Commercial Profits Tax (BIC)
+
+Corporate taxable income is based on worldwide income for resident companies.
+
+The industrial and commercial profits tax (BIC) is 25%, subject to a minimum tax. The rate is 30% for companies in the telecommunications, information technology and communication sectors.
+
+The minimum tax (IMF) is calculated from the turnover including tax and levied at 0.5%. The minimum amount is 3,000,000 francs and the maximum amount is 35,000,000 francs.
+
+::: callout-note
+## 2025 BIC Reinvestment Incentive
+
+Under the 2025 Tax Appendix, businesses can benefit from a BIC reinvestment deduction for profits reinvested in Côte d'Ivoire. The minimum reinvestment amount is 100 million CFA francs. This incentive applies only to investments financed by reinvested profits, not loans or other financing sources.
+:::
+
+::: callout-note
+## Minimum Tax Collection
+
+From the 2022 tax annex, the minimum tax collection amounts for the combined simplified real and normal real regimes will be reduced from 10,000,000 CFA francs to 8,000,000 CFA francs on one hand, and from 12,000,000 CFA francs to 9,600,000 CFA francs on the other hand.
+:::
+
+Legal basis: CGI 51, 52 and 53
+
+### Value Added Tax (VAT)
+
+VAT is a non-cumulative tax levied on the sale of goods and services at a rate of 18%. Subject to certain restrictions, VAT is recoverable.
+
+The rate is reduced to 9% for milk (except yogurt and other dairy products), infant milk and homogenized and compound foods for infants, luxury rice, meat imported from outside the Economic Community of West African States (ECOWAS), pasta containing 100% durum wheat semolina, and equipment designed for solar energy production.
+
+Legal basis: CGI 339 - 357
+
+### Tax on Salaries and Wages (ITS)
+
+The tax on salaries, wages, pensions and annuities (ITS) is withheld at source on salaries, wages, pensions and annuities. It consists of:
+
+-   the tax on salaries, wages, pensions and annuities proper (ITS) or the salary tax (IS);
+-   and ancillary contributions including the employer contribution (CE) and the apprenticeship tax.
+
+Taxes are levied at a rate of 2.8% for local employees and 12% for expatriate employees on total taxable compensation, including salaries, social benefits and benefits in kind.
+
+Legal basis: CGI 115, 116
+
+### Social Security Contributions
+
+Social security contributions are paid to CNPS and CNAM based on the payroll of employees.
+
+#### **CNPS**
+
+Employees and employers contribute to the CNPS social security system, with monthly ceilings and employer shares applied as follows.
+
+-   Family benefits - 5.75%
+-   Work accidents - 5%
+-   Retirement scheme - 7.7%
+
+Legal basis: Labor Code article 2
+
+#### **CNAM**
+
+Employees and employers contribute to the CNAM social security scheme, with monthly ceilings and employer shares applied as follows.
+
+-   CMU - 1000 FCFA
+
+Legal basis: decree no. 2014-395
+
+### Withholding Taxes
+
+Withholding taxes and tax rates vary according to the nature of the payment and whether the beneficiary is a domestic or foreign entity.
+
+#### **Tax on Income from Securities (IRVM)**
+
+The tax applies to all profits or products not put into reserves or not incorporated into capital and to all sums made available to associates, shareholders or unit holders.
+
+This includes dividends, interest, share income and function allowances. (15% on dividends and attendance fees.)
+
+Legal basis: CGI 180 - 191
+
+#### **Tax on Debt Income (IRC)**
+
+18% on interest payments, reduced to 13.5% (individuals) and 16.5% (companies) on bank deposit interest. Income earned by individuals on Treasury bonds is tax-exempt. Foreign banks are subject to an 18% tax on loan interest or 9% on equipment loans with a minimum duration of three years.
+
+Legal basis: 192 - 205
+
+#### **Tax on Non-Commercial Profits (BNC)**
+
+Annual schedular tax levied on profits from the exercise of a liberal profession or non-commercial activity.
+
+25% of 80% of income on royalties, license fees and management and service fees paid by Ivorian companies to foreign companies (effective rate: 20% of net amount paid). Double taxation treaties reduce these rates.
+
+Any payment made by government agencies or public institutions to non-resident persons or companies for a goods or services contract is subject to a 20% withholding tax
+
+::: callout-note
+## Double Taxation Treaties in Côte d'Ivoire
+
+Currently, Turkey and the Netherlands have not concluded a double taxation agreement with Côte d'Ivoire.
+:::
+
+Legal basis: CGI 85 - 102
+
+#### **Withholding Tax on Cash Bond Interest**
+
+Interest on cash bonds subject to withholding tax at a rate of 25%
+
+Legal basis: CGI 246
+
+#### **Withholding Tax on Informal Sector (PPSSI)**
+
+A 2% withholding tax applies to remuneration paid to business service providers registered under the entrepreneur or micro-enterprise regime.
+
+A 5% withholding tax applies to payments made by government agencies or public institutions for a service (or goods) contract to a company subject to corporate tax or micro-enterprise tax regime.
+
+A 2% withholding tax applies to payments made to service providers operating in the informal sector by persons subject to a real taxation regime.
+
+Legal basis: 84 - 84 bis
+
+#### **Withholding Tax on Informal Sector (AIRSI)**
+
+Sales made by any importer, manufacturer or trader under a real taxation regime to companies not under a real taxation regime.
+
+The applicable AIRSI rate varies from 0.2% to 5% of gross sales.
+
+Legal basis: Tax annex 2005
+
+#### **Withholding Tax on Intragroup Transactions**
+
+In cases where the service provider does not have professional facilities in Côte d'Ivoire, withholding tax on amounts due in return by the Ivorian company is now due after a period of two years without payment of the service from the time the amounts concerned are recorded in an expense account or credited to a third-party account.
+
+Legal basis: Tax annex 2022 - CGI 361-2
+
+### Other Taxes and Duties
+
+Other taxes and duties include excise duties on products as well as property taxes, commercial licenses and sectoral fees imposed on certain industries or activities.
+
+#### **Special Equipment Tax (TSE)**
+
+The special equipment tax is a tax due by companies subject to the real taxation regime. The tax is calculated at 0.1% of total turnover and is paid monthly.
+
+This tax, which was initially supposed to end on December 31, 2019, is now permanent since the 2020 tax annex.
+
+Legal basis: CGI 1084
+
+#### **Property Taxes and Related Levies**
+
+Property tax consists of two types of taxes:
+
+-   tax on rental income that applies to income derived from property rental
+-   tax on real estate assets, linked to real estate capital (property rights).
+
+In addition to these two taxes, there is the road, hygiene and sanitation tax. The system also provides for the collection of an advance payment on rental income taxes.
+
+Property tax is imposed at the following rates:
+
+-   1.5% for undeveloped land.
+-   4% on rental income.
+-   11% for developed land or 15% when the built property is used by the company itself. The rate is reduced to 4% for unoccupied buildings. The rate is 10% for unfinished constructions recorded on the balance sheet of companies and legal entities.
+
+Legal basis: CGI 149-166
+
+#### **Patent and License Contribution (PATCOM)**
+
+Any natural or legal person who carries out in Côte d'Ivoire a trade, industry, or non-exempt profession is subject to the patent contribution.
+
+The patent includes a turnover tax and a proportional tax. The turnover tax is calculated on turnover at a rate of 0.5%, with a minimum tax of 300,000 XOF and a maximum tax of 3 million XOF. The proportional tax rate is 18.5% and is based on the rental value of the professional office location (based on general office rents).
+
+Legal basis: CGI 264-299
+
+#### **Transport Patent (PATTRANS)**
+
+The transport patent is a direct tax to which any natural or legal person habitually carrying out public or private transport activities of goods or persons is subject.
+
+Legal basis: CGI 264 - 272
+
+#### **Tax on Banking Operations (TOB)**
+
+The tax on banking operations (TOB) concerns banking or financial activities and generally the trading of securities and money, with the exception of leasing activities.
+
+The tax rate is 10% on an exclusive basis, except on bank charges for credits granted to small and medium enterprises for their business needs as well as for companies operating exclusively in the microinsurance sector regardless of their turnover, for which the rate is 5% on an exclusive basis.
+
+Legal basis: CGI 401
+
+#### **Extraction Tax**
+
+The beneficiary of an exploitation or extraction permit for quarry substances is subject to the payment of an exploitation or extraction tax based on the quantities produced.
+
+The rates for exploitation and extraction taxes on quarry substances are set as follows:
+
+-   Ornamental stones, shell limestone, clays, detrital gravel and glassware sand - 250 FCFA
+-   Lagoon sands, eluvial and alluvial sand - 100 FCFA
+-   Gravelly soil - 50 FCFA
+-   Crushed materials \<= 5mm - 30 FCFA
+-   Crushed materials \> 5mm - 100 FCFA
+
+Legal basis: Ordinance No. 2014-148, article 15
+
+#### **Surface Fee**
+
+The holder of a mining title is subject to the payment of an annual surface fee fixed per square kilometer or per hectare.
+
+-   Industrial quarry for crushed materials
+
+    -   Attribution - 3000 FCFA per year
+    -   Renewal - 3000 FCFA per year
+
+Legal basis: Ordinance No. 2014-148, article 14
+
+#### **Anti-pollution Tax**
+
+Classified installations for environmental protection are subject to environmental tax.
+
+Legal basis: Decree No. 98-43 of January 28, 1998 relating to classified installations for environmental protection
+
+#### **Domain Occupation Fee (ODP)**
+
+Fee for occupation of public domain through administrative emphyteutic lease, public-private partnership contract, and temporary occupation permits.
+
+Legal basis: Ordinance No. 2016-588 of 03/08/2016
+
+#### **Advertising Tax**
+
+The local tax on outdoor advertising is an optional tax. It concerns all companies that operate fixed, visible and outdoor advertising media.
+
+Legal basis: Municipal deliberation No. 04/CPL/SG/11 of 12/07/2011
+
+#### **Registration Duty**
+
+This is a tax levied on acts, transfers of movable and immovable property (contracts, transactions, etc.).
+
+Legal basis: 703 - 766
+
+#### **Tax on Excess Amounts of Authorized Security Deposits and Rent Advances**
+
+A special tax of 300% applies to the rental amount of housing or professional premises that exceeds the two-month guarantee and one-month advance at the beginning of the lease. The special tax is borne by the lessor.
+
+Legal basis: CGI 1143
+
+#### **Intragroup (ETII)**
+
+Companies that control companies located outside Côte d'Ivoire are required to submit to the Administration, following the end of each fiscal year, an annual declaration showing the country-by-country distribution of the group's profits and various economic, accounting and tax aggregates.
+
+Legal basis: CGI 36
+
+#### **Work Permits for Expatriates**
+
+All workers of a nationality other than Ivorian nationality working in the country are required to hold a contract or employment letter, endorsed by the Agency for Employment Studies and Promotion (AGEPE).
+
+Work permits must be renewed each year, with AGEPE applying specific rates based on the employee's nationality and the base salary specified in the employment contract.
+
+Legal basis: Decree No. 4810 MEFPPS AGEPE of 21/04/1997
+
+#### **Beneficial Ownership Identification Registry (FIBE)**
+
+The Beneficial Ownership Identification Registry (Fichier d'Identification des Bénéficiaires Effectifs - FIBE) represents a crucial new compliance obligation for legal entities operating in Côte d'Ivoire, aimed at enhancing fiscal transparency and combating money laundering.
+
+**Who Must Comply:**
+- Companies registering with the DGI taxpayer file (Article 71 CGI)
+- Existing legal entities (Article 49 ter LPF)
+- Persons established in Côte d'Ivoire participating in trusts and similar legal constructions established abroad (Article 54 bis CGI)
+
+**Key Requirements:**
+- **Beneficial ownership identification**: Legal entities must identify individuals who ultimately own or control 25% or more of capital or voting rights
+- **Registry maintenance**: Companies must maintain an up-to-date registry of beneficial owners
+- **Declaration obligation**: Beneficial ownership information must be declared during tax registration and updated when changes occur
+- **Documentation**: Registry must be available for presentation upon request by tax authorities
+
+**Definition of Beneficial Owner:**
+A beneficial owner is a natural person who ultimately owns or controls a legal entity, including:
+- Individuals holding at least 25% of capital or voting rights
+- Persons exercising ultimate effective control through other means
+- When no such person can be identified, the senior managing officials
+
+**Compliance and Penalties:**
+- Registry and declarations must be produced using official forms available on the DGI website
+- Non-production or production of incorrect/incomplete registries results in penalties under the Tax Procedures Code
+- Systematic verification during all tax audits and investigations
+- Quarterly statistics on compliance reported to DERAR
+
+**Effective Date:** This obligation became enforceable following DGI Service Note No. 02314 of June 18, 2024.
+
+Legal basis: CGI Articles 71, 54 bis; LPF Article 49 ter; DGI Service Note No. 02314/18-06-2024
+
+#### **Annual Tax Regularization**
+
+Annual tax regularization declarations are essential adjustments that allow reconciling a company's total tax debt with payments made during the year. This process allows resolving any discrepancies by making payments for outstanding taxes or obtaining tax credits for excess payments. Some of the regularization taxes are presented below.
+
+-   State 301 - ITS regularization
+-   State 302 - annual remuneration declaration
+-   DISA - CNPS regularization
+-   Regul VAT - VAT regularization
+-   Regul TSE - TSE regularization
+-   Regul PATCOM - PATCOM regularization
+-   Regul foncier - property tax regularization
+
+## Declarations/Tax Returns
+
+Tax declarations are submitted after calculating respective taxes. Depending on the type of tax, declarations must be filed either through tax portals or manually with tax authorities.
+
+### E-impôts Declarations
+
+The DGI manages its own electronic tax portal, called e-impots. All taxes collected by the DGI must be declared through this portal. This portal integrates bank accounts, allowing automatic payments without having to enter other payment data.
+
+### E-CNPS Declarations
+
+CNPS and CNAM manage a tax portal called e-CNPS. All social security contributions collected by CNPS, including CNPS and CMU taxes, must be declared through this portal. This portal is integrated with different banks, allowing online payments via the online banking system.
+
+### Other Declarations
+
+Declarations to other institutions, such as DGMG, Abidjan District and CIAPOL, for taxes including extraction, advertising and environmental taxes, are submitted manually by the administrative department.
+
+### Financial Statement Filing
+
+Each year, financial statements must be filed in accordance with SYSCHOHADA accounting standards. These filings are made in digital form via the DGI's e-impot portal.
+
+The main steps in preparing and presenting financial statements are presented below.
+
+-   **Annual tax declarations**: Regulatory declarations, including mandatory declarations such as State 301 and State 302, as well as the intragroup declaration (ETII), must be completed in accordance with tax requirements.
+-   **Finalization of accounting entries**: Complete all accounting entries, including stock movements, depreciation and amortization etc., and submit general ledgers and trial balance to the accounting director for approval.
+-   **Audit**: Depending of tax regime, independent audit is an obligation. Necessary adjustments are made based on auditor findings.
+-   **Draft preparation**: Draft financial statements are prepared and submitted to management for review at the annual general meeting.
+-   **Electronic filing**: Financial statements, accompanied by necessary notes and annexes, are filed via e-impots. Once approved by the auditor on the portal, the financial statements are filed in digital form. The filed financial statements are then stored in the shared folder and sent to management.
+
+## System Summary
+
+The Ivorian tax system operates as a comprehensive regulatory framework encompassing multiple tax categories, administrative procedures, and compliance mechanisms. The system includes corporate income taxation, value-added taxation, withholding taxes, social security contributions, and various specialized levies administered through digital platforms and established regulatory procedures.
+
+Recent legislative developments, including the 2025 Tax Appendix, have introduced modifications to existing tax provisions, electronic filing requirements, and compliance obligations. These regulatory changes reflect ongoing efforts to modernize tax administration and enhance revenue collection mechanisms within the established legal framework.
+
+## References and Resources
+
+For deeper research and official documentation, these resources provide authoritative information on Côte d'Ivoire's tax system:
+
+-   DGI : [DGI](https://www.dgi.gouv.ci/#/)
+-   CNPS : [CNPS](https://www.cnps.ci/)
+-   e-CNPS : [e-CNPS](https://e.cnps.ci/)
+-   General Tax Code and Tax Procedure Book: [CGI](https://dgi.cgici.com/indexs.htm)
+-   Guide SYSCHOHADA : [Guide SYSCHOHADA](https://www.ohada.com/uploads/actualite/3504/Guide-d-application-du-SYSCOHADA.pdf)
+-   Plan comptable SYSCHOHADA : [Plan comptable](https://plan-comptable-ohada.com/nouvelle-norme-2016/plan-comptable-syscohada.html)
+-   The Ivorian Tax System: [The Ivorian Tax System](https://www.dgi.gouv.ci/assets/documents/LE%20SYSTEME%20FISCAL%20IVOIRIEN.pdf)
+-   Guide CNPS : [Guide CNPS](https://www.cnps.ci/wp-content/uploads/2021/04/GUIDE-EMPLOYEUR.pdf)
+-   Labor Code: [Labor Code](https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=101399&cs=1szHicrx1wgIlcI3RBvQrNSfSTa6riGa198zXjynNVoZPCiOCP9Mne9HfvRtV_9l-rg3pCSN7X9jquL8ovBSJVA)
+-   AGEPE: [Youth Employment Agency](https://www.agenceemploijeunes.ci/site/){.uri}
+-   FAOLEX Database: [FAOLEX](https://www.fao.org/faolex/fr/)
+-   NATLEX Database: [NATLEX](https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/results?p2_country_filter=CIV)
+-   PWC Tax Summary: [CI Tax Summary](https://taxsummaries.pwc.com/ivory-coast/corporate/taxes-on-corporate-income){.uri}
+-   Investment Guide for Côte d'Ivoire (FR): [Investment Guide (FR)](https://www.giz.de/en/downloads/Guide_de_l_ivestisseur_GBN.pdf)
+-   Investment Guide for Côte d'Ivoire (EN): [Investment Guide (EN)](https://invest-for-jobs.com/assets/media/dateien/GIZ-Guide-Investisseur_Anglais-130721.pdf){.uri}
+-   Blog on tax regimes: [Types of Tax Regimes](https://blog.legafrikcompta.com/regimes-dimposition-en-cote-divoire-re-rme-rsi-et-rni/ "Tax Regimes")
