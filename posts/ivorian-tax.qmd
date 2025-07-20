@@ -31,13 +31,13 @@ This guide was last updated on June, 2025, reflecting the most recent tax reform
 
 The Ivorian tax system operates through the following key components:
 
-- **Corporate Income Tax:** Standard rate of 25% (30% for telecommunications/IT sectors)
-- **Tax Regime Classification:** Four distinct regimes categorized by business size and annual turnover
-- **Electronic Filing:** Mandatory electronic invoicing implementation scheduled for September 2025
-- **Investment Provisions:** BIC reinvestment deduction mechanisms for qualifying investments exceeding 100 million CFA francs
-- **Digital Infrastructure:** Integrated e-impôt and e-CNPS platforms for tax administration
-- **Environmental Taxation:** VAT exemption provisions for solar energy equipment and related environmental measures
-- **Compliance Requirements:** FIBE beneficial ownership registry obligation for legal entities (effective June 2024)
+-   **Corporate Income Tax:** Standard rate of 25% (30% for telecommunications/IT sectors)
+-   **Tax Regime Classification:** Four distinct regimes categorized by business size and annual turnover
+-   **Electronic Filing:** Mandatory electronic invoicing implementation scheduled for September 2025
+-   **Investment Provisions:** BIC reinvestment deduction mechanisms for qualifying investments exceeding 100 million CFA francs
+-   **Digital Infrastructure:** Integrated e-impôt and e-CNPS platforms for tax administration
+-   **Environmental Taxation:** VAT exemption provisions for solar energy equipment and related environmental measures
+-   **Compliance Requirements:** FIBE beneficial ownership registry obligation for legal entities (effective June 2024)
 
 ## Key Terms and Organizations
 
@@ -69,11 +69,7 @@ The Ivorian tax system operates through the following key components:
 
 The Ivorian tax system operates through a structured framework consisting of multiple taxation categories and administrative mechanisms. The system is designed to generate public revenue through various tax instruments while accommodating different business sizes and economic sectors.
 
-The tax framework comprises:
-- **Corporate income taxation** with scaled rates based on business size and industry classification
-- **Value-added taxation** incorporating standard rates and specific exemptions for designated goods and technologies
-- **Withholding tax mechanisms** applied across different income categories and transaction types
-- **Social security contribution systems** administered through specialized agencies
+The tax framework comprises: - **Corporate income taxation** with scaled rates based on business size and industry classification - **Value-added taxation** incorporating standard rates and specific exemptions for designated goods and technologies - **Withholding tax mechanisms** applied across different income categories and transaction types - **Social security contribution systems** administered through specialized agencies
 
 The system has undergone digitization processes and administrative reforms aimed at enhancing collection efficiency and compliance mechanisms. Digital platforms have been implemented to facilitate tax filing, payment processing, and administrative communication between taxpayers and regulatory authorities.
 
@@ -144,16 +140,9 @@ The 2025 Tax Appendix represents a significant step in Côte d'Ivoire's ongoing 
 
 **Legislative Progress:** The 2025 Tax Appendix was reviewed by the Economic and Financial Affairs Commission of the Ivorian National Assembly on November 18, 2024, and unanimously adopted on November 28, 2024. It was expected to be published in the Official Gazette in late December 2024, taking effect in early January 2025.
 
-**Strategic Focus:** The appendix focuses on three main objectives:
-- Boosting government revenue collection
-- Supporting business competitiveness 
-- Tackling climate change through environmental taxation
+**Strategic Focus:** The appendix focuses on three main objectives: - Boosting government revenue collection - Supporting business competitiveness - Tackling climate change through environmental taxation
 
-**Key Reforms Include:**
-- Revisions to withholding taxes on corporate income tax and VAT
-- Mandatory electronic invoicing starting September 2025 (see my blog post [E-Invoice Migration guide](https://melik.cc/posts/einvoice-ivorycoast.html) for implementation specifics)
-- Enhanced BIC reinvestment deduction incentives for businesses investing over 100 million CFA francs in Côte d'Ivoire
-- Continued VAT exemptions for solar energy equipment to support environmental initiatives
+**Key Reforms Include:** - Revisions to withholding taxes on corporate income tax and VAT - Mandatory electronic invoicing starting September 2025 (see my blog post [E-Invoice Migration guide](https://melik.cc/posts/einvoice-ivorycoast.html) for implementation specifics) - Enhanced BIC reinvestment deduction incentives for businesses investing over 100 million CFA francs in Côte d'Ivoire - Continued VAT exemptions for solar energy equipment to support environmental initiatives
 
 **Revenue Mobilization Strategy:** As part of the Medium-Term Revenue Mobilization Strategy for 2024–2028, the government aims to increase the tax-to-GDP ratio by 0.5% annually through enhanced collection mechanisms.
 
@@ -412,28 +401,13 @@ Legal basis: Decree No. 4810 MEFPPS AGEPE of 21/04/1997
 
 The Beneficial Ownership Identification Registry (Fichier d'Identification des Bénéficiaires Effectifs - FIBE) represents a crucial new compliance obligation for legal entities operating in Côte d'Ivoire, aimed at enhancing fiscal transparency and combating money laundering.
 
-**Who Must Comply:**
-- Companies registering with the DGI taxpayer file (Article 71 CGI)
-- Existing legal entities (Article 49 ter LPF)
-- Persons established in Côte d'Ivoire participating in trusts and similar legal constructions established abroad (Article 54 bis CGI)
+**Who Must Comply:** - Companies registering with the DGI taxpayer file (Article 71 CGI) - Existing legal entities (Article 49 ter LPF) - Persons established in Côte d'Ivoire participating in trusts and similar legal constructions established abroad (Article 54 bis CGI)
 
-**Key Requirements:**
-- **Beneficial ownership identification**: Legal entities must identify individuals who ultimately own or control 25% or more of capital or voting rights
-- **Registry maintenance**: Companies must maintain an up-to-date registry of beneficial owners
-- **Declaration obligation**: Beneficial ownership information must be declared during tax registration and updated when changes occur
-- **Documentation**: Registry must be available for presentation upon request by tax authorities
+**Key Requirements:** - **Beneficial ownership identification**: Legal entities must identify individuals who ultimately own or control 25% or more of capital or voting rights - **Registry maintenance**: Companies must maintain an up-to-date registry of beneficial owners - **Declaration obligation**: Beneficial ownership information must be declared during tax registration and updated when changes occur - **Documentation**: Registry must be available for presentation upon request by tax authorities
 
-**Definition of Beneficial Owner:**
-A beneficial owner is a natural person who ultimately owns or controls a legal entity, including:
-- Individuals holding at least 25% of capital or voting rights
-- Persons exercising ultimate effective control through other means
-- When no such person can be identified, the senior managing officials
+**Definition of Beneficial Owner:** A beneficial owner is a natural person who ultimately owns or controls a legal entity, including: - Individuals holding at least 25% of capital or voting rights - Persons exercising ultimate effective control through other means - When no such person can be identified, the senior managing officials
 
-**Compliance and Penalties:**
-- Registry and declarations must be produced using official forms available on the DGI website
-- Non-production or production of incorrect/incomplete registries results in penalties under the Tax Procedures Code
-- Systematic verification during all tax audits and investigations
-- Quarterly statistics on compliance reported to DERAR
+**Compliance and Penalties:** - Registry and declarations must be produced using official forms available on the DGI website - Non-production or production of incorrect/incomplete registries results in penalties under the Tax Procedures Code - Systematic verification during all tax audits and investigations - Quarterly statistics on compliance reported to DERAR
 
 **Effective Date:** This obligation became enforceable following DGI Service Note No. 02314 of June 18, 2024.
 

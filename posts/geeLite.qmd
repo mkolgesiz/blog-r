@@ -14,7 +14,7 @@ categories:
 
 ## What is geeLite?
 
-Folks from World Bank data group published a R package that helps to run local R analysis via Google Earth Engine. I've already made a demo repository on [Github](https://github.com/mkolgesiz/geelite-demo/). I think it's very neat concept that should be kept speading.
+Folks from World Bank data group published a R package that helps to run local R analysis via Google Earth Engine. I've already made a demo repository on [Github](https://github.com/mkolgesiz/geelite-demo/). I think it's very neat concept that it's worth spreading.
 
 ## Demo Dataset: Turkey's Tree Percentage Analysis
 
@@ -26,7 +26,7 @@ For this demo, I've used:
 
 ## Load the necessary libraries
 
-Install the packages with dependentices. Make sure to use Conda python environment.
+Install the packages with dependencies. Make sure to use `Conda` python environment.
 
 ```{r}
 #| label: Libraries
